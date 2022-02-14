@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUIControlLayout 클래스 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/allLayoutItems">모든 레이아웃 항목</option>
+		
+		<option value="//api/name/compactLayoutItems">컴팩트 레이아웃 항목</option>
+		
+		<option value="//api/name/compactLayoutMaximumWidth">컴팩트 레이아웃최대폭</option>
+		
+		<option value="//api/name/controlBarHeight">컨트롤바 높이</option>
+		
+		<option value="//api/name/horizontalItemSpacing">수평 항목 간격</option>
+		
+		<option value="//api/name/standardLayoutItems">표준 레이아웃 항목</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/basicLiveControlLayout">+ 기본 라이브 컨트롤 레이아웃</option>
+		
+		<option value="//api/name/basicLiveDVRControlLayout">+ 기본LiveDVRControlLayout</option>
+		
+		<option value="//api/name/basicVODControlLayout">+ 기본VODControlLayout</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithStandardControls:compactControls:">- initWithStandardControls:compactControls:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUIControlLayout 클래스 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>다음에서 상속</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>준수</th>
+	<td>NS복사</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVPUIBasicControlView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>BCOVPUIControlLayout BCOVPUIControlLayout 객체는 내장된 컨트롤 세트로 생성됩니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>몇 가지 사용자 정의 매개변수가 있는 개체. BCOVPUIControlLayout 개체는<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>플레이어 보기에 표시합니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/standardLayoutItems" title="standardLayoutItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/standardLayoutItems">&nbsp;&nbsp;표준 레이아웃 항목</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>standardLayoutItems는 플레이어 보기 너비가 다음보다 클 때 표시되는 하나 이상의 컨트롤 하위 배열을 포함하는 배열입니다. <a href="#//api/name/compactLayoutMaximumWidth">컴팩트 레이아웃최대폭</a> . 각 하위 배열에는 다음 목록이 포함됩니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>에서 제시될 객체<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a> . 각 하위 배열은 플레이어 보기의 컨트롤 막대를 나타냅니다. standardLayoutItems는 일반적으로 단일 컨트롤 행을 나타내는 단일 하위 배열로 구성됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 복사, 읽기 전용) NSArray *standardLayoutItems</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>standardLayoutItems는 플레이어 보기 너비가 다음보다 클 때 표시되는 하나 이상의 컨트롤 하위 배열을 포함하는 배열입니다. <a href="#//api/name/compactLayoutMaximumWidth">컴팩트 레이아웃최대폭</a> . 각 하위 배열에는 다음 목록이 포함됩니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>에서 제시될 객체<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a> . 각 하위 배열은 플레이어 보기의 컨트롤 막대를 나타냅니다. standardLayoutItems는 일반적으로 단일 컨트롤 행을 나타내는 단일 하위 배열로 구성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/compactLayoutItems" title="compactLayoutItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/compactLayoutItems">&nbsp;&nbsp;컴팩트 레이아웃 항목</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>compactLayoutItems는 플레이어 보기 너비가 다음보다 작을 때 표시되는 하나 이상의 컨트롤 하위 배열을 포함하는 배열입니다<a href="#//api/name/compactLayoutMaximumWidth">컴팩트 레이아웃최대폭</a> . 각 하위 배열에는 다음 목록이 포함됩니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>에서 제시될 객체<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a> . 각 하위 배열은 플레이어 보기의 컨트롤 막대를 나타냅니다. compactLayoutItems는 일반적으로 두 개의 컨트롤 행을 나타내는 두 개의 하위 배열로 구성되며, 각 행에는 iPhone 화면 너비에 더 잘 맞도록 더 적은 수의 컨트롤이 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 복사, 읽기 전용) NSArray *compactLayoutItems</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>compactLayoutItems는 플레이어 보기 너비가 다음보다 작을 때 표시되는 하나 이상의 컨트롤 하위 배열을 포함하는 배열입니다<a href="#//api/name/compactLayoutMaximumWidth">컴팩트 레이아웃최대폭</a> . 각 하위 배열에는 다음 목록이 포함됩니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>에서 제시될 객체<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a> . 각 하위 배열은 플레이어 보기의 컨트롤 막대를 나타냅니다. compactLayoutItems는 일반적으로 두 개의 컨트롤 행을 나타내는 두 개의 하위 배열로 구성되며, 각 행에는 iPhone 화면 너비에 더 잘 맞도록 더 적은 수의 컨트롤이 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allLayoutItems" title="allLayoutItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allLayoutItems">&nbsp;&nbsp;모든 레이아웃 항목</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>모든 레이아웃 개체의 집합입니다. 동일한 개체 인스턴스가 일반적으로 두 가지 모두에서 사용됩니다. <a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>그리고<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a>컨테이너. 이 세트에는 각각 및 모든<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>객체이며 모든 항목을 반복하기 위한 편의로 사용됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 복사, 읽기 전용) NSSet *allLayoutItems</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>모든 레이아웃 개체의 집합입니다. 동일한 개체 인스턴스가 일반적으로 두 가지 모두에서 사용됩니다. <a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>그리고<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a>컨테이너. 이 세트에는 각각 및 모든<a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>객체이며 모든 항목을 반복하기 위한 편의로 사용됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controlBarHeight" title="controlBarHeight"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controlBarHeight">&nbsp;&nbsp;컨트롤바 높이</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>에 표시된 각 컨트롤 막대의 수직 높이<a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>그리고<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 할당) CGFloat controlBarHeight</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>에 표시된 각 컨트롤 막대의 수직 높이<a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>그리고<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/horizontalItemSpacing" title="horizontalItemSpacing"></a>
+	<h3 class="method-title"><code><a href="#//api/name/horizontalItemSpacing">&nbsp;&nbsp;수평 항목 간격</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>레이아웃 보기 사이의 수평 간격.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 할당) CGFloat horizontalItemSpacing</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>레이아웃 보기 사이의 수평 간격.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/compactLayoutMaximumWidth" title="compactLayoutMaximumWidth"></a>
+	<h3 class="method-title"><code><a href="#//api/name/compactLayoutMaximumWidth">&nbsp;&nbsp;컴팩트 레이아웃최대폭</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>컴팩트 컨트롤의 최대 너비입니다. 컨트롤 뷰가 이 값보다 작으면<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a>제시됩니다. 더 작은 경우, <a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>으로 사용될 것.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 할당) CGFloat compactLayoutMaximumWidth</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>컴팩트 컨트롤의 최대 너비입니다. 컨트롤 뷰가 이 값보다 작으면<a href="#//api/name/compactLayoutItems">컴팩트 레이아웃 항목</a>제시됩니다. 더 작은 경우, <a href="#//api/name/standardLayoutItems">표준 레이아웃 항목</a>으로 사용될 것.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithStandardControls:compactControls:" title="initWithStandardControls:compactControls:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithStandardControls:compactControls:">&ndash;&nbsp; initWithStandardControls:compactControls:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>기본 설정으로 BCOVPUIControlLayout 레이아웃을 초기화합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (인스턴스 유형)initWithStandardControls:(NSArray *)<em>표준 레이아웃 라인</em> CompactControls:(NSArray *)<em>컴팩트 레이아웃 라인</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>표준 레이아웃 라인</code></th>
+						<td><p>각 하위 배열이 플레이어 컨트롤 보기의 컨트롤 행 하나에 해당하는 배열의 배열입니다. 이러한 각 하위 배열은 표준 너비 레이아웃에 사용되는 BCOVPUILayoutView 개체 목록입니다. 각 레이아웃 보기는 일반적으로 단일 제어 요소를 포함하며 다음을 사용하여 만들 수 있습니다. <a href="../Classes/BCOVPUIBasicControlView.html#//api/name/layoutViewWithControlFromTag:width:elasticity:"> [BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:너비:탄력:]</a></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>컴팩트 레이아웃 라인</code></th>
+						<td><p>각 하위 배열이 플레이어 컨트롤 보기의 컨트롤 행 하나에 해당하는 배열의 배열입니다. 이러한 각 하위 어레이는 다음 목록입니다. <a href="../Classes/BCOVPUILayoutView.html"> BCOVPUILayoutView</a>컴팩트 너비 레이아웃(일반적으로 iPhone의 세로 방향)에 사용되는 개체.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 컨트롤로 초기화된 BCOVPUIControlLayout 인스턴스입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>기본 설정으로 BCOVPUIControlLayout 레이아웃을 초기화합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicVODControlLayout" title="basicVODControlLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicVODControlLayout">+ &nbsp;기본VOD컨트롤 레이아웃</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>VOD용으로 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 방식.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (인스턴스 유형)기본VODControlLayout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>VOD용으로 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 방식.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicLiveControlLayout" title="basicLiveControlLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicLiveControlLayout">+ &nbsp;기본 라이브 컨트롤 레이아웃</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>라이브 비디오용으로 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 메서드입니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (인스턴스 유형)basicLiveControlLayout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>라이브 비디오용으로 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 메서드입니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicLiveDVRControlLayout" title="basicLiveDVRControlLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicLiveDVRControlLayout">+ &nbsp;기본 라이브DVR컨트롤 레이아웃</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>라이브 DVR 재생을 위해 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 방식.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (인스턴스 유형)basicLiveDVRControlLayout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>라이브 DVR 재생을 위해 설계된 컨트롤 레이아웃을 생성하는 편리한 팩토리 방식.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVTVPlayerViewDelegate 프로토콜 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:">- liveIndicatorViewForIsPlaying:atLiveEdge:</option>
+		
+		<option value="//api/name/playerDidBeginFastForward">- playerDidBeginFastForward</option>
+		
+		<option value="//api/name/playerDidBeginFastRewind">- playerDidBeginFastRewind</option>
+		
+		<option value="//api/name/playerDidEndFastForward">- playerDidEndFastForward</option>
+		
+		<option value="//api/name/playerDidEndFastRewind">- playerDidEndFastRewind</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeIn:">- playerView:controlsFadingViewDidFadeIn:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeOut:">- playerView:controlsFadingViewDidFadeOut:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewWillFadeIn:">- playerView:controlsFadingViewWillFadeIn:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewWillFadeOut:">- playerView:controlsFadingViewWillFadeOut:</option>
+		
+		<option value="//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:">- playerViewShouldDisplayThumbnailPreviewWithSize:</option>
+		
+		<option value="//api/name/playerViewShouldRequireLinearPlayback:">- playerViewShouldRequireLinearPlayback:</option>
+		
+		<option value="//api/name/progressViewPanGestureStateBegan:">- progressViewPanGestureStateBegan:</option>
+		
+		<option value="//api/name/progressViewPanGestureStateChanged:">- progressViewPanGestureStateChanged:</option>
+		
+		<option value="//api/name/progressViewPanGestureStateEnded:">- progressViewPanGestureStateEnded:</option>
+		
+		<option value="//api/name/willDisplayIconType:withImageView:">- willDisplayIconType:withImageView:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVTVPlayerViewDelegate 프로토콜 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>준수</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVTVPlayerView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>에 대한 정보를 수신하려면 이 프로토콜을 따르십시오. <a href="../Classes/BCOVTVPlayerView.html"> BCOVTVPlayerView</a> .</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewWillFadeOut:" title="playerView:controlsFadingViewWillFadeOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewWillFadeOut:">&ndash;&nbsp; playerView:controlsFadingViewWillFadeOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>playerView 컨트롤이 페이드 아웃되기 직전에 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVTVPlayerView *)<em>플레이어 보기</em> controlsFadingViewWillFadeOut:(UIView *)<em>컨트롤FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>플레이어 보기</code></th>
+						<td><p>컨트롤을 관리하는 플레이어 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>컨트롤FadingView</code></th>
+						<td><p>페이드 아웃되는 페이딩 뷰를 제어합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>playerView 컨트롤이 페이드 아웃되기 직전에 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewWillFadeIn:" title="playerView:controlsFadingViewWillFadeIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewWillFadeIn:">&ndash;&nbsp; playerView:controlsFadingViewWillFadeIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>playerView 컨트롤이 페이드 인되기 직전에 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVTVPlayerView *)<em>플레이어 보기</em> controlsFadingViewWillFadeIn:(UIView *)<em>컨트롤FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>플레이어 보기</code></th>
+						<td><p>컨트롤을 관리하는 플레이어 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>컨트롤FadingView</code></th>
+						<td><p>페이드 인되는 페이드 뷰를 제어합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>playerView 컨트롤이 페이드 인되기 직전에 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeOut:" title="playerView:controlsFadingViewDidFadeOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeOut:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>playerView 컨트롤이 페이드 아웃될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVTVPlayerView *)<em>플레이어 보기</em> controlsFadingViewDidFadeOut:(UIView *)<em>컨트롤FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>플레이어 보기</code></th>
+						<td><p>컨트롤을 관리하는 플레이어 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>컨트롤FadingView</code></th>
+						<td><p>페이드 아웃된 페이딩 보기를 제어합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>playerView 컨트롤이 페이드 아웃될 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeIn:" title="playerView:controlsFadingViewDidFadeIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeIn:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>playerView 컨트롤이 페이드 인되면 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVTVPlayerView *)<em>플레이어 보기</em> controlsFadingViewDidFadeIn:(UIView *)<em>컨트롤FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>플레이어 보기</code></th>
+						<td><p>컨트롤을 관리하는 플레이어 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>컨트롤FadingView</code></th>
+						<td><p>페이드 인된 페이딩 보기를 제어합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>playerView 컨트롤이 페이드 인되면 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerViewShouldRequireLinearPlayback:" title="playerViewShouldRequireLinearPlayback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerViewShouldRequireLinearPlayback:">&ndash;&nbsp; playerViewShouldRequireLinearPlayback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>사용자가 비디오 콘텐츠를 찾거나 건너뛰려고 할 때 호출됩니다. 탐색 및 건너뛰기를 방지하려면 YES를 반환합니다. 탐색 및 건너뛰기를 허용하려면 NO를 반환합니다. 기본 동작은 검색을 허용하는 것입니다. AVPlayerViewController의 requireLinearPlayback 속성과 유사합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)playerViewShouldRequireLinearPlayback:(BCOVTVPlayerView *)<em>플레이어 보기</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>사용자가 비디오 콘텐츠를 찾거나 건너뛰려고 할 때 호출됩니다. 탐색 및 건너뛰기를 방지하려면 YES를 반환합니다. 탐색 및 건너뛰기를 허용하려면 NO를 반환합니다. 기본 동작은 검색을 허용하는 것입니다. AVPlayerViewController의 requireLinearPlayback 속성과 유사합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:" title="playerViewShouldDisplayThumbnailPreviewWithSize:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:">&ndash;&nbsp; playerViewShouldDisplayThumbnailPreviewWithSize:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>썸네일 미리보기가 설정되기 직전에 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CGSize)playerViewShouldDisplayThumbnailPreviewWithSize:(BCOVTVPlayerView *)<em>플레이어 보기</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>플레이어 보기</code></th>
+						<td><p>썸네일 미리보기를 표시할 플레이어 보기입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>썸네일의 너비와 높이가 표시되어야 합니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>썸네일 미리보기가 설정되기 직전에 호출됩니다.</p>
+
+<p>이것을 구현하여 썸네일 미리보기 크기를 사용자 정의할 수 있습니다.</p>
+
+<p>이 델리게이트 메소드가 구현되지 않은 경우 썸네일 미리보기의 크기는 playerView 크기의 1/5이 됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateBegan:" title="progressViewPanGestureStateBegan:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateBegan:">&ndash;&nbsp; progressViewPanGestureStateBegan:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>progressView 패닝 제스처(검색)가 시작될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)progressViewPanGestureStateBegan:(NSTimeInterval)<em>진행값</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>진행값</code></th>
+						<td><p>팬 제스처가 나타내는 진행률 값은<a href="../Classes/BCOVTVProgressView.html"> BCOVTV 진행 보기</a>재생이 재개될 때까지 업데이트되지 않습니다.</p>
+
+<p>이 메서드는 메인 스레드에서 호출되며 차단되어서는 안 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>progressView 패닝 제스처(검색)가 시작될 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateChanged:" title="progressViewPanGestureStateChanged:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateChanged:">&ndash;&nbsp; ProgressViewPanGestureState변경됨:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ProgressView 패닝 제스처(검색)가 상태(재생 헤드 위치)를 변경할 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)progressViewPanGestureStateChanged:(NSTimeInterval)<em>진행값</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>진행값</code></th>
+						<td><p>팬 제스처가 나타내는 진행률 값은<a href="../Classes/BCOVTVProgressView.html"> BCOVTV 진행 보기</a>재생이 재개될 때까지 업데이트되지 않습니다.</p>
+
+<p>이 메서드는 메인 스레드에서 호출되며 차단되어서는 안 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>ProgressView 패닝 제스처(검색)가 상태(재생 헤드 위치)를 변경할 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateEnded:" title="progressViewPanGestureStateEnded:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateEnded:">&ndash;&nbsp; ProgressViewPanGestureStateEnded:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>패닝 제스처(검색)가 종료될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)progressViewPanGestureStateEnded:(NSTimeInterval)<em>진행값</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>진행값</code></th>
+						<td><p>팬 제스처가 나타내는 진행률 값은<a href="../Classes/BCOVTVProgressView.html"> BCOVTV 진행 보기</a>재생이 재개될 때까지 업데이트되지 않습니다.</p>
+
+<p>이 메서드는 메인 스레드에서 호출되며 차단되어서는 안 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>패닝 제스처(검색)가 종료될 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidBeginFastForward" title="playerDidBeginFastForward"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidBeginFastForward">&ndash;&nbsp; playerDidBeginFastForward</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어에서 빨리 감기가 시작될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerDidBeginFastForward</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어에서 빨리 감기가 시작될 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidEndFastForward" title="playerDidEndFastForward"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidEndFastForward">&ndash;&nbsp; playerDidEndFastForward</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어에서 빨리 감기가 끝날 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerDidEndFastForward</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어에서 빨리 감기가 끝날 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidBeginFastRewind" title="playerDidBeginFastRewind"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidBeginFastRewind">&ndash;&nbsp; playerDidBeginFastRewind</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어에서 빨리 되감기가 시작될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerDidBeginFastRewind</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어에서 빨리 되감기가 시작될 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidEndFastRewind" title="playerDidEndFastRewind"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidEndFastRewind">&ndash;&nbsp; playerDidEndFastRewind</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어에서 빨리 되감기가 끝날 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerDidEndFastRewind</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어에서 빨리 되감기가 끝날 때 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:" title="liveIndicatorViewForIsPlaying:atLiveEdge:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:">&ndash;&nbsp; liveIndicatorViewForIsPlaying:atLiveEdge:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>비디오 재생 중에 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIView *)liveIndicatorViewForIsPlaying:(BOOL)<em>놀이</em> atLiveEdge:(BOOL)<em>atLiveEdge</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>놀이</code></th>
+						<td><p>동영상이 현재 재생 중인지 여부</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">atLiveEdge<code></code></th>
+						<td><p>비디오가 라이브 에지에 있는지 여부</p>
+
+<p>이 메서드는 메인 스레드에서 호출되며 차단되어서는 안 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>비디오 재생 중에 호출됩니다.</p>
+
+<p>이 선택적 대리자 메서드를 사용하여 비디오가 라이브 에지에 있는지 여부를 사용자에게 표시하는 사용자 지정 보기를 제공합니다. 이 메서드가 대리자에 의해 구현되지 않은 경우 표시되는 기본 동작&ldquo;살다&rdquo;왼쪽 상단에<a href="../Classes/BCOVTVPlayerView.html"> BCOVTVPlayerView</a>와 함께 표시됩니다. &ldquo;엘&rdquo;비디오가 라이브 에지에 있으면 녹색으로 변합니다.</p>
+
+<p>뷰는 내부의 하위 뷰로 추가됩니다. <a href="../Classes/BCOVTVPlayerView.html"> BCOVTVPlayerView</a>그리고 그것에 상대적일 것입니다. x, y 값이 0인 프레임은 예상대로 뷰의 왼쪽 상단에 배치됩니다. 원하는 대로 뷰를 배치할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willDisplayIconType:withImageView:" title="willDisplayIconType:withImageView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willDisplayIconType:withImageView:">&ndash;&nbsp; willDisplayIconType:withImageView:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>특정 UI 동작에 대한 아이콘을 표시하기 전에 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)willDisplayIconType:(BCOVTVIconType)<em>아이콘 유형</em> withImageView:(UIImageView *)<em>이미지보기</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>아이콘 유형</code></th>
+						<td><p>표시되어야 하는 아이콘 유형</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>이미지보기</code></th>
+						<td><p>아이콘이 표시될 이미지 보기</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>기본 아이콘을 재정의해야 하는지 여부를 나타내는 부울입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>특정 UI 동작에 대한 아이콘을 표시하기 전에 호출됩니다.</p>
+
+<p>여기에는 현재 다음 아이콘이 포함됩니다. &lsquo;점프백&rsquo; , &lsquo;앞으로 나아가다&rsquo; , &lsquo;빨리 감기&rsquo;그리고&lsquo;되감기&rsquo; .</p>
+
+<p>이 대리자 메서드를 사용하여 자신만의 아이콘 이미지를 설정할 수 있습니다. 또한 이미지의 프레임을 설정해야 하며 수퍼뷰가 40x40이라는 점에 유의해야 합니다. 그러나 imageView를 배치할 수 있습니다. &rsquo; d 최대 높이와 너비를 40으로 유지하면서 슈퍼뷰 내부를 좋아합니다. 반품<code>예</code>아이콘을 재정의하는 경우 그렇지 않으면 반환<code>아니요</code></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

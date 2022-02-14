@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVCatalogService(BCOVWidevineAdditions) 범주 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">BCOV와이드바인</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/widevinePlaylistDictionaryOperationWithPlaylistID:parameters:">- widevinePlaylistDictionaryOperationWithPlaylistID:매개변수:</option>
+		
+		<option value="//api/name/widevinePlaylistDictionaryOperationWithReferenceID:parameters:">- widevinePlaylistDictionaryOperationWithReferenceID:매개변수:</option>
+		
+		<option value="//api/name/widevinePlaylistOperationWithPlaylistID:parameters:">- widevinePlaylistOperationWithPlaylistID:매개변수:</option>
+		
+		<option value="//api/name/widevinePlaylistOperationWithReferenceID:parameters:">- widevinePlaylistOperationWithReferenceID:매개변수:</option>
+		
+		<option value="//api/name/widevineVideoDictionaryOperationWithReferenceID:parameters:">- widevineVideoDictionaryOperationWithReferenceID:매개변수:</option>
+		
+		<option value="//api/name/widevineVideoDictionaryOperationWithVideoID:parameters:">- widevineVideoDictionaryOperationWithVideoID:매개변수:</option>
+		
+		<option value="//api/name/widevineVideoOperationWithReferenceID:parameters:">- widevineVideoOperationWithReferenceID:매개변수:</option>
+		
+		<option value="//api/name/widevineVideoOperationWithVideoID:parameters:">- widevineVideoOperationWithVideoID:매개변수:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVCatalogService(BCOVWidevineAdditions) 범주 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>선언</th>
+	<td>BCOV카탈로그서비스+BCOVWidevineAdditions.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>Widevine 자산을 검색하기 위해 BCOVatalogService에 메서드를 추가합니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/widevinePlaylistOperationWithPlaylistID:parameters:" title="widevinePlaylistOperationWithPlaylistID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevinePlaylistOperationWithPlaylistID:parameters:">&ndash;&nbsp; widevinePlaylistOperationWithPlaylistID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine BCOVPlaylist를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV재생 목록 *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevinePlaylistOperationWithPlaylistID:(NSString *)<code><em>재생 목록 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>재생 목록 ID</code></th>
+						<td><p>찾을 재생 목록의 재생 목록 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine BCOVPlaylist를 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine BCOVPlaylist를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV재생 목록 *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevinePlaylistOperationWithReferenceID:parameters:" title="widevinePlaylistOperationWithReferenceID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevinePlaylistOperationWithReferenceID:parameters:">&ndash;&nbsp; widevinePlaylistOperationWithReferenceID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine BCOVPlaylist를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV재생 목록 *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevinePlaylistOperationWithReferenceID:(NSString *)<code><em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 재생 목록의 재생 목록 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine BCOVPlaylist를 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine BCOVPlaylist를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV재생 목록 *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevineVideoOperationWithVideoID:parameters:" title="widevineVideoOperationWithVideoID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevineVideoOperationWithVideoID:parameters:">&ndash;&nbsp; widevineVideoOperationWithVideoID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine BCOVVideo를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV비디오 *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevineVideoOperationWithVideoID:(NSString *)<code><em>비디오 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>비디오 ID</code></th>
+						<td><p>찾을 비디오의 비디오 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine BCOVVideo를 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine BCOVVideo를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV비디오 *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevineVideoOperationWithReferenceID:parameters:" title="widevineVideoOperationWithReferenceID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevineVideoOperationWithReferenceID:parameters:">&ndash;&nbsp; widevineVideoOperationWithReferenceID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine BCOVVideo를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV비디오 *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevineVideoOperationWithReferenceID:(NSString *)<code><em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 비디오의 비디오 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine BCOVVideo를 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine BCOVVideo를 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> BCOV비디오 *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevinePlaylistDictionaryOperationWithPlaylistID:parameters:" title="widevinePlaylistDictionaryOperationWithPlaylistID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevinePlaylistDictionaryOperationWithPlaylistID:parameters:">&ndash;&nbsp; widevinePlaylistDictionaryOperationWithPlaylistID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine 재생 목록에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevinePlaylistDictionaryOperationWithPlaylistID:(NSString *)<code><em>재생 목록 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>재생 목록 ID</code></th>
+						<td><p>찾을 재생 목록의 재생 목록 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine 재생 목록을 JSON으로 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine 재생 목록에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevinePlaylistDictionaryOperationWithReferenceID:parameters:" title="widevinePlaylistDictionaryOperationWithReferenceID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevinePlaylistDictionaryOperationWithReferenceID:parameters:">&ndash;&nbsp; widevinePlaylistDictionaryOperationWithReferenceID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine 재생 목록에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevinePlaylistDictionaryOperationWithReferenceID:(NSString *)<code><em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 재생 목록의 재생 목록 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine 재생 목록을 JSON으로 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine 재생 목록에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevineVideoDictionaryOperationWithVideoID:parameters:" title="widevineVideoDictionaryOperationWithVideoID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevineVideoDictionaryOperationWithVideoID:parameters:">&ndash;&nbsp; widevineVideoDictionaryOperationWithVideoID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine 비디오에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevineVideoDictionaryOperationWithVideoID:(NSString *)<code><em>비디오 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>비디오 ID</code></th>
+						<td><p>찾을 비디오의 비디오 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine 비디오를 JSON으로 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine 비디오에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/widevineVideoDictionaryOperationWithReferenceID:parameters:" title="widevineVideoDictionaryOperationWithReferenceID:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/widevineVideoDictionaryOperationWithReferenceID:parameters:">&ndash;&nbsp; widevineVideoDictionaryOperationWithReferenceID:매개변수:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수에 해당하는 Widevine 비디오에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCatalogOperation *)widevineVideoDictionaryOperationWithReferenceID:(NSString *)<code><em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 비디오의 비디오 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>카탈로그 서비스 요청에 추가할 추가 NSString 쿼리 매개변수. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 Widevine 비디오를 JSON으로 검색하는 작업입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수에 해당하는 Widevine 비디오에 대한 JSON을 검색하는 작업을 반환합니다. 이 작업 전송&rsquo; NS <code>결과</code>재산<code> NSDictionary *</code>작업이 성공하면.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p><code class="declared-in-ref">BCOV카탈로그서비스+BCOVWidevineAdditions.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2017 브라이트코브. 판권 소유. 업데이트됨: 2017-01-26</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

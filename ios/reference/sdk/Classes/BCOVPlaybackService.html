@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlaybackService 클래스 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/sharedURLSession">공유URL세션</option>
+		
+		<option value="//api/name/watermarkingToken">워터마킹 토큰</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/cuePointFromJSONDictionary:">+ cuePointFromJSONDictionary:</option>
+		
+		<option value="//api/name/playlistFromJSONDictionary:">+ 재생 목록FromJSONDictionary:</option>
+		
+		<option value="//api/name/sourceFromJSONDictionary:">+ sourceFromJSON사전:</option>
+		
+		<option value="//api/name/videoFromJSONDictionary:">+ videoFromJSONDictionary:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/findPlaylistWithPlaylistID:authToken:parameters:completion:">- findPlaylistWithPlaylistID:authToken:parameters:completion:</option>
+		
+		<option value="//api/name/findPlaylistWithPlaylistID:parameters:completion:">- findPlaylistWithPlaylistID:매개변수:완료:</option>
+		
+		<option value="//api/name/findPlaylistWithReferenceID:authToken:parameters:completion:">- findPlaylistWithReferenceID:authToken:parameters:completion:</option>
+		
+		<option value="//api/name/findPlaylistWithReferenceID:parameters:completion:">- findPlaylistWithReferenceID:매개변수:완료:</option>
+		
+		<option value="//api/name/findVideoWithReferenceID:authToken:parameters:completion:">- findVideoWithReferenceID:authToken:매개변수:완료:</option>
+		
+		<option value="//api/name/findVideoWithReferenceID:parameters:completion:">- findVideoWithReferenceID:매개변수:완료:</option>
+		
+		<option value="//api/name/findVideoWithVideoID:authToken:parameters:completion:">- findVideoWithVideoID:authToken:매개변수:완료:</option>
+		
+		<option value="//api/name/findVideoWithVideoID:parameters:completion:">- findVideoWithVideoID:매개변수:완료:</option>
+		
+		<option value="//api/name/initWithAccountId:policyKey:">- initWithAccountId:policyKey:</option>
+		
+		<option value="//api/name/initWithRequestFactory:">- initWithRequestFactory:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlaybackService 클래스 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>다음에서 상속</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVPlaybackService.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>BCOVPlaybackService 클래스는 Brightcove의 Playback API에서 비디오에 대한 정보를 검색하기 위한 비동기 메서드를 제공합니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/sharedURLSession" title="sharedURLSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedURLSession">&nbsp;&nbsp;공유URL세션</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>NSURLSession은 BCOVPlaybackService에 대한 모든 네트워크 호출에서 공유됩니다. 이 개체는 재생 서비스가 초기화될 때 생성됩니다. 자신의 NSURLSession을 사용하려면 여기에서 설정할 수 있습니다. nil로 설정하면 기본 NSURLSession이 다시 생성됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 강력) NSURLSession *sharedURLSession</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>NSURLSession은 BCOVPlaybackService에 대한 모든 네트워크 호출에서 공유됩니다. 이 개체는 재생 서비스가 초기화될 때 생성됩니다. 자신의 NSURLSession을 사용하려면 여기에서 설정할 수 있습니다. nil로 설정하면 기본 NSURLSession이 다시 생성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/watermarkingToken" title="watermarkingToken"></a>
+	<h3 class="method-title"><code><a href="#//api/name/watermarkingToken">&nbsp;&nbsp;워터마킹 토큰</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>포렌식 워터마킹과 함께 사용하기 위한 워터마킹 토큰</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 복사) NSString *watermarkingToken</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>포렌식 워터마킹과 함께 사용하기 위한 워터마킹 토큰</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithAccountId:policyKey:" title="initWithAccountId:policyKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAccountId:policyKey:">&ndash;&nbsp; initWithAccountId:policyKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BCOVPlaybackService를 초기화합니다. accountId 및 policyKey를 사용하여<a href="../Classes/BCOVPlaybackServiceRequestFactory.html"> BCOVPlaybackServiceRequestFactory</a>내부적으로.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (인스턴스 유형)initWithAccountId:(NSString *)<em>계정 ID</em> policyKey:(NSString *)<em>정책키</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>계정 ID</code></th>
+						<td><p>각 요청에 사용할 계정 ID입니다. 0이 아니어야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>정책키</code></th>
+						<td><p>각 요청에 사용할 PolicyKey입니다. 0일 수 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 인스턴스입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>BCOVPlaybackService를 초기화합니다. accountId 및 policyKey를 사용하여<a href="../Classes/BCOVPlaybackServiceRequestFactory.html"> BCOVPlaybackServiceRequestFactory</a>내부적으로.</p>
+
+<p>Edge Playback Service를 사용하는 경우 policyKey 값은 nil이어야 합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithRequestFactory:" title="initWithRequestFactory:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithRequestFactory:">&ndash;&nbsp; initWithRequestFactory:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>필수로 BCOVPlaybackService를 초기화합니다. <a href="../Classes/BCOVPlaybackServiceRequestFactory.html"> BCOVPlaybackServiceRequestFactory</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (인스턴스 유형)initWithRequestFactory:(BCOVPlaybackServiceRequestFactory *)<em>리퀘스트팩토리</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>리퀘스트팩토리</code></th>
+						<td><p>URL 요청을 만드는 데 사용할 요청 팩토리입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 인스턴스입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>필수로 BCOVPlaybackService를 초기화합니다. <a href="../Classes/BCOVPlaybackServiceRequestFactory.html"> BCOVPlaybackServiceRequestFactory</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findPlaylistWithPlaylistID:parameters:completion:" title="findPlaylistWithPlaylistID:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findPlaylistWithPlaylistID:parameters:completion:">&ndash;&nbsp; findPlaylistWithPlaylistID:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 재생 목록 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)findPlaylistWithPlaylistID:(NSString *)<code><em>재생 목록 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVPlaylist *playlist , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>재생 목록 ID</code></th>
+						<td><p>찾을 재생 목록의 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다. kBCOVPlaybackServiceParameterKeyOffset 및 kBCOVPlaybackServiceParameterKeyLimit 매개변수를 사용할 수 있습니다. 보다&ldquo;재생 목록 페이징&rdquo;위에.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 재생 목록 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findPlaylistWithPlaylistID:authToken:parameters:completion:" title="findPlaylistWithPlaylistID:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findPlaylistWithPlaylistID:authToken:parameters:completion:">&ndash;&nbsp; findPlaylistWithPlaylistID:authToken:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 재생 목록 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)findPlaylistWithPlaylistID:(NSString *)<code><em>재생 목록 ID</em> authToken:(NSString *)<em>인증 토큰</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVPlaylist *playlist , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>재생 목록 ID</code></th>
+						<td><p>찾을 재생 목록의 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>인증 토큰</code></th>
+						<td><p>비디오를 검증하는 데 사용할 인증 토큰&rsquo;라이센스</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다. kBCOVPlaybackServiceParameterKeyOffset 및 kBCOVPlaybackServiceParameterKeyLimit 매개변수를 사용할 수 있습니다. 보다&ldquo;재생 목록 페이징&rdquo;위에.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 재생 목록 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findPlaylistWithReferenceID:parameters:completion:" title="findPlaylistWithReferenceID:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findPlaylistWithReferenceID:parameters:completion:">&ndash;&nbsp; findPlaylistWithReferenceID:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효) findPlaylistWithReferenceID:(NSString *)<em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVPlaylist *playlist , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 동영상의 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>재생에 추가할 추가 NSString 쿼리 매개변수 kBCOVPlaybackServiceParameterKeyOffset 및 kBCOVPlaybackServiceParameterKeyLimit 매개변수를 사용할 수 있습니다. 보다&ldquo;재생 목록 페이징&rdquo;위에. API 요청. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findPlaylistWithReferenceID:authToken:parameters:completion:" title="findPlaylistWithReferenceID:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findPlaylistWithReferenceID:authToken:parameters:completion:">&ndash;&nbsp; findPlaylistWithReferenceID:authToken:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효) findPlaylistWithReferenceID:(NSString *)<em>참조ID</em> authToken:(NSString *)<em>인증 토큰</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVPlaylist *playlist , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 동영상의 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>인증 토큰</code></th>
+						<td><p>비디오를 검증하는 데 사용할 인증 토큰&rsquo;라이센스</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>재생에 추가할 추가 NSString 쿼리 매개변수 kBCOVPlaybackServiceParameterKeyOffset 및 kBCOVPlaybackServiceParameterKeyLimit 매개변수를 사용할 수 있습니다. 보다&ldquo;재생 목록 페이징&rdquo;위에. API 요청. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVPlaylist.html"> BCOV재생 목록</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findVideoWithVideoID:parameters:completion:" title="findVideoWithVideoID:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findVideoWithVideoID:parameters:completion:">&ndash;&nbsp; findVideoWithVideoID:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 비디오 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)비디오와 비디오 ID 찾기:(NSString *)<em>비디오 ID</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVVideo *video , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>비디오 ID</code></th>
+						<td><p>찾을 동영상의 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 비디오 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVVideo.html"> BCOV비디오</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findVideoWithVideoID:authToken:parameters:completion:" title="findVideoWithVideoID:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findVideoWithVideoID:authToken:parameters:completion:">&ndash;&nbsp; findVideoWithVideoID:authToken:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 비디오 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)비디오와 비디오 ID 찾기:(NSString *)<em>비디오 ID</em> authToken:(NSString *)<em>인증 토큰</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVVideo *video , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>비디오 ID</code></th>
+						<td><p>찾을 동영상의 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>인증 토큰</code></th>
+						<td><p>비디오를 검증하는 데 사용할 인증 토큰&rsquo;라이센스</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 비디오 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVVideo.html"> BCOV비디오</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findVideoWithReferenceID:parameters:completion:" title="findVideoWithReferenceID:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findVideoWithReferenceID:parameters:completion:">&ndash;&nbsp; findVideoWithReferenceID:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)findVideoWithReferenceID:(NSString *)<code><em>참조ID</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVVideo *video , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 동영상의 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVVideo.html"> BCOV비디오</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findVideoWithReferenceID:authToken:parameters:completion:" title="findVideoWithReferenceID:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findVideoWithReferenceID:authToken:parameters:completion:">&ndash;&nbsp; findVideoWithReferenceID:authToken:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)findVideoWithReferenceID:(NSString *)<code><em>참조ID</em> authToken:(NSString *)<em>인증 토큰</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVVideo *video , NSDictionary *jsonResponse , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>참조ID</code></th>
+						<td><p>찾을 동영상의 참조 ID입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>인증 토큰</code></th>
+						<td><p>비디오를 검증하는 데 사용할 인증 토큰&rsquo;라이센스</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>Playback API 요청에 추가할 추가 NSString 쿼리 매개변수입니다. 이러한 값은 충돌하는 경우 기본값을 재정의합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 완료되면 호출될 블록입니다. completionHandler의 실행은 메인 스레드에서 발생합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>검색<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>백그라운드 대기열의 참조 ID로 Playback API 서비스에서 가져옵니다.</p>
+
+<p>completionHandler가 NSError를 제공하는 경우, <a href="../Classes/BCOVVideo.html"> BCOV비디오</a> 0일 것이다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sourceFromJSONDictionary:" title="sourceFromJSONDictionary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sourceFromJSONDictionary:">+ &nbsp; sourceFromJSON사전:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>JSON 사전에서 소스를 초기화합니다. 하지 않는 속성&rsquo; t 소스의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVSource *)sourceFromJSONDictionary:(NSDictionary *)<code><em>json</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">json<code></code></th>
+						<td><p>역직렬화된 소스를 나타내는 사전입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 소스입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>JSON 사전에서 소스를 초기화합니다. 하지 않는 속성&rsquo; t 소스의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cuePointFromJSONDictionary:" title="cuePointFromJSONDictionary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cuePointFromJSONDictionary:">+ &nbsp; cuePointFromJSON사전:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>JSON 사전에서 큐 포인트를 초기화합니다. 하지 않는 속성&rsquo; t 큐 포인트의 1급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVCuePoint *)cuePointFromJSONDictionary:(NSDictionary *)<code><em>json</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">json<code></code></th>
+						<td><p>역직렬화된 큐포인트를 나타내는 사전입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 큐 포인트입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>JSON 사전에서 큐 포인트를 초기화합니다. 하지 않는 속성&rsquo; t 큐 포인트의 1급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playlistFromJSONDictionary:" title="playlistFromJSONDictionary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistFromJSONDictionary:">+ &nbsp;재생 목록FromJSONDictionary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>JSON 사전에서 재생 목록을 초기화합니다. 하지 않는 속성&rsquo; t 재생 목록의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVPlaylist *)playlistFromJSONDictionary:(NSDictionary *)<code><em>json</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">json<code></code></th>
+						<td><p>역직렬화된 재생 목록을 나타내는 사전입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 재생 목록입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>JSON 사전에서 재생 목록을 초기화합니다. 하지 않는 속성&rsquo; t 재생 목록의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/videoFromJSONDictionary:" title="videoFromJSONDictionary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoFromJSONDictionary:">+ &nbsp; videoFromJSONDictionary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>JSON 사전에서 비디오를 초기화합니다. 하지 않는 속성&rsquo; t 비디오의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVVideo *)videoFromJSONDictionary:(NSDictionary *)<code><em>json</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">json<code></code></th>
+						<td><p>역직렬화된 비디오를 나타내는 사전입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>초기화된 영상입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>JSON 사전에서 비디오를 초기화합니다. 하지 않는 속성&rsquo; t 비디오의 일급 속성에 대한 매핑이 속성 사전에 추가됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlaybackService.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

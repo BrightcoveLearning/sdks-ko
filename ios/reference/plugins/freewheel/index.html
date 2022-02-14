@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>iOS 참조용 Brightcove 기본 플레이어</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">iOS용 브라이트코브 네이티브 플레이어</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">계층</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">iOS 참조용 Brightcove 기본 플레이어</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>iOS용 Brightcove Player SDK용 FreeWheel 플러그인, 버전 6.9.0.1697</h1><h1>요구 사항</h1>
+
+<ul>
+<li>엑스코드 11.0+</li>
+<li>호</li>
+</ul>
+
+
+<h1>지원되는 플랫폼</h1>
+
+<p>iOS 11.0 이상.</p>
+
+<p>tvOS 11.0 이상.</p>
+
+<h1>설치</h1>
+
+<p>Brightcove Player SDK용 FreeWheel 플러그인은 설치를 위한 정적 라이브러리 프레임워크를 제공합니다. FreeWheel이 dylib 버전을 출시할 때 동적 프레임워크가 추가될 것입니다.</p>
+
+<p>Brightcove Player SDK용 FreeWheel 플러그인은<a href="https://hub.freewheel.tv/display/techdocs/AdManager+SDK+Integration+Downloads"> AdManager SDK 통합 다운로드</a>페이지.</p>
+
+<h2>코코아팟</h2>
+
+<p>당신이 사용할 수있는<a href="http://cocoapods.org">코코아팟</a> Brightcove Player SDK용 FreeWheel 플러그인을 프로젝트에 추가합니다. 최신 정보를 찾을 수 있습니다<code> Brightcove-Player-FreeWheel</code>포드 스펙<a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-FreeWheel">여기</a> . 이 사양을 사용하려면 Podfile 상단에 다음을 추가하세요. <code>원천 '</code> https://github.com/brightcove/BrightcoveSpecs.git' <code></code> . CocoaPods 버전 1.0 이상이 필요합니다.</p>
+
+<p>FreeWheel SDK <strong>아니다</strong>이 포드에 포함되어 있습니다. 너<strong> ~해야하다</strong> FreeWheel SDK AdManager.framework를 프로젝트에 수동으로 추가합니다. 그러나 포드는 AdManager.framework 프레임워크에 필요한 모든 라이브러리를 추가합니다.</p>
+
+<p>정적 프레임워크 예:</p>
+
+<pre><code>source 'https://github.com/brightcove/BrightcoveSpecs.git' pod 'Brightcove-Player-FreeWheel' </code></pre>
+
+<p>설치를 업데이트할 때&rsquo; CococaPods 마스터 리포지토리를 업데이트하는 것처럼 BrightcoveSpecs 리포지토리의 로컬 복사본을 새로 고치는 것이 좋습니다.</p>
+
+<p>일반적으로 사용하는 경우<code>포드 업데이트</code>터미널에서는 자동으로 발생하거나 다음을 사용하여 명시적으로 업데이트할 수 있습니다. <code>포드 리포지토리 브라이트코브 업데이트</code> . (Podspecs 저장소 목록에 명시적으로 추가한 경우 BrightcoveSpecs 저장소의 이름이 다를 수 있습니다.)</p>
+
+<h2>설명서</h2>
+
+<p>프로젝트에 Brightcove Player SDK용 FreeWheel 플러그인을 수동으로 추가하려면:</p>
+
+<ol>
+<li>의 최신 버전을 설치하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios">브라이트코브 플레이어 SDK</a> [ <strong>정적 프레임워크</strong> ][ <a href="https://github.com/brightcove/brightcove-player-sdk-ios/"> https://github.com/brightcove/brightcove-player-sdk-ios/</a> #수동설치] .</li>
+<li>플러그인의 최신 압축 릴리스를 다운로드하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios-fw/releases">릴리스 페이지</a> .</li>
+<li>추가&lsquo; BrightcoveFW.framework &rsquo;당신의 프로젝트에. Frameworks 폴더를 마우스 오른쪽 버튼으로 클릭하고 선택하여 이 작업을 수행할 수 있습니다. &ldquo;파일 추가&rdquo;옵션을 선택하고 저장된 경로에서 BrightcoveFW.framework를 선택합니다.</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭에서&ldquo;프레임워크 검색 경로&rdquo;프레임워크에 대한 경로를 포함합니다. 프레임워크가 프로젝트와 다른 루트 디렉터리에 저장되지 않는 한 이 작업은 자동으로 수행되어야 합니다.</li>
+<li>에&ldquo;빌드 단계&rdquo;응용 프로그램 대상의 탭에서 다음을 추가하십시오. &ldquo;라이브러리와 바이너리 연결&rdquo;단계:
+
+<ul>
+<li>BrightcoveFW.framework<code></code></li>
+</ul>
+</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭:
+
+<ul>
+<li>다음을 확인하십시오. <code> -오브제이C</code>에 추가되었습니다&ldquo;기타 링커 플래그&rdquo;빌드 설정.</li>
+</ul>
+</li>
+<li>FreeWheel 계정에서 검색해야 하는 FreeWheel 라이브러리를 설치합니다.</li>
+</ol>
+
+
+<h2>수입품</h2>
+
+<p>Brightcove Player SDK용 FreeWheel 플러그인은 몇 가지 다른 방법으로 코드로 가져올 수 있습니다. <code> @import BrightcoveFW;</code> , <code> #import &lt;BrightcoveFW/BrightcoveFW.h&gt;</code>또는<code> #import &lt;BrightcoveFW/[특정 클래스].h&gt;</code> .</p>
+
+<h1>빠른 시작</h1>
+
+<p>FreeWheel 광고가 있는 iOS용 Brightcove Player SDK로 비디오 재생:</p>
+
+<pre><code>@property(비원자, 강력한) id&lt;FWAdManager&gt; adManager; @property(비원자, 약한) IBOutlet UIView *videoContainerView; -(무효) 설정{ NSString *policyKey = &lt;your-policy-key&gt;; NSString *accountId = &lt;your-account-id&gt;; NSString *videoId = &lt;your-video-id&gt;; [1] self.adManager = newAdManager(); [self.adManager setNetworkId:90750]; BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; [2] id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:[self adContextPolicy] viewStrategy:nil]; [self.view addSubview:playbackController.view]; BCOVPlaybackService *service = [[BCOVPlaybackService alloc] initWithAccuntID:accountId policyKey:policyKey]; [service findVideoWithVideoID:videoId parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [playbackController setVideos:@[ video ]]; [playbackController play]; } ]; } - (BCOVFWSessionProviderAdContextPolicy)adContextPolicy { __weak typeof(self) weakSelf = self; return [^ BCOVFWContext*(BCOVVideo *video, BCOVSource *source, NSTimeInterval videoDuration) { // Prevent retain cycles when using self typeof(self) strongSelf = weakSelf; [3] id&lt;FWContext&gt; adContext = [strongSelf.adManager newContext]; FWRequestConfiguration *adRequestConfig = [[FWRequestConfiguration alloc] initWithServerURL:@"http://demo.v.fwmrm.net" playerProfile:&lt;player-profile&gt;]; adRequestConfig.siteSectionConfiguration = [[FWSiteSectionConfiguration alloc] initWithSiteSectionId:&lt;site-section-id&gt; idType:FWIdTypeCustom]; adRequestConfig.videoAssetConfiguration = [[FWVideoAssetConfiguration alloc] initWithVideoAssetId:&lt;video-asset-id&gt; idType:FWIdTypeCustom duration:videoDuration durationType:FWVideoAssetDurationTypeExact autoPlayType:FWVideoAssetAutoPlayTypeAttended]; [adContext setVideoDisplayBase:strongSelf.videoContainerView]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"preroll" adUnit:FWAdUnitPreroll timePosition:0.0]]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"midroll" adUnit:FWAdUnitMidroll timePosition:&lt;non-zero-time-interval&gt;]]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"postroll" adUnit:FWAdUnitPostroll timePosition:0.0]]; BCOVFWContext *bcovAdContext = [[BCOVFWContext alloc] initWithAdContext:adContext requestConfiguration:adRequestConfig]; return bcovAdContext; }복사]; }</code></pre>
+
+<p>코드는 다음과 같이 단계로 나뉩니다.</p>
+
+<ol>
+<li>FreeWheel을 사용하는 경우 만드는 것과 동일한 광고 관리자를 만듭니다. &rsquo; s iOS SDK 직접; 이것은 나중에 필요합니다.</li>
+<li>Brightcove FreeWheel 플러그인은 BCOVPlayerSDKManager에 몇 가지 범주 메서드를 추가합니다. 그 중 첫 번째는<code> -createFWPlaybackControllerWithAdContextPolicy:viewStrategy:</code> . 이 방법을 사용하여 재생 컨트롤러를 만듭니다. 또는(둘 이상의 세션 공급자를 사용하는 경우) 다음을 생성할 수 있습니다. <a href="Classes/BCOVFWSessionProvider.html"> BCOVFW세션 공급자</a>업스트림 세션 공급자를 사용하여 재생 컨트롤러를 생성하는 SDK 관리자 메서드에 전달합니다.*</li>
+<li>FreeWheel을 사용하는 경우 생성되는 것과 동일한 광고 컨텍스트를 생성합니다. &rsquo; 1단계에서 만든 SDK 관리자를 사용하여 iOS SDK를 직접 사용합니다. 여기에서 컴패니언 슬롯에 등록하고 기본 광고 컨트롤을 켜거나 변경해야 하는 기타 설정을 할 수 있습니다. 이 블록은 각각의 새 세션이 전달되기 전에 호출됩니다.</li>
+</ol>
+
+
+<p>* 참고하세요<a href="Classes/BCOVFWSessionProvider.html"> BCOVFW세션 공급자</a> BCOVIMASessionProvider와 같은 다른 광고 세션 공급자와 함께 사용하도록 테스트되지 않았습니다. 또한 참고<a href="Classes/BCOVFWSessionProvider.html"> BCOVFW세션 공급자</a>재생 컨트롤러를 구성할 때 관리자에게 전달된 체인의 다른 세션 공급자 뒤에 와야 합니다.</p>
+
+<h1>재생 및 일시 중지</h1>
+
+<p>Brightcove FreeWheel 플러그인은 사용자 정의 재생 및 일시 중지 논리를 구현하여 가능한 가장 부드러운 광고 경험을 보장합니다. 따라서 재생 방법을 사용하고 있는지 확인해야 합니다. <code> BCOV재생 컨트롤러</code>아니면 그<code> [BCOVSessionProviderExtension fw_play]</code>또는<code> [BCOVSessionProviderExtension fw_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-fw/blob/master/ios/BrightcoveFW.framework/Headers/BCOVFWComponent.h"> BCOVSessionProvider 확장</a> ), AVPlayer가 아닙니다.</p>
+
+<p>예를 들어 처음으로 play를 호출하는 경우<code> BCOV재생 컨트롤러</code> Brightcove FreeWheel 플러그인이 프리롤 전에 재생되는 콘텐츠 없이 프리롤 광고를 처리할 수 있습니다.</p>
+
+<h1>내장 PlayerUI 사용</h1>
+
+<p>Brightcove Player SDK 버전 5.1 이상을 사용하는 경우 Brightcove FreeWheel 플러그인으로 내장 광고 컨트롤을 활용할 수 있습니다.</p>
+
+<p>PlayerUI를 사용하려면 위의 빠른 시작 코드와 같이 재생 컨트롤러를 만듭니다.</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager 공유 관리자]; id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:[자체 adContextPolicy] viewStrategy:nil];</code></pre>
+
+<p>그런 다음 플레이어 보기를 만듭니다. 이 보기에는 동영상 플레이어 보기와 재생 및 광고 제어를 표시하는 보기가 모두 포함되어 있습니다. 이 설정은 어떤 플러그인을 사용하든 동일합니다.</p>
+
+<p><strong>메모:</strong> NS <code> BrightcovePlayerUI</code>모듈은 더 이상 필요하지 않으며 제거되었습니다. (Brightcove Player SDK 버전 5.1 이전에는 Brightcove PlayerUI 플러그인이 별도의 프레임워크 및 모듈이었습니다.) Brightcove PlayerUI 모듈을 참조하는 모든 가져오기를 제거할 수 있습니다. 모든 PlayerUI 헤더는 이제<code> BrightcovePlayerSDK</code>기준 치수.</p>
+
+<p>BCOVPUIPlayerView를 추적하려면 UIViewController에 속성을 만듭니다. BCOVPUIPlayerView에는 재생 컨트롤러가 모두 포함됩니다. &rsquo; s 보기 및 제어 보기.</p>
+
+<pre><code>// PlayerUI's Player View @property (nonatomic) BCOVPUIPlayerView *playerView; </code></pre>
+
+<p>BCOVPUIBasicControlView를 만든 다음 BCOVPUIPlayerView를 만듭니다. 여기에서 재생 컨트롤러(및 재생 컨트롤러가 재생하는 모든 비디오)를 컨트롤과 연결합니다.</p>
+
+<pre><code>// 컨트롤 뷰를 만들고 구성합니다. BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView 할당] initWithPlaybackController:self.playbackController 옵션:nil controlsView:controlView]; // 비디오 보기에 BCOVPUIPlayerView를 추가합니다. [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>너&rsquo;플레이어 보기에 대한 레이아웃을 설정해야 하는 경우 자동 레이아웃 또는 이전 Springs &amp; Struts 접근 방식을 사용하여 이를 수행할 수 있습니다.</p>
+
+<p><strong>스프링 및 스트럿:</strong></p>
+
+<p>레이아웃의 비디오 컨테이너와 일치하도록 플레이어 보기를 설정합니다( <code>동영상보기</code> ) 크기가 조정될 때.</p>
+
+<pre><code>self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></pre>
+
+<p><strong>자동 레이아웃</strong></p>
+
+<p>설정<code>변환 AutoresizingMaskIntoConstraints</code> BCOVPUIPlayerView에서<code>아니요</code> .</p>
+
+<pre><code>self.videoView.translatesAutoresizingMaskIntoConstraints = NO;</code></pre>
+
+<p>그런 다음 레이아웃에 대한 제약 조건을 추가합니다. BCOVPUIPlayerView의 상단, 오른쪽, 왼쪽 및 하단 앵커를<code>동영상보기</code></p>
+
+<pre><code>[NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor constraintEqualToAnchor:self.videoView.leftAnchor], [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoView.bottomAnchor], ]]; </code></pre>
+
+<p>마지막 단계는 FreeWheel에만 해당됩니다. adContextPolicy에서 동영상 표시 기반을 플레이어 보기로 설정해야 합니다. &rsquo; s 콘텐츠 오버레이 보기. 이렇게 하면 FreeWheel 광고가 비디오에서 재생되지만 FreeWheel 광고 위에 광고 컨트롤이 유지됩니다.</p>
+
+<pre><code>- (BCOVFWSessionProviderAdContextPolicy)adContextPolicy { // Prevent retain cycles when using self __weak typeof(self) weakSelf = self; return [^ id&lt;FWContext&gt;(BCOVVideo *video, BCOVSource *source, NSTimeInterval videoDuration) { typeof(self) strongSelf = weakSelf; ... FREEWHEEL SETUP CODE ... // Tell FreeWheel to display ads in they content overlay view [adContext setVideoDisplayBase:strongSelf.playerView.contentOverlayView]; return adContext; }복사]; }</code></pre>
+
+<p>이제 광고가 있는 동영상을 재생할 때 타임라인 스크러버에 광고 마커가 표시되고 광고 재생 중에 광고에 광고 컨트롤이 표시됩니다.</p>
+
+<p>PlayerUI는 고도로 사용자 정의할 수 있습니다. 자세한 내용과 샘플 코드는 다음을 참조하십시오. <strong>사용자 정의 레이아웃</strong> README 파일의 섹션<a href="https://github.com/brightcove/brightcove-player-sdk-ios">브라이트코브 네이티브 플레이어 SDK 리포지토리</a> .</p>
+
+<h1>광고 없이 검색</h1>
+
+<p>사용하다<code> -[BCOVPlaybackController seekWithoutAds:(CMTime)seekToTime completionHandler:(void (^)(BOOL 완료))completion]</code>사용자가 이전에 예약된 광고를 시청하지 않고 특정 시간에 재생을 재개하려면<code>시크투타임</code> .</p>
+
+<p>에 대비하여<code> seekWithoutAds:completionHandler:</code> , 장애를 입히다<code>자동 재생</code>설정할 때<code> BCOV재생 컨트롤러</code> .</p>
+
+<p>Apple은 AVPlayerItem을 사용하기 전에 AVPlayerItem의 상태가 Ready-to-play로 변경될 때까지 기다릴 것을 권장합니다. 따라서 전화<code> seekWithoutAds:completionHandler:</code>에서<code> kBCOVPlaybackSessionLifecycleEventReady</code>핸들러<code>재생컨트롤러:재생세션:didReceiveLifecycleEvent</code>당신의 방법<code> BCOVPlaybackControllerDelegate</code> .</p>
+
+<p>```objective-c - (void)playbackController:(NSObject<BCOVPlaybackController><em>) 컨트롤러 재생 세션:(NSObject<BCOVPlaybackSession></em>)세션 didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) {</p>
+
+<pre><code>// self.resumePlayback은 여기에서 설명을 위해 사용된 가상의 인스턴스 변수입니다. if (self.resumePlayback) { __weak typeof(controller) weakController = controller; // seek without playing ads which are scheduled before the seek time, i.e. resume playback. [controller seekWithoutAds:CMTimeMake(seekWithoutAdsValue, seekWithoutAdsTimescale) completionHandler:^(BOOL finished) { if (!finished) { NSLog (@"seekWithoutAds failed to finish"); } typeof(컨트롤러) strongController = 약한 컨트롤러; if (strongController) { // fade out the shutter to reveal the player view. strongController.shutterFadeTime = 0.25; strongController.shutter = NO; // turn off seek without ads - especially important if this player is being used with a playlist self.resumePlayback = NO; } }]; }</code></pre>
+
+<p>  } } ```</p>
+
+<p>NS <code>셔터</code>그리고<code>셔터페이드타임</code>속성<code> BCOV재생 컨트롤러</code>와 함께 사용할 수 있습니다<code> seekWithoutAds:completionHandler:</code> AVPlayer가 자산을 로드할 때 발생할 수 있는 프레임 깜박임을 숨기기 위해. BCOVPlaybackController 설정 코드에서 셔터를 활성화하여 플레이어 보기를 숨깁니다.</p>
+
+<p>```목표 c NSObject<BCOVPlaybackController> *재생컨트롤러;</p>
+
+<p>  playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:nil viewStrategy:nil]; playbackController.delegate = 자기;</p>
+
+<p>  if (self.resumePlayback) { // 셔터 페이드 시간을 0으로 설정하여 플레이어 보기를 즉시 숨깁니다. 재생컨트롤러.셔터페이드타임 = 0.0; 재생 컨트롤러.셔터 = 예;</p>
+
+<pre><code>// 재생을 재개할 때 자동 재생을 비활성화합니다. 재생 컨트롤러.autoPlay = 아니요;</code></pre>
+
+<p>  } ```</p>
+
+<p>앱에서 Seek Without Ads를 사용하면 일반적으로 IMA 플러그인 설정의 일부로 발생하는 네트워크 트래픽을 관찰할 수 있습니다. 이 트래픽은 적절한 플러그인 설정에 필요하며 광고 없이 검색 기능에 영향을 주지 않습니다.</p>
+
+<h1>플러그인 동작 사용자 정의</h1>
+
+<p>의 인스턴스를 생성하여 기본 플러그인 동작을 사용자 정의할 수 있습니다. <a href="Classes/BCOVFWSessionProviderOptions.html"><code> BCOVFWSessionProvider 옵션</code></a>및 기본 속성을 재정의합니다. 사용하려면<a href="Classes/BCOVFWSessionProviderOptions.html"><code> BCOVFWSessionProvider 옵션</code></a> options 인스턴스를 생성해야 합니다. <a href="Classes/BCOVFWSessionProvider.html"><code> BCOVFW세션 공급자</code></a>사용<code> [BCOVSDKManager createFWSessionProviderWithAdContextPolicy:upstreamSessionProvider:옵션:]</code> .</p>
+
+<pre><code>BCOVFWSessionProviderOptions *옵션 = [[BCOVFWSessionProviderOptions 할당] 초기화]; options.cuePointProgressPolicy = [BCOVCuePointProgressPolicy progressPolicyProcessingCuePoints:BCOVProgressPolicyProcessFinalCuePoint 재개 PlaybackFrom:BCOVProgressPolicyResumeFromContentPlayhead 무시PreviouslyProcessedCuePoints:YES]; id&lt;BCOVPlaybackSessionProvider&gt; sessionProvider = [sdkManager createFWSessionProviderWithAdContextPolicy:[자체 adContextPolicy] upstreamSessionProvider:nil 옵션:옵션]; id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createPlaybackControllerWithSessionProvider:sessionProvider viewStrategy:nil];</code></pre>
+
+<h2>슬롯 사전 로드</h2>
+
+<p>네트워크 상황에 따라 광고 게재순위에 도달한 후 광고가 재생되는 데 시간이 지연될 수 있습니다. 광고 성능을 개선하기 위해 FreeWheel 슬롯을 미리 로드할 수 있습니다. 미리 로드를 켜려면<code>사전 로드 슬롯</code> ~에<a href="Classes/BCOVFWSessionProviderOptions.html"><code> BCOVFWSessionProvider 옵션</code></a> .</p>
+
+<p>활성화하면 가능한 빨리 프리롤 슬롯이 로드됩니다. 미드롤의 경우 슬롯은<code> timeBeforeAdToPreload</code> ~에<a href="Classes/BCOVFWSessionProviderOptions.html"><code> BCOVFWSessionProvider 옵션</code></a> .</p>
+
+<h2>정확한 기간 사용</h2>
+
+<p>FreeWheel 구성에 따라 호출 시 정확한 지속 시간 제공<code> setVideoId:</code>올바른 수의 미드롤을 수신하는지 여부의 차이입니다.</p>
+
+<p>기본적으로 SDK는<a href="Blocks/BCOVFWSessionProviderAdContextPolicy.html"><code> BCOVFWSessionProviderAdContextPolicy</code></a> AVPlayerItem이 정확한 지속 시간을 가질 때까지 이 값은 블록 호출에 제공됩니다. AVPlayerItem 기간이 준비되고 이 정보를 다른 소스(예: BCOVVideo/BCOVSource 속성 또는 자체 CMS)에서 사용할 수 있을 때까지 기다리지 않으려면<code> waitForAVPlayerDuration</code>대기를 비활성화하는 데 사용할 수 있습니다.</p>
+
+<h2>탐색 처리</h2>
+
+<p>여러 광고 모음(예: 서로 다른 위치에 있는 두 개의 미드롤 슬롯)을 검색할 때 SDK는 재생할 광고 모음을 결정하는 편리한 메커니즘을 제공합니다. 기본값을 변경하여 수정할 수 있습니다. <code> BCOVCuePointProgressPolicy</code> ~에<a href="Classes/BCOVFWSessionProviderOptions.html"><code> BCOVFWSessionProvider 옵션</code></a> . 자세한 내용은<code> BCOVCuePointProgressPolicy</code> , 상담하십시오<code></code> BCOVFW세션 공급자<code> .시간</code>파일.</p>
+
+<h1>FreeWheel 오류 추적</h1>
+
+<p>FreeWheel 오류 이벤트( <code> FWAdError 이벤트</code> )를 통해 만난<code> FWAd 이벤트 알림</code>에게 전달될 것입니다. <code>재생컨트롤러:재생세션:didReceiveLifecycleEvent:</code>이벤트 유형이 있는 대리자 메서드<code> kBCOVFWLifecycleEventAdError</code> . FreeWheel SDK가 알림과 함께 보내는 전체 userInfo 개체는 이벤트 속성에 포함되며 다음을 사용하여 액세스할 수 있습니다. <code> kBCOVFWLifecycleEventPropertyKeyAdError</code>열쇠.</p>
+
+<p>다음은 이러한 오류를 잡는 방법의 예입니다.</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)세션 didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVFWLifecycleEventAdError isEqualToString:lifecycleEvent.eventType]) { NSDictionary *errorInfo = lifecycleEvent.properties[kBCOVFWLifecycleEventPropertyKeyAdError]; NSLog(@"FreeWheel Error Encountered: %@", errorInfo[FWInfoKeyErrorInfo]); } }</code></pre>
+
+<h1>지원하다</h1>
+
+<p>질문이 있거나 도움이 필요하거나 피드백을 제공하려면<a href="https://supportportal.brightcove.com/s/login/">지원 포털</a>또는 계정 관리자에게 문의하세요. 새 SDK 소프트웨어 릴리스에 대한 알림을 받으려면 Brightcove Native Player SDK를 구독하십시오. <a href="https://groups.google.com/g/brightcove-native-player-sdks">구글 그룹</a> . 광고 설정이 무엇인지 확실하지 않거나 FWContext 및 기타 FW 클래스에 대한 질문이 있는 경우 FreeWheel 지원에 문의하십시오. <a href="http://freewheel.tv"> http://freewheel.tv</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">클래스 참조</h2>
+							<ul>
+								
+								<li><a href="Classes/BCOVFWContext.html">BCOVFW컨텍스트</a></li>
+								
+								<li><a href="Classes/BCOVFWSessionProvider.html">BCOVFW세션 공급자</a></li>
+								
+								<li><a href="Classes/BCOVFWSessionProviderOptions.html">BCOVFWSessionProvider 옵션</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+
+							
+
+							
+							<h2 class="index-title">카테고리 참조</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVPlayerSDKManager-BCOVFWAdditions.html">BCOVPlayerSDKManager(BCOVFW추가)</a></li>
+								
+								<li><a href="Categories/BCOVSessionProviderExtension-BCOVFWAdditions.html">BCOVSessionProviderExtension(BCOVFW추가)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+							
+							
+							<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

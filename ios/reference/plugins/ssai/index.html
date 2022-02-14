@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>iOS 참조용 Brightcove 기본 플레이어</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">iOS용 브라이트코브 네이티브 플레이어</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">계층</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">iOS 참조용 Brightcove 기본 플레이어</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>iOS용 Brightcove Player SDK용 SSAI 플러그인, 버전 6.9.0.1697</h1><h1>요구 사항</h1>
+
+<ul>
+<li>엑스코드 11.0+</li>
+<li>호</li>
+</ul>
+
+
+<h1>지원되는 플랫폼</h1>
+
+<p>iOS 11.0 이상.</p>
+
+<p>tvOS 11.0 이상.</p>
+
+<h1>설치</h1>
+
+<p>iOS용 Brightcove Player SDK용 SSAI 플러그인은 두 가지 설치 패키지를 제공합니다. 정적 라이브러리 프레임워크와 동적 라이브러리 프레임워크.</p>
+
+<h2>코코아팟</h2>
+
+<p>당신이 사용할 수있는<a href="http://cocoapods.org">코코아팟</a> Brightcove Player SDK용 SSAI 플러그인을 프로젝트에 추가합니다. 최신 정보를 찾을 수 있습니다<code> Brightcove-Player-SSAI</code>포드 스펙<a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-SSAI">여기</a> .</p>
+
+<p>동적 프레임워크 예:</p>
+
+<p>```배시 소스&lsquo;<a href="https://github.com/brightcove/BrightcoveSpecs.git" title=""> https://github.com/brightcove/BrightcoveSpecs.git'</a></p>
+
+<p>use_frameworks! 플랫폼 : iOS, &lsquo; 11.0 &rsquo;</p>
+
+<p>표적&lsquo;마이비디오플레이어&rsquo;포드&lsquo; Brightcove-Player-SSAI &rsquo;끝 ```</p>
+
+<p>정적 프레임워크 예:</p>
+
+<p>```배시 소스&lsquo; https://github.com/brightcove/BrightcoveSpecs.git &rsquo;</p>
+
+<p>use_frameworks! 플랫폼: ios, 11.0'</p>
+
+<p>표적&lsquo;마이비디오플레이어&rsquo;포드&lsquo; Brightcove-Player-SSAI-정적&rsquo;끝 ```</p>
+
+<p>설치를 업데이트할 때&rsquo; CococaPods 마스터 리포지토리를 업데이트하는 것처럼 BrightcoveSpecs 리포지토리의 로컬 복사본을 새로 고치는 것이 좋습니다.</p>
+
+<p>일반적으로 사용하는 경우<code>포드 업데이트</code>터미널에서는 자동으로 발생하거나 다음을 사용하여 명시적으로 업데이트할 수 있습니다. <code>포드 리포지토리 브라이트코브 업데이트</code> . (Podspecs 저장소 목록에 명시적으로 추가한 경우 BrightcoveSpecs 저장소의 이름이 다를 수 있습니다.)</p>
+
+<h2>설명서</h2>
+
+<p>Brightcove Player SDK용 SSAI 플러그인을 프로젝트에 수동으로 추가하려면:</p>
+
+<ol>
+<li>의 최신 버전을 설치하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">브라이트코브 플레이어 SDK</a> .</li>
+<li>BrightcoveSSAI 플러그인의 최신 압축 릴리스를 다운로드하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases">릴리스 페이지</a> .</li>
+<li>추가하다<code> BrightcoveSSAI.framework</code>당신의 프로젝트에.</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭에서&ldquo;프레임워크 검색 경로&rdquo;프레임워크에 대한 경로를 포함합니다. 프레임워크가 프로젝트와 다른 루트 디렉터리에 저장되지 않는 한 이 작업은 자동으로 수행되어야 합니다.</li>
+<li>(동적 프레임워크만 해당) &ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에 추가&lsquo; BrightcoveSSAI.framework &rsquo; ~로&ldquo;프레임워크, 라이브러리, 임베디드 콘텐츠&rdquo;부분.</li>
+<li>(동적 프레임워크만 해당) &ldquo;빌드 단계&rdquo;탭, 추가&ldquo;스크립트 실행&rdquo;명령으로 단계<code>배시 $ {BUILT_PRODUCTS_DIR} /$ {FRAMEWORKS_FOLDER_PATH} /BrightcoveSSAI.framework/strip-frameworks.sh</code> . 확인하다&ldquo;설치 시에만 스크립트 실행&rdquo; . 이렇게 하면 앱 스토어 제출에 중요한 불필요한 아키텍처가 빌드에서 제거됩니다.</li>
+<li>(정적 프레임워크만 해당) &ldquo;빌드 설정&rdquo;응용 프로그램 대상의 탭에 추가<code> -오브제이C</code> ~로&ldquo;기타 링커 플래그&rdquo;빌드 설정.</li>
+</ol>
+
+
+<h2>수입품</h2>
+
+<p>iOS용 Brightcove Player SDK용 SSAI 플러그인은 몇 가지 다른 방법으로 코드로 가져올 수 있습니다. <code> @import BrightcoveSSAI;</code> , <code> #import &lt;BrightcoveSSAI/BrightcoveSSAI.h&gt;</code>또는<code> #import &lt;BrightcoveSSAI/[특정 클래스].h&gt;</code> .</p>
+
+<h1>빠른 시작</h1>
+
+<p>BrightcoveSSAI는 다음을 위한 플러그인입니다. <a href="https://github.com/brightcove/brightcove-player-sdk-ios"> iOS용 브라이트코브 플레이어 SDK</a> Brightcove 서버 측 광고 삽입을 지원합니다.</p>
+
+<p>```객체 [1] <a href="Classes/BCOVSSAIAdComponentDisplayContainer.html"> BCOVSSAIAdComponentDisplayContainer</a> *displayContainer = [[BCOVSSAIAdComponentDisplayContainer 할당] initWithCompanionSlots:@[]];</p>
+
+<pre><code>BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자];</code></pre>
+
+<p>  [2] 아이디<BCOVPlaybackController> 플레이백컨트롤러 = [sdkManager createSSAIPlaybackController];</p>
+
+<p>  [3] [재생 컨트롤러 addSessionConsumer:displayContainer];</p>
+
+<p>  [4] [self.videoContainer addSubview:playbackController.view];</p>
+
+<p>  [5] BCOV재생 서비스 <em>playbackService = [[BCOVPlaybackService 할당] initWithAccountId:accoundId policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID 매개변수:@ { kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id&gt; }완성:^(BCOV동영상 </em>비디오, NSDictionary <em>jsonResponse, NSError </em>오류) {</p>
+
+<p>  [6] [재생컨트롤러 setVideos:@[동영상]]; [재생 컨트롤러 재생];</p>
+
+<pre><code>}];</code></pre>
+
+<pre><code>요약: 1. 먼저 'BCOVSSAIAdComponentDisplayContainer'를 만듭니다. 이 개체는 컴패니언 슬롯을 관리하는 데 도움이 됩니다. 가지고 있는 컴패니언 슬롯(있는 경우)을 전달합니다. 1. BrightcoveSSAI는 'BCOVPlaybackManager'에 몇 가지 범주 메서드를 추가합니다. 첫 번째는 `-createSSAIPlaybackControllerWithViewStrategy:`입니다. 이 방법을 사용하여 재생 컨트롤러를 만듭니다. 일반적으로 보기 전략에 'nil'을 전달합니다. 1. 'BCOVSSAIAdComponentDisplayContainer'가 광고 정보를 표시하고 컴패니언 광고 보기를 채우려면 세션 소비자로 추가해야 합니다. 1. 자체 보기 계층 구조의 비디오 컨테이너에 재생 컨트롤러의 보기를 추가합니다. 1. 재생 서비스에서 비디오 또는 재생 목록을 요청하십시오. Unicorn Once 스타일의 VMAP URL을 사용하는 경우 `[BCOVVideo videoWithURL:&lt;unicorn-style-url&gt;]`을 사용하여 BCOVVideo 객체를 직접 생성합니다. 1. 비디오를 재생 컨트롤러에 로드합니다. 사용자 정의 VMAP 소스 URL 사용 ======= 사용자 정의 VMAP 소스 URL이 있고 `BCOVPlaybackService`를 사용할 필요가 없는 경우 다음과 같이 URL을 사용하여 `BCOVVideo`를 수동으로 만들 수 있습니다.</code></pre>
+
+<p>BCOVVideo *비디오 = [BCOVVideo videoWithURL:[NSURL URLWithString:@ &ldquo; https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml &rdquo; ]]; [self.playbackController setVideos:@[동영상]]; ```</p>
+
+<h1>VMAP XML 데이터 사용</h1>
+
+<p>VMAP XML 데이터가 있는 경우 수동으로 생성할 수 있습니다. <code> BCOV비디오</code>다음과 같은 데이터로</p>
+
+<pre><code>// FairPlay DRM을 사용하는 경우 key_systems 사전을 구성해야 합니다. // 그렇지 않으면 속성 값에 'nil'을 전달할 수 있습니다. NSDictionary *속성 = @ { @"key_systems": @{ @"com.apple.fps.1_0": @{ @"key_request_url": @"&lt;insert key request URL&gt;", @"certificate_url": @"&lt;insert certificate URL&gt;" } } }; BCOVSource *source = [[BCOVSource 할당] initWithVMAPXMLData:vmapData 속성:속성]; BCOVVideo *비디오 = [[BCOVVideo 할당] initWithSource:source cuePoints:nil 속성:nil]; [self.playbackController setVideos:@[동영상]];</code></pre>
+
+<h1>광고 재생 정보 얻기</h1>
+
+<p>BrightcoveSSAI는 다음을 통해 광고 재생 정보를 제공합니다. <code> BCOVPlaybackControllerAdsDelegate</code> . 예를 들어 광고 중에 컨트롤을 숨기려면 다음을 구현할 수 있습니다. <code> -[BCOVPlaybackControllerAdsDelegate playbackController:playbackSession:didEnterAdSequence:]</code>그들을 숨기기 위해.</p>
+
+<p>이러한 대리자 메서드를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요. <a href="https://github.com/brightcove/brightcove-player-sdk-ios"> iOS용 브라이트코브 플레이어 SDK</a> .</p>
+
+<h1>추구</h1>
+
+<p>BrightcoveSSAI 플러그인은 컨트롤을 구현할 때 사용해야 하는 탐색 기능을 제공합니다. 이 탐색 기능은 세션을 통해 노출됩니다. <code>공급자 확장</code>재산. 사용 방법은 다음과 같습니다.</p>
+
+<p>```객체  <br/>
+CMTime contentTimeToSeekTo = &lt;스크럽 바에서 계산&gt;; [self.currentSession.providerExtension ssai_seekToTime:contentTimeToSeekTo completionHandler:^(BOOL 완료) {</p>
+
+<p>  만약 (완료) { [self.currentSession.player play]; }</p>
+
+<p>}]; ```</p>
+
+<p>NS <code>완료 핸들러</code>검색이 성공적으로 완료되면 실행됩니다. 탐색이 이미 이전 호출에 의해 시작된 경우 실행되지 않습니다. <code> [BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]</code>또는 광고가 재생 중인 경우. 탐색 시도가 가능한지 여부를 테스트하려면 다음을 확인하십시오. <code> [BCOVSessionProvider 확장 ssai_canSeek]</code>재산. 이 두 가지 방법에 대한 자세한 내용은<a href="[https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h](https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h)">헤더독</a> .</p>
+
+<h1>광고 없이 검색</h1>
+
+<p>BrightcovePlayerSDK는<code>광고비활성화</code>검색하는 동안 광고를 비활성화하기 위한 BOOL 속성을 통해 최종 사용자가 이전에 재생한 광고를 볼 필요 없이 애플리케이션이 재생을 재개할 수 있습니다.</p>
+
+<p>탐색을 대비하여 비활성화<code>자동 재생</code>설정할 때<code> BCOV재생 컨트롤러</code> .</p>
+
+<p>광고 비활성화 로직을 추가해야 합니다. <code> kBCOVPlaybackSessionLifecycleEventReady</code>핸들러<code> -playbackController:playbackSession:didReceiveLifecycleEvent:</code>당신의 방법<code> BCOV재생 컨트롤러</code>대리자.</p>
+
+<p>```objc - (무효)playbackController:(id<BCOVPlaybackController>)컨트롤러 재생세션:(id<BCOVPlaybackSession>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) { // 광고를 비활성화합니다. _playbackController.adsDisabled = 예;</p>
+
+<pre><code>// 비디오 콘텐츠의 어딘가를 찾습니다. [session.providerExtension ssai_seekToTime:resumeTime completionHandler:^(BOOL 완료) { // re-enable ads. _playbackController.adsDisabled = NO; // open the shutter. _playbackController.shutterFadeTime = 0.25; _playbackController.shutter = NO; } ];</code></pre>
+
+<p>} ```</p>
+
+<p>전화를 걸 때<code> ssai_seekToTime:completionHandler:</code>특정 시간에 재생을 재개하려면 탐색이 완료될 때까지 비디오의 첫 번째 프레임이 표시될 수 있습니다. 보다 깔끔한 프레젠테이션을 위해 검색 중 비디오 보기를 일시적으로 가립니다. <code>셔터</code> BCOVPlbackController의 속성<code>예</code>전화하기 전에<code> -set동영상:</code> . 탐색이 완료되면 설정하여 셔터를 닫습니다. <code>셔터</code>재산<code>아니요</code> . NS <code>셔터페이드타임</code>속성은 셔터 페이드 애니메이션의 지속 시간을 정의합니다.</p>
+
+<p>```objc self.playbackController = [sdkManager createSSAIPlaybackController];</p>
+
+<p>// 비디오를 로드하기 전에 셔터를 활성화합니다. self.playbackController.shutterFadeTime = 0.0; self.playbackController.shutter = 예;</p>
+
+<p>// 비디오를 로드합니다. ```</p>
+
+<p>성능상의 이유로 비디오 검색에는 작은 허용 오차가 내장되어 있습니다. 광고 시퀀스의 시작에 가까운 콘텐츠 재생 헤드 위치를 검색하면 광고 시퀀스의 시작 부분을 검색할 수 있습니다. 이 경우 autoPlay가 NO이면 AVPlayer는 광고 시퀀스의 첫 번째 프레임에서 일시 중지됩니다.</p>
+
+<h1>플레이어 UI 내장 컨트롤</h1>
+
+<p>BrightcovePlayerSDK는 기본 재생 및 광고 컨트롤 모두에 대해 SSAI 플러그인과 함께 사용할 수 있는 내장 UI 컨트롤 세트를 제공합니다. 컨트롤을 사용하려면<code> BCOVPUIPlayerView</code> , SSAI 재생 컨트롤러와 연결합니다.</p>
+
+<p>먼저 클래스에 playerView 속성을 만듭니다.</p>
+
+<p><code>objc @property(비원자) BCOVPUIPlayerView *playerView;</code></p>
+
+<p>생성<code> BCOVPUIPlayerView</code>인스턴스를 만들고 개체에 대한 참조를 저장합니다.</p>
+
+<p><code>objc BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView 할당] initWithPlaybackController:nil 옵션:nil controlsView:controlView]; // 자신의 비디오 보기에 playerView를 삽입합니다. [self.videoContainer addSubview:self.playerView];</code></p>
+
+<p>너&rsquo;플레이어 보기에 대한 레이아웃을 설정해야 하는 경우 Auto Layout 또는 이전 Springs &amp; Struts 방법으로 이를 수행할 수 있습니다.</p>
+
+<p><strong>스프링 및 스트럿</strong></p>
+
+<p>컨테이너 보기와 일치하도록 프레임을 설정한 다음 보기 계층 구조의 컨테이너 보기에 플레이어 보기를 추가합니다. 참고<code>비디오 컨테이너</code>앱에서 자신의 뷰 객체입니다. &rsquo;레이아웃.</p>
+
+<p><code>objc self.playerView.frame = self.videoContainer.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></p>
+
+<p><strong>자동 레이아웃</strong></p>
+
+<p><code>objc self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor], [self.playerView.rightAnchor 제약 EqualToAnchor:self.videoContainer.rightAnchor], [self.playerView.leftAnchor 제약leftEqualToAnchor].self , [self.playerView.bottomAnchor 제약 EqualToAnchor:self.videoContainer.bottomAnchor], ]];</code>이제 생성<code> BCOV재생 컨트롤러</code> , 플레이어 보기에 할당한 다음 비디오 재생을 시작합니다.</p>
+
+<p>```objc // 컴패니언 슬롯 초기화<a href="Classes/BCOVSSAIAdComponentDisplayContainer.html"> BCOVSSAIAdComponentDisplayContainer</a> *displayContainer = [[BCOVSSAIAdComponentDisplayContainer 할당] initWithCompanionSlots:@[]];</p>
+
+<p>// 재생 컨트롤러 생성 BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; ID<BCOVPlaybackController> playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:nil];</p>
+
+<p>// 디스플레이/컴패니언 광고 메시지 수신 [playbackController addSessionConsumer:displayContainer];</p>
+
+<p>// 플레이어 보기에 이것이 재생 컨트롤러임을 알립니다. &rsquo; self.playerView.playbackController 다시 사용 = playbackController;</p>
+
+<p>// 동영상을 만들고 재생합니다. Unicorn Once 스타일 VMAP URL의 경우 BCOVVideo 개체를 직접 만듭니다. BCOV재생 서비스 <em>playbackService = [[BCOVPlaybackService 할당] initWithAccountId:accoundId policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID 매개변수: { kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id&gt; }완성:^(BCOV동영상 </em>비디오, NSDictionary <em>jsonResponse, NSError </em>오류) {</p>
+
+<pre><code>[재생컨트롤러 setVideos:@[동영상]]; [재생 컨트롤러 재생]; }];</code></pre>
+
+<pre><code>PlayerUI 컨트롤을 사용하고 사용자 지정하는 방법에 대한 자세한 내용은 BrightcovePlayerSDK의 README를 참조하십시오. VMAP 응답 데이터에 대한 액세스 ========================== VMAP 응답 데이터에 액세스하려면 `kBCOVSSAIVMAPResponseReceivedNotification` 알림을 구독할 수 있습니다. 알림을 받으면 알림의 userInfo 사전에 VMAP 응답이 NSData로 포함됩니다. `kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey` 상수를 사용하여 userInfo에서 액세스할 수 있습니다. 재생 컨트롤러가 여러 개 있고 VMAP 응답이 여러 개일 수 있으므로 알림의 개체 'id playbackController = notification.object'를 확인하여 VMAP 데이터가 어떤 동영상인지 확인할 수 있습니다. 또한 알림을 구독하면 해당 재생 컨트롤러와 관련된 VMAP 데이터 알림만 수신되도록 재생 컨트롤러를 개체로 설정할 수 있습니다. 예: ```objc [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVSSAIVMAPResponseReceivedNotification 객체:self.playbackController];</code></pre>
+
+<p>다음을 통해 VMAP 응답 데이터에 액세스할 수도 있습니다. <code> BCOVOUX세션</code>물체:</p>
+
+<pre><code>// Obj-C - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller didAdvanceToPlaybackSession:(id&lt;BCOVPlaybackSession&gt;)세션{ if ([session respondsToSelector:NSSelectorFromString(@"vmapResponseData")]) { NSData *vmapResponseData = [(NSObject *)session valueForKeyPath:@"vmapResponseData"]; NSString *xmlString = [[NSString alloc] initWithData:vmapResponseData encoding:NSUTF8StringEncoding]; NSLog(@"VMAP XML: %@", xmlString); } }</code></pre>
+
+<pre><code>// Swift func playbackController(_ 컨트롤러: BCOVPlaybackController!, didAdvanceTo 세션: BCOVPlayback세션!) { if (session.responds(to: NSSelectorFromString("vmapResponseData"))) { let vmapResponseData = (session as? NSObject)?.value(forKeyPath: "vmapResponseData") as? Data var xmlString: String? = nil if let vmapResponseData = vmapResponseData { xmlString = String(data: vmapResponseData, encoding: .utf8) } print("VMAP XML: \\(xmlString ?? "")") } }</code></pre>
+
+<h1>알려진 문제</h1>
+
+<ul>
+<li><p>tvOS는 웹 브라우징을 지원하지 않기 때문에 컴패니언 광고, 자세히 알아보기 및 모든 광고 클릭률은 해당 플랫폼에서 무시됩니다.</p></li>
+<li><p>BrightcoveFairPlay 플러그인 또는 BrightcoveIMA 플러그인(프리롤 광고 전용)을 제외한 다른 Brightcove 플러그인과 함께 BrightcoveSSAI를 사용할 수 없습니다.</p></li>
+<li><p>BrightcoveFairPlay 플러그인과 함께 BrightcoveSSAI 플러그인을 사용하려면 BrightcoveFairPlay 플러그인이<code> upstreamSessionProvider</code> SSAI 세션 제공자의</p></li>
+<li><p>SSAI 플러그인은 비 SSAI 콘텐츠 재생을 지원하지 않습니다. 비 SSAI 콘텐츠를 재생해야 하는 경우 SSAI 플러그인을 사용하지 않는 다른 재생 컨트롤러를 생성해야 합니다.</p></li>
+</ul>
+
+
+<h1>지원하다</h1>
+
+<p>질문이 있거나 도움이 필요하거나 피드백을 제공하려면<a href="https://supportportal.brightcove.com/s/login/">지원 포털</a>또는 계정 관리자에게 문의하세요. 새 SDK 소프트웨어 릴리스에 대한 알림을 받으려면 Brightcove Native Player SDK를 구독하십시오. <a href="https://groups.google.com/g/brightcove-native-player-sdks">구글 그룹</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">클래스 참조</h2>
+							<ul>
+								
+								<li>BCOVSSAIAdComponentDisplayContainer<a href="Classes/BCOVSSAIAdComponentDisplayContainer.html"></a></li>
+								
+								<li><a href="Classes/BCOVSSAICompanionSlot.html">BCOVSSAI컴패니언슬롯</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">프로토콜 참조</h2>
+							<ul>
+								
+								<li>BCOVSSAIAdComponentDelegate<a href="Protocols/BCOVSSAIAdComponentDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">카테고리 참조</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVPlayerSDKManager-BCOVSSAIAdditions.html">BCOVPlayerSDKManager(BCOVSSAI추가)</a></li>
+								
+								<li><a href="Categories/BCOVSessionProviderExtension-BCOVSSAIAdditions.html">BCOVSessionProviderExtension(BCOVSSAI추가)</a></li>
+								
+								<li><a href="Categories/BCOVSource-BCOVSSAIAdditions.html">BCOVSource(BCOVSSAI추가)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+							
+							
+							<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

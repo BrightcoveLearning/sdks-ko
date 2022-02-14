@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVGoogleCastManagerDelegate 프로토콜 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/playbackController">재생 컨트롤러</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/castedVideoFailedToPlay">- CastedVideoFailedToPlay</option>
+		
+		<option value="//api/name/currentCastedVideoDidComplete">- 현재CastedVideoDidComplete</option>
+		
+		<option value="//api/name/shouldCastVideo:">- shouldCast 비디오:</option>
+		
+		<option value="//api/name/suitableSourceNotFound">- 적당한 소스가 발견되지 않음</option>
+		
+		<option value="//api/name/switchedToLocalPlayback:withError:">- SwitchedToLocalPlayback:withError:</option>
+		
+		<option value="//api/name/switchedToRemotePlayback">- SwitchedToRemotePlayback</option>
+		
+		<option value="//api/name/useSourceFromSources:">- 소스에서 소스를 사용:</option>
+		
+		<option value="//api/name/willBuildMediaInformationBuilder:">- willBuildMediaInformationBuilder:</option>
+		
+		<option value="//api/name/willSendMediaLoadOptions:">- willSendMediaLoad 옵션:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVGoogleCastManagerDelegate 프로토콜 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>준수</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVGoogleCastManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>Google Cast 세션 상태에 대한 정보를 수신하려면 이 프로토콜을 준수하십시오.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playbackController" title="playbackController"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playbackController">&nbsp;&nbsp;재생 컨트롤러</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 강력, 읽기 전용) id&lt;BCOVPlaybackController&gt; _Nullable playbackController</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchedToLocalPlayback:withError:" title="switchedToLocalPlayback:withError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchedToLocalPlayback:withError:">&ndash;&nbsp; SwitchedToLocalPlayback:withError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메소드는 캐스트 세션이 종료될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)switchedToLocalPlayback:(NSTimeInterval)<code><em>lastKnownStreamPosition</em> withError:(nullable NSError *)<em>오류</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">lastKnownStreamPosition<code></code></th>
+						<td><p>마지막으로 알려진 스트림 위치의 NSTimeInterval 값</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오류</code></th>
+						<td><p>Google Cast SDK에서 오류를 수신한 경우 여기를 통해 전달됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>캐스트 세션이 종료되면 이것을 사용하여 UI 요소를 표시/숨기거나 다른 이벤트를 트리거할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchedToRemotePlayback" title="switchedToRemotePlayback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchedToRemotePlayback">&ndash;&nbsp; SwitchedToRemotePlayback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메소드는 캐스트 세션이 시작될 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)RemotePlayback으로 전환</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>캐스트 세션이 시작되면 이것을 사용하여 UI 요소를 표시/숨기거나 다른 이벤트를 트리거할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentCastedVideoDidComplete" title="currentCastedVideoDidComplete"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentCastedVideoDidComplete">&ndash;&nbsp;현재CastedVideoDidComplete</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드는 캐스트 비디오 재생이 완료되면 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)currentCastedVideoDidComplete<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>캐스트 비디오가 재생을 완료하면 이것을 사용하여 UI 요소를 표시/숨기거나 다른 이벤트를 트리거할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/castedVideoFailedToPlay" title="castedVideoFailedToPlay"></a>
+	<h3 class="method-title"><code><a href="#//api/name/castedVideoFailedToPlay">&ndash;&nbsp;캐스트 비디오 플레이 실패</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드는 캐스트 비디오 재생에 실패할 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)castedVideoFailedToPlay</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>캐스트 비디오가 재생되지 않으면 이것을 사용하여 UI 요소를 표시/숨기거나 다른 이벤트를 트리거할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/suitableSourceNotFound" title="suitableSourceNotFound"></a>
+	<h3 class="method-title"><code><a href="#//api/name/suitableSourceNotFound">&ndash;&nbsp;적절한 소스가 발견되지 않음</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드는 적절한 소스를 찾을 수 없을 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)적합한 소스가 발견되지 않음</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>NS <a href="../Classes/BCOVGoogleCastManager.html"> BCOVGoogleCastManager</a> HLS v3의 HTTPS 버전을 찾은 다음 DASH를 확인하고 마지막으로 MP4 소스를 확인합니다. HTTPS 버전이 없으면 동일한 소스 유형의 HTTP 버전을 확인합니다. HTTP 버전이 없으면 이 메서드가 호출됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willBuildMediaInformationBuilder:" title="willBuildMediaInformationBuilder:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willBuildMediaInformationBuilder:">&ndash;&nbsp; willBuildMediaInformationBuilder:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드는 호출하기 전에 호출됩니다. <code>짓다</code>전송될 현재 비디오에 대해 설정된 GCKMediaInformationBuilder의 현재 인스턴스에서. 이렇게 하면 필요에 따라 빌더에 추가 값을 추가할 수 있습니다. 이 방법을 사용하여 수신기 앱의 빌더에 사용자 지정 데이터를 전달할 수 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willBuildMediaInformationBuilder:(GCKMediaInformationBuilder *_Nonnull)<code><em>건축업자</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 메서드는 호출하기 전에 호출됩니다. <code>짓다</code>전송될 현재 비디오에 대해 설정된 GCKMediaInformationBuilder의 현재 인스턴스에서. 이렇게 하면 필요에 따라 빌더에 추가 값을 추가할 수 있습니다. 이 방법을 사용하여 수신기 앱의 빌더에 사용자 지정 데이터를 전달할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willSendMediaLoadOptions:" title="willSendMediaLoadOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willSendMediaLoadOptions:">&ndash;&nbsp; willSendMediaLoad옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드를 사전 호출이라고 합니다. <code> loadMedia:옵션 포함</code>현재 캐스트 세션에서&rsquo;■ remoteMediaClient.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willSendMediaLoadOptions:(GCKMediaLoadOptions *_Nonnull)<code><em>미디어로드 옵션</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 대리자 메서드를 사용하여 remoteMediaClient로 전송되기 전에 필요에 따라 GCKMediaLoadOptions를 추가로 구성할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/useSourceFromSources:" title="useSourceFromSources:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/useSourceFromSources:">&ndash;&nbsp;소스에서 소스 사용:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메서드는 캐스트되기 전에 소스를 구문 분석해야 할 때 호출됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVSource *_Nonnull)useSourceFromSources:(NSArray&lt;BCOVSource*&gt; *_Nonnull)<code><em>출처</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 방법을 사용하여 캐스트 수신기와 함께 사용할 소스를 지정할 수 있습니다. 이 방법을 구현하지 않으면<a href="../Classes/BCOVGoogleCastManager.html"> BCOVGoogleCastManager</a>자체적으로 소스 선택을 수행합니다(참조<code>적절한 소스를 찾을 수 없음</code>자세한 내용은).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shouldCastVideo:" title="shouldCastVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shouldCastVideo:">&ndash;&nbsp; shouldCast동영상:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 메소드는 다음에 호출됩니다. <a href="../Classes/BCOVGoogleCastManager.html"> BCOVGoogleCastManager</a>새 재생 세션을 받았습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)비디오를 캐스팅해야 함:(BCOVVideo *_Nonnull)<em>동영상</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>언제<a href="../Classes/BCOVGoogleCastManager.html"> BCOVGoogleCastManager</a>재생 세션에서 새 BCOVVideo를 수신하면 이전 BCOVVideo(있는 경우)와 비교하여 캐스트 세션이 동일한 비디오로 다시 시작되지 않도록 합니다. 이 방법을 사용하여 현재 비디오를 전송해야 하는지 여부를 제어할 수 있도록 내부 검사를 재정의할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

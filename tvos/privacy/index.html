@@ -1,0 +1,23 @@
+
+---
+title: 개인 정보
+description: tvOS용 Brightcove 네이티브 SDK를 사용하여 사용자 개인 정보 및 데이터 사용을 관리하는 방법을 알아보세요.
+parent: tvOS Development 
+---
+
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="card-wrapper">
+    <section class="bcls-card">
+      <div class="card-content">
+        <h2 id="Topics_in_this_section">주제{{ page.title }}</h2>
+        <ul>
+        {% for item in site.data.navigation %} {% if item.name == 'tvOS Development' %} {% for entry in item.docs %} {% if entry.name == page.title %} {% for doc in entry.docs %}
+                  <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
+                {% endfor %} {% endif %} {% endfor %} {% endif %} {% endfor %}
+      </div>
+    </section>
+  </section>
+</article>

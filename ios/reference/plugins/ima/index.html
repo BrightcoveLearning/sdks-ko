@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>iOS 참조용 Brightcove 기본 플레이어</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">iOS용 브라이트코브 네이티브 플레이어</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">계층</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">iOS 참조용 Brightcove 기본 플레이어</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>iOS용 Brightcove Player SDK용 IMA 플러그인, 버전 6.9.0.1697</h1><h1>요구 사항</h1>
+
+<ul>
+<li>엑스코드 11.0+</li>
+<li>호</li>
+</ul>
+
+
+<h1>지원되는 플랫폼</h1>
+
+<p>iOS 11.0 이상.</p>
+
+<h1>설치</h1>
+
+<p>Brightcove Player SDK용 IMA 플러그인은 설치를 위한 동적 라이브러리 프레임워크를 제공합니다.</p>
+
+<p>IMA 플러그인은 iOS용 Google IMA SDK 버전 3.12.1 및 tvOS용 Google IMA SDK 버전 4.3.2를 지원합니다.</p>
+
+<h2>코코아팟</h2>
+
+<p>당신이 사용할 수있는<a href="http://cocoapods.org">코코아팟</a> Brightcove Player SDK용 IMA 플러그인을 프로젝트에 추가합니다. 최신 정보를 찾을 수 있습니다<code> Brightcove-Player-IMA</code>포드 스펙<a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-IMA">여기</a> . 포드는 올바른 버전의 IMA를 자동으로 통합합니다. CocoaPods 1.0 이상이 필요합니다.</p>
+
+<p>CocoaPod Podfile 예:</p>
+
+<pre><code>source 'https://github.com/brightcove/BrightcoveSpecs.git' use_frameworks! platform :ios, '11.0' target 'MyIMAPlayer' do pod 'Brightcove-Player-IMA' end </code></pre>
+
+<p>IMA 릴리스 3.4.1부터 AdMob은 독립형 동적 프레임워크로 게시되며 더 이상 Brightcove Native Player SDK용 IMA 플러그인의 일부로 설치할 수 없습니다. 이와 같이 더 이상<code> ForAdMob</code> podspec의 하위 사양입니다. AdMob을 사용하려면 다운로드하여 프로젝트에 수동으로 추가하거나<code> Google-모바일-광고-SDK</code> CocoaPod에서 Podfile:</p>
+
+<pre><code>pod 'Google-Mobile-Ads-SDK' </code></pre>
+
+<p>설치를 업데이트할 때&rsquo; CococaPods 마스터 리포지토리를 업데이트하는 것처럼 BrightcoveSpecs 리포지토리의 로컬 복사본을 새로 고치는 것이 좋습니다.</p>
+
+<p>일반적으로 사용하는 경우<code>포드 업데이트</code>터미널에서는 자동으로 발생하거나 다음을 사용하여 명시적으로 업데이트할 수 있습니다. <code>포드 리포지토리 브라이트코브 업데이트</code> . (Podspecs 저장소 목록에 명시적으로 추가한 경우 BrightcoveSpecs 저장소의 이름이 다를 수 있습니다.)</p>
+
+<h2>설명서</h2>
+
+<p>Brightcove Player SDK용 IMA 플러그인을 프로젝트에 수동으로 추가하려면:</p>
+
+<ol>
+<li>다운로드<a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">브라이트코브 플레이어 SDK</a>뼈대.</li>
+<li>다운로드<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/releases"> Brightcove Player SDK용 IMA 플러그인</a>뼈대.</li>
+<li>다운로드<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">구글 IMA</a>뼈대.</li>
+<li>에&ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에 추가<strong>동적</strong>프레임워크, BrightcovePlayerSDK.framework, Brightcove Player SDK 다운로드에서 목록으로<strong>프레임워크, 라이브러리, 임베디드 콘텐츠</strong> . 동적 프레임워크인 BrightcovePlayerSDK.framework는 다운로드의 ios/dynamic 디렉토리에 있습니다.</li>
+<li>에&ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에서 Brightcove Player SDK용 IMA 플러그인 다운로드의 BrightcoveIMA.framework를 목록에 추가합니다. <strong>프레임워크, 라이브러리, 임베디드 콘텐츠</strong> .</li>
+<li>에&ldquo;일반적인&rdquo;애플리케이션 타겟의 탭에서 Google IMA 다운로드의 GoogleInteractiveMediaAds.framework를 목록에 추가합니다. <strong>프레임워크, 라이브러리, 임베디드 콘텐츠</strong> .</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭에서&ldquo;프레임워크 검색 경로&rdquo;프레임워크에 대한 경로를 포함합니다. 프레임워크가 프로젝트와 다른 루트 디렉터리에 저장되지 않는 한 이 작업은 자동으로 수행되어야 합니다.</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭:
+
+<ul>
+<li>다음을 확인하십시오. <code> -오브제이C</code>에 추가되었습니다&ldquo;기타 링커 플래그&rdquo;빌드 설정.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>수입품</h2>
+
+<p>Brightcove Player SDK용 IMA 플러그인은 몇 가지 다른 방법으로 코드로 가져올 수 있습니다. <code> @import BrightcoveIMA;</code> , <code> #import &lt;BrightcoveIMA/BrightcoveIMA.h&gt;</code>또는<code> #import &lt;BrightcoveIMA/[특정 클래스].h&gt;</code> . 가져올 수 있습니다<code> Google 양방향 미디어 광고</code>그리고<code> BrightcovePlayerSDK</code>비슷한 방식의 모듈.</p>
+
+<h1>빠른 시작</h1>
+
+<p>BrightcoveIMA 플러그인은<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">구글 IMA iOS SDK v3</a>그리고<a href="https://github.com/brightcove/brightcove-player-sdk-ios"> iOS용 브라이트코브 플레이어 SDK</a> . 이 스니펫은 VMAP 광고 규칙의 기본 사용법을 보여줍니다.</p>
+
+<pre><code>[1] IMASettings *imaSettings = [[IMASettings 할당] 초기화]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings 할당] 초기화]; renderSettings.webOpenerPresentingController = 자기; UIView *videoContainerView = &lt;비디오 컨테이너의 UIView&gt;; NSString *adTag = &lt;광고 태그&gt;; [2] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVMAPAdTagUrl:adTag]; BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자]; id&lt;BCOVPlaybackController&gt; 컨트롤러 = [3] [관리자 createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self companionSlots:nil viewStrategy:nil]; controller.delegate = 자기; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;귀하의 정책 키&gt;; NSString *accountId = &lt;귀하의 계정 ID&gt;; NSString *videoID = &lt;당신의 비디오 ID&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService 할당] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID 매개변수:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<p>코드를 단계로 나누기:</p>
+
+<ol>
+<li>Google을 사용하는 경우 생성하는 것과 동일한 IMA 설정, 광고 렌더링 설정 생성&rsquo; s IMA iOS SDK 직접. 이것들은 필수입니다.</li>
+<li><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a> VAST 또는 VMAP 광고 규칙을 지정하는 방법을 제공합니다. 적절한 방법을 선택하여 광고 정책을 선택하세요.</li>
+<li>BrightcoveIMA는 BCOVPlaybackManager에 몇 가지 범주 메서드를 추가합니다. 그 중 첫 번째는<code> -createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:companionSlots:viewStrategy:</code> . 이 방법을 사용하여 재생 컨트롤러를 만듭니다.</li>
+</ol>
+
+
+<h1>재생 및 일시 중지</h1>
+
+<p>Brightcove IMA 플러그인은 가능한 가장 부드러운 광고 경험을 보장하기 위해 맞춤형 재생 및 일시 중지 로직을 구현합니다. 따라서 재생 방법을 사용하고 있는지 확인해야 합니다. <code> BCOV재생 컨트롤러</code>아니면 그<code> [BCOVSessionProvider 확장 ima_play]</code>또는<code> [BCOVSessionProviderExtension ima_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h"> BCOVSessionProvider 확장</a> ), AVPlayer가 아닙니다.</p>
+
+<p>예를 들어 처음으로 play를 호출하는 경우<code> BCOV재생 컨트롤러</code> BCOVIMA는 프리롤 전에 재생되는 콘텐츠 없이 프리롤 광고를 처리할 수 있습니다. BCOVIMA가 기본값을 재정의하는 방법에 대한 자세한 내용은<code> BCOV재생 컨트롤러</code>방법을 확인하십시오<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h"> BCOVSessionProvider 확장</a> .</p>
+
+<h1>내장 PlayerUI 사용</h1>
+
+<p>당신의<code> UIViewController</code> , 생성<code> BCOVPUIPlayerView</code>재생 컨트롤, 동영상 콘텐츠 보기 및 IMA에서 광고를 표시할 수 있는 특수 보기를 포함하는 플레이어 보기라는 속성입니다.</p>
+
+<pre><code>// PlayerUI의 플레이어 보기 @property(비원자) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>그런 다음 플레이어 보기를 만듭니다. 나중에 추가될 nil 재생 컨트롤러를 제공하십시오. 이 플레이어 보기에는 동영상 콘텐츠 보기와 재생 컨트롤 및 광고 컨트롤을 표시하는 보기가 모두 포함되어 있습니다. 이 설정은 어떤 플러그인을 사용하든 동일합니다. 레이아웃의 비디오 컨테이너와 일치하도록 플레이어 보기를 설정합니다( <code>동영상보기</code> ) 크기가 조정될 때.</p>
+
+<pre><code>// 컨트롤 뷰를 만들고 구성합니다. BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // 재생 컨트롤러가 없는 플레이어 보기를 만듭니다. self.playerView = [[BCOVPUIPlayerView 할당] initWithPlaybackController:nil 옵션:nil controlsView:controlView]; // 비디오 보기에 BCOVPUIPlayerView를 추가합니다. [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>너&rsquo;플레이어 보기에 대한 레이아웃을 설정해야 하는 경우 Auto Layout 또는 이전 Springs &amp; Struts 방법으로 이를 수행할 수 있습니다.</p>
+
+<p><strong>스프링 및 스트럿</strong><code> self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></p>
+
+<p><strong>자동 레이아웃</strong><code> self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor 제약 EqualToAnchor:self.videoView. , [self.playerView.bottomAnchor 제약 조건EqualToAnchor:self.videoView.bottomAnchor], ]];</code></p>
+
+<p>재생 컨트롤러 생성은 IMA에만 해당됩니다. 위에서 했던 것처럼 재생 컨트롤러를 생성하되 비디오 컨테이너 보기 대신<code>콘텐츠 오버레이 보기</code>플레이어 보기에서<code>광고 컨테이너</code> . NS <code>콘텐츠 오버레이 보기</code>기본 비디오 콘텐츠에 보기를 오버레이하는 데 사용되는 특수 보기입니다.</p>
+
+<pre><code>// 재생 컨트롤러를 생성합니다. id&lt;BCOVPlaybackController&gt; controller = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView // IMA 광고 콘텐츠에 대한 특별 보기 viewController:self companionSlots:nil viewStrategy:nil]; controller.delegate = 자기; // 플레이어 보기에 새 재생 컨트롤러를 할당합니다. // 이것은 playerController의 세션을 PlayerUI와 연결합니다. // 이 플레이어 보기를 유지하고 새 재생 컨트롤러를 생성할 때 // 할당할 수 있습니다. self.playerView.playbackController = self.playbackController;</code></pre>
+
+<p>이제 광고가 있는 동영상을 재생할 때 동영상 콘텐츠를 재생하는 동안 PlayerUI 컨트롤과 타임라인 스크러버에 광고 마커가 표시됩니다(VMAP 광고만 해당).</p>
+
+<p>PlayerUI는 고도로 사용자 정의할 수 있습니다. 자세한 내용과 샘플 코드는 다음을 참조하십시오. <strong>사용자 정의 레이아웃</strong> README.md 파일의 섹션<a href="https://github.com/brightcove/brightcove-player-sdk-ios">브라이트코브 네이티브 플레이어 SDK 리포지토리</a> .</p>
+
+<h1>광고 없이 검색</h1>
+
+<p>사용하다<code> -[BCOVPlaybackController seekWithoutAds:(CMTime)seekToTime completionHandler:(void (^)(BOOL 완료))completion]</code>사용자가 이전에 예약된 광고를 시청하지 않고 특정 시간에 재생을 재개하려면<code>시크투타임</code> .</p>
+
+<p>에 대비하여<code> seekWithoutAds:completionHandler:</code> , 장애를 입히다<code>자동 재생</code>설정할 때<code> BCOV재생 컨트롤러</code> .</p>
+
+<p>Apple은 AVPlayerItem을 사용하기 전에 AVPlayerItem의 상태가 Ready-to-play로 변경될 때까지 기다릴 것을 권장합니다. 따라서 전화<code> seekWithoutAds:completionHandler:</code>에서<code> kBCOVPlaybackSessionLifecycleEventReady</code>핸들러<code>재생컨트롤러:재생세션:didReceiveLifecycleEvent</code>당신의 방법<code> BCOVPlaybackControllerDelegate</code> .</p>
+
+<p>```objective-c - (void)playbackController:(NSObject<BCOVPlaybackController><em>) 컨트롤러 재생 세션:(NSObject<BCOVPlaybackSession></em>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) { // self.resumePlayback은 여기에서 설명을 위해 사용된 가상의 인스턴스 변수입니다. if (self.resumePlayback) { __weak typeof(controller) weakController = 컨트롤러;</p>
+
+<pre><code>// 탐색 시간 이전에 예약된 광고를 재생하지 않고 탐색합니다. 즉, 재생을 재개합니다. [컨트롤러 seekWithoutAds:CMTimeMake(seekWithoutAdsValue,seekWithoutAdsTimescale) completionHandler:^(BOOL 완료) { if (!finished) { NSLog (@"seekWithoutAds failed to finish"); } typeof(컨트롤러) strongController = 약한 컨트롤러; if (strongController) { // fade out the shutter to reveal the player view. strongController.shutterFadeTime = 0.25; strongController.shutter = NO; // turn off seek without ads - especially important if this player is being used with a playlist self.resumePlayback = NO; } }]; }</code></pre>
+
+<p>  } } ```</p>
+
+<p>NS <code>셔터</code>그리고<code>셔터페이드타임</code>속성<code> BCOV재생 컨트롤러</code>와 함께 사용할 수 있습니다<code> seekWithoutAds:completionHandler:</code> AVPlayer가 자산을 로드할 때 발생할 수 있는 프레임 깜박임을 숨기기 위해. BCOVPlaybackController 설정 코드에서 셔터를 활성화하여 플레이어 보기를 숨깁니다.</p>
+
+<p>```목표 c NSObject<BCOVPlaybackController> *재생컨트롤러;</p>
+
+<p>  playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:nil viewStrategy:nil]; playbackController.delegate = 자기;</p>
+
+<p>  if (self.resumePlayback) { // 셔터 페이드 시간을 0으로 설정하여 플레이어 보기를 즉시 숨깁니다. 재생컨트롤러.셔터페이드타임 = 0.0; 재생 컨트롤러.셔터 = 예;</p>
+
+<pre><code>// 재생을 재개할 때 자동 재생을 비활성화합니다. 재생 컨트롤러.autoPlay = 아니요;</code></pre>
+
+<p>  } ```</p>
+
+<p>앱에서 Seek Without Ads를 사용하면 일반적으로 IMA 플러그인 설정의 일부로 발생하는 네트워크 트래픽을 관찰할 수 있습니다. 이 트래픽은 적절한 플러그인 설정에 필요하며 광고 없이 검색 기능에 영향을 주지 않습니다.</p>
+
+<h1>플러그인 동작 사용자 정의</h1>
+
+<p>BCOVIMA에는 몇 가지 구성 지점이 있습니다. BCOVIMA를 iOS용 Brightcove Player SDK용 다른 플러그인과 결합하고, 사용자 정의 보기 전략을 생성하고, 사용자 정의 광고 요청 정책을 제공할 수 있습니다.</p>
+
+<h2>VAST 및 VMAP 광고 규칙</h2>
+
+<p>BCOVIMA를 통해 광고 요청이 이루어지는 방식을 제어할 수 있습니다. <a href="Classes/BCOVIMAAdsRequestPolicy.html"><code> BCOVIMAAdsRequestPolicy</code></a>수업. 이 클래스는 지원되는 정책에 대한 팩토리 메서드를 제공합니다. 올바른 정책의 인스턴스를 얻은 후에는 이를 에 제공해야 합니다. <code> BCOVPlayerSDKManager</code>재생 컨트롤러 또는 재생 세션 공급자를 생성합니다.</p>
+
+<p>빠른 시작에서는 VMAP의 예가 제공됩니다. 다음은 VAST의 예입니다.</p>
+
+<pre><code>IMASettings *imaSettings = [[IMASettings 할당] 초기화]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings 할당] 초기화]; renderSettings.webOpenerPresentingController = 자기; UIView *videoContainerView = &lt;비디오 컨테이너의 UIView&gt;; [1] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVASTAdTagsInCuePointsAndAdsCuePointProgressPolicy:nil]; BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자]; id&lt;BCOVPlaybackController&gt; 컨트롤러 = [관리자 createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self companionSlots:nil viewStrategy:nil];</code></pre>
+
+<p>허락하다&rsquo; s 이 코드를 단계로 분해하여 좀 더 쉽게 소화할 수 있습니다.</p>
+
+<ol>
+<li>이 예제는 빠른 시작에서 제공된 것과 동일하지만, 지금은 다른<code> BCOVIMAAdsRequestPolicy</code>정책 메서드를 사용하여 VAST를 사용하도록 지정합니다.</li>
+</ol>
+
+
+<p><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>광고 요청 정책을 생성하는 4가지 팩토리 메소드가 있습니다. VMAP용으로 2개, VAST용으로 2개. VMAP에 대한 두 가지 팩토리 메소드가 아래에서 더 자세히 설명됩니다.</p>
+
+<ul>
+<li><p><code>+videoPropertiesVMAPAdTagUrlAdsRequestPolicy</code> : 이 메소드는 다음을 찾는 기본 광고 요청 정책을 반환합니다. <code> kBCOVIMAAdTag</code>각 BCOV비디오에서&rsquo; s 속성을 사용하여 광고를 요청하는 데 사용해야 하는 VMAP 광고 태그를 결정합니다.</p></li>
+<li><p><code>+adsRequestPolicyWithVMAPAdTagUrl:</code> : 이 메서드는 모든 동영상에 항상 동일한 광고 태그를 사용하는 광고 요청 정책을 반환합니다. 이 정책을 사용하면 BCOVVideos에 광고 태그를 넣을 필요가 없습니다.' 속성. 이것은 광고 태그가 애플리케이션 세션의 수명 동안 절대 변경되지 않는다는 것을 알고 있는 경우 광고 태그를 지정하는 가장 쉬운 방법입니다.</p></li>
+</ul>
+
+
+<p>VAST에는 두 가지 팩토리 메소드가 있습니다. 모든 VAST 메서드는 BCOVCuePointProgressPolicy를 사용합니다. 큐 포인트 정책은 처리할 BCOVCuePoint를 결정합니다. <a href="Classes/BCOVIMAAdsRequestPolicy.html"> BCOVIMAAdsRequestPolicy</a> . VAST 정책은 다음과 같습니다.</p>
+
+<ul>
+<li><p>+adsRequestPolicyWithVASTAdTagsInCuePointsAndAdsCuePointProgressPolicy:<code></code> 이 메서드는 각 BCOVVideo에서 다음 유형의 BCOVCuePoint를 확인하는 광고 요청 정책을 반환합니다. &lsquo; kBCOVIMACuePointTypeAd &rsquo;키에 대한 각 큐 포인트 속성을 살펴봅니다. <code> kBCOVIMAAdTag</code>광고를 요청하는 데 사용해야 하는 VAST 광고 태그를 결정합니다.</p></li>
+<li><p>+adsRequestPolicyFromCuePointPropertiesWithAdTag:adsCuePointProgressPolicy:<code></code> 이 메소드는 모든 BCOVCuePoint 유형에 대해 지정된 VAST 광고 태그를 사용하는 광고 요청 정책을 반환합니다. <strong> kBCOVIMACuePointTypeAd</strong> . 큐 포인트의 속성은 쿼리 매개변수로 광고 태그에 추가됩니다.</p></li>
+</ul>
+
+
+<p>다음을 사용하여 동영상에 VAST 광고 태그 큐포인트를 추가할 수 있습니다. <code>업데이트:</code>방법<code> BCOV비디오</code>물체. 다음 예에서는 프리롤, 미드롤 및 포스트롤 큐포인트를 추가합니다.</p>
+
+<pre><code>// Objective-C - (BCOVVideo *)updateVideo:(BCOVVideo *)video { // Determine mid-point of video so we can insert a cue point there CGFloat durationMiliSeconds = ((NSNumber *)video.properties[@"duration"]).doubleValue; CGFloat midpointSeconds = (durationMiliSeconds / 2) / 1000; CMTime midpointTime = CMTimeMakeWithSeconds(midpointSeconds, 1); return [video update:^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:@[ [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kCMTimeZero properties:@{ kBCOVIMAAdTag : kVASTAdTagURL } ], [[BCOVCuePoint 할당] initWithType:kBCOVIMACuePointTypeAd 위치:midpointTime 속성:@ { kBCOVIMAAdTag : kVASTAdTagURL } ], [[BCOVCuePoint 할당] initWithType:kBCOVIMACuePointTypeAd 위치:kBCOVCuePointPositionTypeAfter 속성:@ { kBCOVIMAAdTag : kVASTAdTagURL } ] ]]; }]; }</code></pre>
+
+<pre><code>// 스위프트 func updateVideo(withVASTTag 광대 태그: 문자열) -&gt; BCOVVideo? { guard let durationNum = self.properties["duration"] as? NSNumber else { return nil } let durationMiliSeconds = durationNum.doubleValue let midpointSeconds = (durationMiliSeconds / 2) / 1000 let midpointTime = CMTimeMakeWithSeconds(midpointSeconds, preferredTimescale: 1) let cuePointPositionTypeAfter = CMTime.positiveInfinity 반환 업데이트{ (mutableVideo: BCOVMutableVideo?) in guard let mutableVideo = mutableVideo else { return } mutableVideo.cuePoints = BCOVCuePointCollection(배열: [ BCOVCuePoint(유형: kBCOVIMACuePointTypeAd, 위치: CMTime.zero, 속성: [kBCOVIMAdTag:vastTag])!, BCOVCuePoint(유형: kBCOVIMACuePointTypeAd, 위치: midpointTime, 속성: [kBCOVIMAdTag:vastTag])!, BCOVCuePoint(유형: kBCOVIMACuePointTypeAd, 위치: cuePointPositionTypeAd, 위치: cuePointPositionTypeAg ])!, ]) } }</code></pre>
+
+<p>다음과 같이 VideoCloud에서 생성된 큐포인트를 VAST 큐포인트로 변환할 수도 있습니다.</p>
+
+<pre><code>- (BCOVVideo *)updateVideo:(BCOVVideo *)video NSArray *cuePoints = video.cuePoints.array; NSMutableArray *updatedCuePoints = @[].mutableCopy; (BCOVCuePoint * 큐 포인트의 큐 포인트) { if ([cuePoint.type isEqualToString:kBCOVIMACuePointTypeAd]) { // The "metadata" property is the value of the // "Key/Value Pairs" field in VideoCloud when // creating/editing a Cue Point. In this example // the only value in this field is the VAST ad tag URL. // If you have additional values you'll need to parse // out just the ad tag URL. NSString *metadata = cuePoint.properties[@"metadata"]; NSDictionary *properties = @{ kBCOVIMAAdTag : metadata } ; BCOVCuePoint *updatedCuePoint = [[BCOVCuePoint 할당] initWithType:cuePoint.type 위치:cuePoint.position 속성:속성]; [updatedCuePoints addObject:updatedCuePoint]; } } [동영상 업데이트:^(id&lt;BCOVMutableVideo&gt; mutableVideo) 반환{ mutableVideo.cuePoints = [BCOVCuePointCollection collectionWithArray:updatedCuePoints]; } ]; }</code></pre>
+
+<h2>IMAAdsRequest 수정</h2>
+
+<p>IMA 플러그인 통과<code> IMAAds요청</code>반대하다<code> BCOMIMAPlaybackSessionDelegate</code>전화하기 직전<code> IMAAdsLoader -requestAdsWithAdsRequest</code> , 사용자가 먼저 광고 요청을 수정할 수 있습니다. 광고 요청 콜백을 수신하려면<a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"><code> BCOVIMAPlaybackSessionDelegate</code></a>규약.</p>
+
+<pre><code>@import BrightcovePlayerSDK; @import BrightcoveIMA; @interface MyViewController: UIViewController BCOVIMAPlaybackSessionDelegate</code></pre>
+
+<p>만들기<code> BCOVIMA세션 제공자</code>둘 중 하나를 사용하여<code> createIMAPlaybackControllerWithSettings</code>또는<code> createIMASessionProviderWithSettings</code> , 키가 있는 항목과 함께 옵션의 NSDictionary를 제공합니다. <code> kBCOVIMAOptionIMAPlaybackSessionDelegateKey</code>그리고 당신의 대리인인 값.</p>
+
+<pre><code>NSDictionary *imaSessionProviderOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [sdkManager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self 동반자 슬롯:ni upstreamSessionProvider:nil 옵션:imaSessionProviderOptions];</code></pre>
+
+<p>구현하다<code> willCallIMAAdsLoaderRequestAdsWithRequest:forPosition:</code>당신의<code> BCOVIMAPlaybackSessionDelegate</code> .</p>
+
+<pre><code>- (void)CallIMAAdsLoaderRequestAdsWithRequest:(IMAAdsRequest *)adsRequest forPosition:(NSTimeInterval)position { adsRequest.vastLoadTimeout = 3000.; }</code></pre>
+
+<h2>전략 보기</h2>
+
+<p>defaultControlsViewStrategy를 직접 지정하는 대신 재생 컨트롤러 또는 세션 공급자를 구성할 때 BCOVPlaybackManager에 사용자 지정 보기 전략을 제공할 수 있습니다. 맞춤 보기 전략을 사용하면 광고 컨테이너 보기 및 광고 컴패니언 슬롯을 동영상 콘텐츠 보기와 연결할 수 있습니다. 이것은 사용자 정의 보기 전략의 예입니다.</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt; playbackController) { BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ;</code></pre>
+
+<h2>세션 공급자 구성</h2>
+
+<p>맞춤형 재생 컨트롤러를 생성해야 하는 iOS용 Brightcove Player SDK에 대한 플러그인을 두 개 이상 사용하는 경우 대신 세션 공급자 체인을 구성하고 최종 세션 공급자를<code> [BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code>방법.</p>
+
+<p>세션 공급자를 구성할 때 세션 사전 로드는 다음에서 활성화할 수 있습니다. <a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code> BCOVBasicSessionProvider</code></a> ; 그러나 IMA 플러그인으로 세션을 미리 로드하는 것은<strong>강력하게 낙심</strong>메모리에 여러 AVPlayer가 있을 때 Google IMA SDK의 버그로 인해.</p>
+
+<h1>광고 오버레이 등록</h1>
+
+<p>광고가 재생되는 동안 조회수를 표시하는 경우 해당 조회수를 IMA SDK에 등록해야 합니다. 읽기<strong>우호적인 방해물</strong>섹션<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/omsdk"> IMA SDK에서 측정 열기</a>자세한 내용은 페이지를 참조하십시오.</p>
+
+<p>오버레이를 등록하는 데 필요한 현재 IMAAdDisplayContainer 개체를 가져올 수 있습니다. <code> playbackController:playbackSession:didEnterAdSequence:</code> BCOVPlaybackController 인스턴스의 대리자 메서드입니다. 예를 들어: <code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didEnterAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer registerFriendlyObstruction:self.adOverlayView]; }</code></p>
+
+<p>광고 시퀀스가 완료되었을 때 방해물을 등록 해제하려면<code> playbackController:playbackSession:didExitAdSequence:</code> BCOVPlaybackController 인스턴스의 대리자 메서드를 사용할 수 있습니다. 예를 들어: <code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didExitAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer unregisterAllFriendlyObstructions]; }</code></p>
+
+<h1>에어플레이</h1>
+
+<p>IMA 플러그인은 프리롤 및 포스트롤 광고에 AirPlay를 지원합니다. 세트<code>배경 재생 활성화</code>에게<code>예</code> ~에<code> IMA설정</code>귀하의 AirPlay를 활성화하는 것과 함께<code> BCOV재생 컨트롤러</code> . 참조&ldquo;<em>에어플레이</em>&rdquo;섹션<a href="https://github.com/brightcove/brightcove-player-sdk-ios#airplay-">핵심 SDK 읽어보기</a>자세한 내용은.</p>
+
+<h1>잠재고객 세그먼트 타겟팅</h1>
+
+<p>만약 너라면&rsquo; IMA VAST 광고 요청에 잠재고객 세그먼트 타겟팅을 사용하고 싶습니다. <code> updateAudienceSegmentTargetingValues</code> ~에<code> BCOV재생 컨트롤러</code> . 예를 들어:</p>
+
+<pre><code>[playbackController updateAudienceSegmentTargetingValues:@ { @"account_id":@"11223344", @"account_type":@"premium"" } ];</code></pre>
+
+<p>이 값은<code> cust_params</code> IMA 광고 요청 URL의 쿼리 매개변수입니다. 예를 들면 다음과 같습니다.</p>
+
+<p>URL <a href="http://pubads.g.doubleclick.net/gampad/ads"><code> http://pubads.g.doubleclick.net/gampad/ads</code></a>될 것이다<a href="http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium"><code> http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium</code></a> .</p>
+
+<h1>기기 광고 타겟팅</h1>
+
+<p>당신은 사용할 수 있습니다<code> kBCOVIMAOptionBlockAdTargetingAPI 키</code>설정할 때<code> IMASessionProvider</code>또는 IMA <code> BCOV재생 컨트롤러</code>에 대한 호출을 방지하기 위해<a href="https://developer.apple.com/documentation/adsupport">광고 지원</a>그리고<a href="https://developer.apple.com/documentation/apptrackingtransparency">앱 추적 투명도</a>일부 App Store 제출 시나리오에서 사용할 수 없는 API.</p>
+
+<pre><code>// BCOVPlaybackController NSDictionary *imaPlaybackSessionOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; self.playbackController = [관리자 createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self companionSlots:nil viewStrategy:nil options:imaPlaybackSessionOptions];</code></pre>
+
+<pre><code>// IMASessionProvider NSDictionary *imaPlaybackSessionOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [관리자 createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self 동반자 슬롯:nil upstreamSessionProvider:nil 옵션:imaPlaybackSessionOptions];</code></pre>
+
+<h1>자주 묻는 질문</h1>
+
+<p><em>광고를 들을 수 있지만&rsquo;그들이 노는 것을 보지 마십시오.</em></p>
+
+<p>이는 일반적으로 광고 컨테이너 보기가 보기 계층 구조에 없거나 광고 보기(광고 컨테이너 보기의 하위 보기)가 다른 보기에 의해 가려질 때 발생합니다.</p>
+
+<h1>지원하다</h1>
+
+<p>질문이 있거나 도움이 필요하거나 피드백을 제공하려면<a href="https://supportportal.brightcove.com/s/login/">지원 포털</a>또는 계정 관리자에게 문의하세요. 새 SDK 소프트웨어 릴리스에 대한 알림을 받으려면 Brightcove Native Player SDK를 구독하십시오. <a href="https://groups.google.com/g/brightcove-native-player-sdks">구글 그룹</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">클래스 참조</h2>
+							<ul>
+								
+								<li>BCOVIMAAdsRequestPolicy<a href="Classes/BCOVIMAAdsRequestPolicy.html"></a></li>
+								
+								<li><a href="Classes/BCOVIMAComponent.html">BCOVIMA컴포넌트</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">프로토콜 참조</h2>
+							<ul>
+								
+								<li>BCOVIMAPlaybackSessionDelegate<a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">카테고리 참조</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVIMAAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVIMAAdditions.html"></a></li>
+								
+								<li><a href="Categories/BCOVSessionProviderExtension-BCOVIMAAdditions.html">BCOVSessionProviderExtension(BCOVIMA추가)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+							
+							
+							<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

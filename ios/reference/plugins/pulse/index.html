@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>iOS 참조용 Brightcove 기본 플레이어</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">iOS용 브라이트코브 네이티브 플레이어</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">계층</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">iOS 참조용 Brightcove 기본 플레이어</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>iOS용 Brightcove Player SDK용 Pulse 플러그인, 버전 6.9.0.1697</h1><h1>요구 사항</h1>
+
+<ul>
+<li>엑스코드 11.0+</li>
+<li>호</li>
+</ul>
+
+
+<h1>지원되는 플랫폼</h1>
+
+<p>iOS 11.0 이상. tvOS 11.0 이상</p>
+
+<h1>설치</h1>
+
+<p>Brightcove Player SDK용 Pulse 플러그인은 설치를 위한 동적 라이브러리 프레임워크를 제공합니다.</p>
+
+<p>Pulse 플러그인은 iOS용 INVIDI Technologies Pulse SDK 버전 2.5.20.1.0 및 tvOS용 버전 2.5.19.9.0을 지원합니다. <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/"> Pulse iOS 및 tvOS SDK 참조</a> . Brightcove Player SDK 참조용 Pulse 플러그인에 대한 Podspec <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/changelog.html"> Pulse SDK 출시 내역</a> .</p>
+
+<h2>코코아팟</h2>
+
+<p>당신이 사용할 수있는<a href="http://cocoapods.org">코코아팟</a> Brightcove Player SDK용 Pulse 플러그인을 프로젝트에 추가합니다. 최신 정보를 찾을 수 있습니다<code> Brightcove-Player-Pulse</code>포드 스펙<a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-Pulse">여기</a> . PulseSDK를 프로젝트에 추가해야 합니다. 최신 버전을 다운로드하세요. <a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">여기</a> . CocoaPods 1.0 이상이 필요합니다.</p>
+
+<p>CocoaPod Podfile 예:</p>
+
+<pre><code>source 'https://github.com/CocoaPods/Specs' source 'https://github.com/brightcove/BrightcoveSpecs.git' platform :ios, '11.0' use_frameworks! target 'MyApp' do pod 'Brightcove-Player-Pulse' end </code></pre>
+
+<h2>설명서</h2>
+
+<p>Brightcove Player SDK용 Pulse 플러그인을 프로젝트에 수동으로 추가하려면:</p>
+
+<ol>
+<li>최신 압축된 Brightcove Player SDK 프레임워크를 다운로드하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">릴리스 페이지</a> .</li>
+<li>Brightcove Player SDK 프레임워크용 최신 압축 펄스 플러그인을 다운로드하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/releases">릴리스 페이지</a> .</li>
+<li>다운로드<a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">펄스SDK</a>뼈대.</li>
+<li>에&ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에 추가<strong>동적</strong>프레임워크, BrightcovePlayerSDK.framework, Brightcove Player SDK 다운로드에서 목록으로<strong>프레임워크, 라이브러리 및 포함된 콘텐츠</strong> . 동적 프레임워크인 BrightcovePlayerSDK.framework는 다운로드의 ios/dynamic 디렉토리에 있습니다. NS <em>포함시키다</em> 프레임워크에 대한 설정은 다음과 같아야 합니다. &ldquo;<em>포함 및 서명</em>.&rdquo;</li>
+<li>에&ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에서 Brightcove Player SDK용 Pulse 플러그인 다운로드의 BrightcovePulse.framework를 목록에 추가합니다. <strong>프레임워크, 라이브러리 및 포함된 콘텐츠</strong> . NS <em>포함시키다</em> 프레임워크에 대한 설정은 다음과 같아야 합니다. &ldquo;<em>포함 및 서명</em>.&rdquo;</li>
+<li>에&ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에서 INVIDI Technologies 다운로드의 PulseSDK.framework를 목록에 추가합니다. <strong>프레임워크, 라이브러리 및 포함된 콘텐츠</strong> . NS <em>포함시키다</em> 프레임워크에 대한 설정은 다음과 같아야 합니다. &ldquo;<em>포함 및 서명</em>.&rdquo;</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭에서&ldquo;프레임워크 검색 경로&rdquo;프레임워크에 대한 경로를 포함합니다. 프레임워크가 프로젝트와 다른 루트 디렉터리에 저장되지 않는 한 이 작업은 자동으로 수행되어야 합니다.</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭:
+
+<ul>
+<li>다음을 확인하십시오. <code> -오브제이C</code>에 추가되었습니다&ldquo;기타 링커 플래그&rdquo;빌드 설정.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>수입품</h2>
+
+<p>Brightcove Player SDK용 Pulse 플러그인은 몇 가지 다른 방법으로 코드로 가져올 수 있습니다. <code> @import 브라이트코브펄스;</code> , <code> #import &lt;BrightcovePulse/BrightcovePulse.h&gt;</code>또는<code> #import &lt;BrightcovePulse/[특정 클래스].h&gt;</code> . 가져올 수 있습니다<code>펄스SDK</code>그리고<code> BrightcovePlayerSDK</code>비슷한 방식의 모듈.</p>
+
+<h1>빠른 시작</h1>
+
+<p>BrightcovePulse 플러그인은<a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">펄스SDK</a>그리고<a href="https://github.com/brightcove/brightcove-player-sdk-ios"> iOS용 브라이트코브 플레이어 SDK</a> . 이 스니펫은 서버 측 광고 규칙의 기본 사용법을 보여줍니다.</p>
+
+<pre><code>[1] OOContentMetadata *contentMetadata = [OOContentMetadata 신규]; contentMetadata.category = &lt;카테고리&gt;; contentMetadata.tags = @[ &lt;태그1&gt;, &lt;태그2&gt;, ..., &lt;태그N&gt; ]; contentMetadata.flags = @[ &lt;플래그1&gt;, &lt;플래그2&gt;, ..., &lt;플래그N&gt; ]; OORequestSettings *requestSettings = [OORequestSettings 신규]; requestSettings.linearPlaybackPositions = @[ @(위치1), @(위치2), ..., @(위치N) ]; NSString *펄스호스트 = &lt;펄스 도메인&gt;; [2] NSDictionary *pulseOptions = @ { kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self, kBCOVPulseOptionPulsePersistentIdKey: [NSUUID.UUID UUIDString] } ; BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자]; id&lt;BCOVPlaybackController&gt; 컨트롤러 = [3] [관리자 createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView 동반자 슬롯:nil viewStrategy:nil 옵션:pulseOptions]; controller.delegate = 자기; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;귀하의 정책 키&gt;; NSString *accountId = &lt;귀하의 계정 ID&gt;; NSString *videoID = &lt;당신의 비디오 ID&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService 할당] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID 매개변수:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<p>코드를 단계로 나누기:</p>
+
+<ol>
+<li>같은 만들기<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html"> OO콘텐츠메타데이터</a> , <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html"> OO요청설정</a> INVIDI Technologies를 사용한다면 만들 수 있는&rsquo; s Pulse iOS SDK 직접. 펄스 플러그인은 광고를 표시하기 위해 유효한 도메인과 UIView 컨테이너가 필요합니다.</li>
+<li>선택적으로 플러그인은 플러그인에서 사용할 속성이 있는 NSDictionary를 받을 수 있습니다. 사용 가능한 키는<code> kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code> , <code> kBCOVPulseOptionPulseDeviceContainerKey</code>그리고<code> kBCOVPulseOptionPulsePersistentIdKey</code> . 펄스 세션을 재정의하려면 PulsePlaybackSessionDelegate를 구현해야 합니다. <code> kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code>메서드를 구현하는 클래스와 함께</li>
+<li>BrightcovePulse는 BCOVPlaybackManager에 몇 가지 범주 메서드를 추가합니다. 그 중 첫 번째는<code> -createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:옵션:</code> . 이 방법을 사용하여 재생 컨트롤러를 만듭니다.</li>
+</ol>
+
+
+<h1>재생 및 일시 중지</h1>
+
+<p>Brightcove Pulse 플러그인은 사용자 지정 재생 및 일시 중지 논리를 구현하여 가능한 한 가장 부드러운 광고 경험을 보장합니다. 따라서 재생 방법을 사용하고 있는지 확인해야 합니다. <code> BCOV재생 컨트롤러</code>아니면 그<code> [BCOVSessionProviderExtension pulse_play]</code>또는<code> [BCOVSessionProviderExtension pulse_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h"> BCOVSessionProvider 확장</a> ), AVPlayer가 아닙니다.</p>
+
+<p>예를 들어 처음으로 play를 호출하는 경우<code> BCOV재생 컨트롤러</code> BCOVPulse는 프리롤 전에 재생되는 콘텐츠 없이 프리롤 광고를 처리할 수 있습니다. BCOVPulse가 기본값을 재정의하는 방법에 대한 자세한 내용은<code> BCOV재생 컨트롤러</code>방법을 확인하십시오<a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h"> BCOVSessionProvider 확장</a> .</p>
+
+<h1>내장 PlayerUI 사용</h1>
+
+<p>당신의<code> UIViewController</code> , 생성<code> BCOVPUIPlayerView</code>재생 컨트롤, 비디오 콘텐츠 보기 및 Pulse가 광고를 표시할 수 있는 특수 보기를 포함하는 플레이어 보기라는 속성입니다.</p>
+
+<pre><code>// PlayerUI의 플레이어 보기 @property(비원자) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>그런 다음 플레이어 보기를 만듭니다. 나중에 추가될 nil 재생 컨트롤러를 제공하십시오. 이 플레이어 보기에는 동영상 콘텐츠 보기와 재생 컨트롤 및 광고 컨트롤을 표시하는 보기가 모두 포함되어 있습니다. 이 설정은 어떤 플러그인을 사용하든 동일합니다. 레이아웃의 비디오 컨테이너와 일치하도록 플레이어 보기를 설정합니다( <code>동영상보기</code> ) 크기가 조정될 때.</p>
+
+<pre><code>// 컨트롤 뷰를 만들고 구성합니다. BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // 재생 컨트롤러가 없는 플레이어 보기를 만듭니다. self.playerView = [[BCOVPUIPlayerView 할당] initWithPlaybackController:nil 옵션:nil controlsView:controlView]; // 비디오 보기에 BCOVPUIPlayerView를 추가합니다. [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>너&rsquo;플레이어 보기에 대한 레이아웃을 설정해야 하는 경우 Auto Layout 또는 이전 Springs &amp; Struts 방법으로 이를 수행할 수 있습니다.</p>
+
+<p><strong>스프링 및 스트럿</strong><code> self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></p>
+
+<p><strong>자동 레이아웃</strong><code> self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor 제약 EqualToAnchor:self.videoView. , [self.playerView.bottomAnchor 제약 조건EqualToAnchor:self.videoView.bottomAnchor], ]];</code></p>
+
+<p>재생 컨트롤러 생성은 Pulse에만 해당됩니다. 위에서 했던 것처럼 재생 컨트롤러를 생성하되 비디오 컨테이너 보기 대신<code>콘텐츠 오버레이 보기</code>플레이어 보기에서<code>광고 컨테이너</code> . NS <code>콘텐츠 오버레이 보기</code>기본 비디오 콘텐츠에 보기를 오버레이하는 데 사용되는 특수 보기입니다. 당신은 또한 사용해야합니다<code>무</code>대신에<code> [관리자 defaultControlsViewStrategy]</code>당신이 그것을 당신의 것으로 사용했다면<code>보기전략</code> (이것은 기본 제공 컨트롤을 사용하는 이전 방법이었습니다).</p>
+
+<pre><code>// 재생 컨트롤러를 생성합니다. id&lt;BCOVPlaybackController&gt; 컨트롤러 = [관리자 createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView 동반자 슬롯:nil viewStrategy:nil 옵션:nil]; controller.delegate = 자기; // 플레이어 보기에 새 재생 컨트롤러를 할당합니다. // 이것은 playerController의 세션을 PlayerUI와 연결합니다. // 이 플레이어 보기를 유지하고 새 재생 컨트롤러를 생성할 때 // 할당할 수 있습니다. self.playerView.playbackController = self.playbackController;</code></pre>
+
+<p>이제 광고가 있는 동영상을 재생할 때 동영상 콘텐츠를 재생하는 동안 PlayerUI 컨트롤과 타임라인 스크러버에 광고 마커가 표시됩니다.</p>
+
+<p>PlayerUI는 고도로 사용자 정의할 수 있습니다. 자세한 내용과 샘플 코드는 다음을 참조하십시오. <strong>사용자 정의 레이아웃</strong> README.md 파일의 섹션<a href="https://github.com/brightcove/brightcove-player-sdk-ios">브라이트코브 네이티브 플레이어 SDK 리포지토리</a> .</p>
+
+<h1>플러그인 동작 사용자 정의</h1>
+
+<p>BCOVPulse에는 몇 가지 구성 지점이 있습니다. BCOVPulse를 iOS용 Brightcove Player SDK용 다른 플러그인과 결합하고 사용자 정의 보기 전략을 생성하고 현재 광고 요청을 재정의할 수 있습니다.</p>
+
+<h2>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></h2>
+
+<p>NS <a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code> BCOVPulsePlaybackSessionDelegate</code></a>프로토콜은 BrightcovePulse 플러그인이 호스트 응용 프로그램과 통신할 수 있는 방법을 제공합니다. 이 대리자를 사용하면 세션이 시작되기 전에 콘텐츠 메타데이터 및 요청 설정을 재정의할 수 있습니다.</p>
+
+<p>NS <code> UIViewController</code>채택할 필요가 있다<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code> BCOVPulsePlaybackSessionDelegate</code></a>규약.</p>
+
+<pre><code>@interface ViewController() &lt;BCOVPulsePlaybackSessionDelegate&gt;</code></pre>
+
+<p>전달하는 NSDictionary 생성<code> kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code>세션을 재정의하는 메서드를 구현할 클래스와 함께.</p>
+
+<pre><code>NSDictionary *펄스옵션 = @ { kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self } ;</code></pre>
+
+<p>만들기<code> BCOVPlaybackSessionProvider</code>또는<code> BCOV재생 컨트롤러</code>의 방법을 사용하는 Pulse의 경우<code> BCOVPlaybackManager</code> , 이전 단계에서 만든 사전을 전달하는 것을 잊지 마십시오. 이 예에서는 재생 컨트롤러를 사용합니다.</p>
+
+<pre><code>BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자]; id&lt;BCOVPlaybackController&gt; 컨트롤러 = [관리자 createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:[OOContentMetadata new] requestSettings:[OORequestSettings new] adContainer:self.playerView.contentOverlayView 동반자 슬롯:nil viewStrategy:nil 옵션:pulseOptions];</code></pre>
+
+<p>NS <code> createSessionForVideo:withPulseHost:contentMetadata:requestSettings:</code>메소드는 현재 비디오, 호스트 도메인, <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html">콘텐츠 메타데이터</a>그리고<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html">요청 설정</a>세션을 위해. 이 예에서 이전 개체는 비어 있었고 새 개체로 재정의됩니다. <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html#/c:objc(cs)OOContentMetadata(py)category">범주</a>그리고<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html#/c:objc(cs)OORequestSettings(py)linearPlaybackPositions">선형 재생 위치</a>정렬.</p>
+
+<pre><code>- (id&lt;OOPulseSession&gt;)createSessionForVideo:(BCOVVideo *)video withPulseHost:(NSString *)pulseHost contentMetadata:(OOContentMetadata *)contentMetadata requestSettings:(OORequestSettings *)requestSettings { // Override the content metadata. contentMetadata.category = @"new_category_for_midrolls"; // Override the request settings. requestSettings.linearPlaybackPositions = @[ @(15) ]; return [OOPulse sessionWithContentMetadata:contentMetadata requestSettings:requestSettings]; }</code></pre>
+
+<h2>전략 보기</h2>
+
+<p>defaultControlsViewStrategy를 직접 지정하는 대신 재생 컨트롤러 또는 세션 공급자를 구성할 때 BCOVPlaybackManager에 사용자 지정 보기 전략을 제공할 수 있습니다. 맞춤 보기 전략을 사용하면 광고 컨테이너 보기 및 광고 컴패니언 슬롯을 동영상 콘텐츠 보기와 연결할 수 있습니다. 이것은 사용자 정의 보기 전략의 예입니다.</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt; playbackController) { BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ;</code></pre>
+
+<h2>세션 공급자 구성</h2>
+
+<p>맞춤형 재생 컨트롤러를 생성해야 하는 iOS용 Brightcove Player SDK에 대한 플러그인을 두 개 이상 사용하는 경우 대신 세션 공급자 체인을 구성하고 최종 세션 공급자를<code> [BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code>방법.</p>
+
+<p>세션 공급자를 구성할 때 세션 사전 로드는 다음에서 활성화할 수 있습니다. <a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code> BCOVBasicSessionProvider</code></a> .</p>
+
+<h1>자주 묻는 질문</h1>
+
+<p><em>광고를 들을 수 있지만&rsquo;그들이 노는 것을 보지 마십시오.</em></p>
+
+<p>이는 일반적으로 광고 컨테이너 보기가 보기 계층 구조에 없거나 광고 보기(광고 컨테이너 보기의 하위 보기)가 다른 보기에 의해 가려질 때 발생합니다.</p>
+
+<h1>지원하다</h1>
+
+<p>질문이 있거나 도움이 필요하거나 피드백을 제공하려면<a href="https://supportportal.brightcove.com/s/login/">지원 포털</a>또는 계정 관리자에게 문의하세요. 새 SDK 소프트웨어 릴리스에 대한 알림을 받으려면 Brightcove Native Player SDK를 구독하십시오. <a href="https://groups.google.com/g/brightcove-native-player-sdks">구글 그룹</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">클래스 참조</h2>
+							<ul>
+								
+								<li>BCOVPulseCompanionSlot<a href="Classes/BCOVPulseCompanionSlot.html"></a></li>
+								
+								<li><a href="Classes/BCOVPulseComponent.html">BCOV펄스 구성 요소</a></li>
+								
+								<li>BCOVPulseSessionProvider<a href="Classes/BCOVPulseSessionProvider.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">프로토콜 참조</h2>
+							<ul>
+								
+								<li>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">카테고리 참조</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVPulseAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVPulseAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVPulseAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVPulseAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+							
+							
+							<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

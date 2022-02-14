@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerUI 참조</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">BCOVPlayerUI</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">계층</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerUI 참조</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>iOS용 Brightcove Player SDK용 BCOVPlayerUI 플러그인, 버전 1.0.4.143</h1><h1>지원되는 플랫폼</h1>
+
+<p>iOS 7.0 이상.</p>
+
+<h1>설치</h1>
+
+<p>Brightcove PlayerUI 플러그인은 iOS용 두 가지 설치 패키지인 정적 라이브러리 프레임워크와 동적 프레임워크를 제공합니다. 정적 라이브러리 대상은 iOS 7에서의 배포를 지원하는 반면 동적 프레임워크는 iOS 8 이상만 지원합니다.</p>
+
+<h2>코코아팟</h2>
+
+<p>당신이 사용할 수있는<a href="http://cocoapods.org">코코아팟</a> Brightcove Player SDK용 PlayerUI 플러그인을 프로젝트에 추가합니다. 최신 정보를 찾을 수 있습니다<code> Brightcove-Player-SDK-Player-UI</code>포드 스펙<a href="https://github.com/CocoaPods/Specs/tree/master/Specs/Brightcove-Player-SDK-Player-UI">여기</a> .</p>
+
+<p>정적 프레임워크 예:</p>
+
+<pre><code>포드 'Brightcove-Player-SDK-Player-UI' </code></pre>
+
+<p>동적 프레임워크 예:</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-Player-UI/dynamic' </code></pre>
+
+<h2>설명서</h2>
+
+<p>Brightcove Player SDK용 PlayerUI 플러그인을 프로젝트에 수동으로 추가하려면:</p>
+
+<ol>
+<li>의 최신 버전을 설치하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios">브라이트코브 플레이어 SDK</a> .</li>
+<li>플러그인의 최신 압축 릴리스를 다운로드하십시오. <a href="https://github.com/brightcove/brightcove-player-sdk-ios-player-ui/releases">릴리스 페이지</a> .</li>
+<li>추가&lsquo; BrightcovePlayerUI.framework &rsquo;당신의 프로젝트에.</li>
+<li>에&ldquo;빌드 설정&rdquo;애플리케이션 대상의 탭에서&ldquo;프레임워크 검색 경로&rdquo;프레임워크에 대한 경로를 포함합니다. 프레임워크가 프로젝트와 다른 루트 디렉터리에 저장되지 않는 한 이 작업은 자동으로 수행되어야 합니다.</li>
+<li>에&ldquo;빌드 단계&rdquo;응용 프로그램 대상의 탭에서 다음을 추가하십시오. &ldquo;라이브러리와 바이너리 연결&rdquo;단계:
+
+<ul>
+<li>BrightcovePlayerUI.framework<code></code></li>
+</ul>
+</li>
+<li>(동적 프레임워크만 해당) &ldquo;일반적인&rdquo;응용 프로그램 대상의 탭에 추가&lsquo; BrightcovePlayerUI.framework &rsquo; ~로&ldquo;임베디드 바이너리&rdquo;부분.</li>
+<li>(동적 프레임워크만 해당) &ldquo;빌드 단계&rdquo;탭, 추가&ldquo;스크립트 실행&rdquo;명령으로 단계<code>배시 $ {BUILT_PRODUCTS_DIR} /$ {FRAMEWORKS_FOLDER_PATH} /BrightcovePlayerUI.framework/strip-frameworks.sh</code> . 확인하다&ldquo;설치 시에만 스크립트 실행&rdquo; . 이렇게 하면 앱 스토어 제출에 중요한 불필요한 아키텍처가 빌드에서 제거됩니다. ([rdar://19209161][19209161])</li>
+<li>(정적 프레임워크만 해당) &ldquo;빌드 설정&rdquo;응용 프로그램 대상의 탭에 추가<code> -오브제이C</code> ~로&ldquo;기타 링커 플래그&rdquo;빌드 설정.</li>
+<li>(Static Framework만 해당) 파일 추가<code> bcovpuiiconfont.ttf</code> ~로부터<code> BrightcovePlayerUI.framework</code>글꼴 파일이 앱 번들에 복사되도록 프로젝트 목록에 직접 번들로 묶습니다. 결국 글꼴 파일은 앱과 같은 수준으로 끝나야 합니다. &rsquo; NS <code>정보.plist</code>파일. 글꼴 파일은 일부 BrightcovePlayerUI 인터페이스 요소를 제공하지만 plist 자체에 나열할 필요는 없습니다.</li>
+</ol>
+
+
+<h2>수입품</h2>
+
+<p>iOS용 Brightcove Player SDK는 몇 가지 다른 방법으로 코드로 가져올 수 있습니다. <code> @import BrightcovePlayerUI;</code> , <code> #import &lt;BrightcovePlayerUI/BrightcovePlayerUI.h&gt;</code>또는<code> #import &lt;BrightcovePlayerUI/[특정 클래스].h&gt;</code> .</p>
+
+<h1>빠른 시작</h1>
+
+<p>사용법은 비교적 간단합니다. 이 예에서는 일반 주문형 비디오 스트림에 적합한 기본 레이아웃을 만듭니다.</p>
+
+<pre><code>BCOVPlayerSDKManager *관리자 = [BCOVPlayerSDKManager 공유 관리자]; [1] id&lt;BCOVPlaybackController&gt; 컨트롤러 = [매니저 createPlaybackController]; [2] BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView 할당] initWithPlaybackController:playbackController]; playerView.frame = self.videoContainer.bounds; playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; [self.videoContainer addSubview:playerView]; [3] NSString *토큰; // (URL 액세스가 있는 Brightcove Media API 토큰) NSString *playlistID; // (사용하려는 재생 목록의 ID) BCOVCatalogService *catalog = [[BCOVCatalogService alloc] initWithToken:token]; [카탈로그 findPlaylistWithPlaylistID:playlistID 매개변수:nil completion:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:playlist]; [controller play]; } ];</code></pre>
+
+<p>허락하다&rsquo; s 이 코드를 단계로 분해하여 좀 더 쉽게 소화할 수 있습니다.</p>
+
+<ol>
+<li>기본 설정으로 재생 컨트롤러를 만듭니다.</li>
+<li>재생 컨트롤러를 사용하여 플레이어 보기를 만듭니다. 기본 설정으로 플레이어 보기를 인스턴스화합니다. 비디오 컨테이너 보기의 크기와 일치하도록 플레이어 보기를 설정합니다.</li>
+<li>비디오를 검색하고 재생합니다.</li>
+</ol>
+
+
+<h1>플러그인 동작 사용자 정의</h1>
+
+<p>BCOVPlayerUI 플러그인은 즉시 사용 가능한 간편한 경험을 제공합니다. 그러나, 그것은&rsquo;기본 동작을 변경할 수 있습니다.</p>
+
+<h2>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></h2>
+
+<p>NS <code> BCOVPUIPlayerViewOptions</code>클래스를 사용하면 초기화 시 일부 BCOVPlayerUI 동작을 사용자 지정할 수 있습니다. 다음을 사용자 지정할 수 있습니다.</p>
+
+<ul>
+<li><code>점프백 간격</code>뒤로 점프 버튼을 누르면 플레이어가 뒤로 점프하는 시간(초)입니다.</li>
+<li><code>hideControls간격</code>마지막 터치 이벤트 후 컨트롤이 숨겨지기 전의 시간(초)입니다.</li>
+<li><code>hideControlsAnimationDuration</code>컨트롤이 숨김 상태로 전환되는 데 걸리는 시간(초)입니다.</li>
+<li><code>showControlsAnimationDuration</code>컨트롤이 표시될 때까지 걸리는 시간(초)입니다.</li>
+<li><code>프레젠테이션 보기 컨트롤러</code>모달 및 전체 화면과 같은 것을 표시하는 데 사용할 뷰 컨트롤러입니다.</li>
+</ul>
+
+
+<p>옵션은 다음 방법을 사용하여 설정할 수 있습니다.</p>
+
+<pre><code> BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackController]; BCOVPUIPlayerViewOptions *options = [[BCOVPUIPlayerViewOptions alloc] init]; options.jumpBackInterval = 5; BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:playbackController options:options]; </code></pre>
+
+<h2>제공되는 레이아웃</h2>
+
+<p>다양한 유형의 비디오를 지원하기 위해 세 가지 레이아웃이 제공됩니다.</p>
+
+<ul>
+<li><p><code>BCOVPUIControlLayout 기본VODControlLayout</code>일반 주문형 비디오 스트림의 기본 레이아웃입니다.</p></li>
+<li><p><code>BCOVPUIControlLayout 기본LiveControlLayout</code>라이브 비디오를 대상으로 하는 레이아웃입니다.</p></li>
+<li><p><code>BCOVPUIControlLayout 기본LiveDVRControlLayout</code> DVR 컨트롤이 있는 라이브 비디오 스트림을 대상으로 합니다.</p></li>
+</ul>
+
+
+<p>일반적으로 새 레이아웃을 즉시 설정합니다. <code> BCOVPUIPlayerView</code>생성되지만 언제든지 새 레이아웃을 설정할 수도 있습니다. 예를 들어 다음과 같이 새 VOD 레이아웃을 설정할 수 있습니다.</p>
+
+<pre><code>playerview.controlView.layout = [BCOVPUIControlLayout 기본VODControlLayout]</code></pre>
+
+<h2>사용자 정의 레이아웃</h2>
+
+<p>기본 레이아웃 외에도 새로운<code> BCOVPUIControlLayout</code>나만의 디자인으로.</p>
+
+<p>먼저 다음을 사용하여 레이아웃에 들어갈 컨트롤을 만듭니다. <code> BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:width:elasticity:</code> . 각 컨트롤은<code> BCOVPUILayoutView</code>제어 간격을 결정합니다. 당신은 설정할 수 있습니다<code>너비</code>각 레이아웃 보기의 기본 너비(컨트롤 유형 기반)로 변경하거나 사용자 고유의 너비를 지정할 수 있습니다.</p>
+
+<p>NS <code>탄력</code>인수는 컨트롤을 포함하는 레이아웃 보기가 컨트롤 막대를 채우기 위해 너비를 조정하는 정도를 결정합니다. 탄력성이 0이면 레이아웃 보기의 크기가 고정됩니다. 탄력성 값이 0보다 크면 해당 컨트롤 막대의 다른 모든 탄력적 보기에 비해 사용 가능한 공간을 채우기 위해 레이아웃 보기가 얼마나 커질지 결정합니다. 탄력성 값이 2.0인 레이아웃 보기는 탄력성 값이 1.0인 레이아웃 보기보다 두 배 빠르게 성장합니다. 일반적으로 레이아웃 보기 행에는 탄력성이 0보다 큰 컨트롤이 하나 이상 있습니다.</p>
+
+<p>다음은 다양한 기본 컨트롤을 만드는 예입니다.</p>
+
+<pre><code>BCOVPUILayoutView *playbackLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButton재생 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *jumpBackButtonLayoutView = [BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:BCOVPUIViewTagButtonJumpBack 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *currentTimeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelCurrentTime 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *timeSeparatorLayoutView = [BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:BCOVPUIViewTagLabelTimeSeparator 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *durationLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelDuration 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *progressLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagSliderProgress 너비:kBCOVPUILayoutUseDefaultValue 탄력성:1.0]; BCOVPUILayoutView *closedCaptionLayoutView = [BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:BCOVPUIViewTagButtonClosedCaption 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *screenModeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonScreenMode 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *externalRouteLayoutView = [BCOVPUIBasicControlView 레이아웃ViewWithControlFromTag:BCOVPUIViewTagViewExternalRoute 너비:kBCOVPUILayoutUseDefaultValue 탄력성:0.0]; BCOVPUILayoutView *spacerLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty 너비:1.0 탄성:1.0]; BCOVPUILayoutView *spacerLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty 너비:1.0 탄성:1.0]; BCOVPUILayoutView *logoLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty 너비:80.0 탄성:1.0]; BCOVPUILayoutView *logoLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty 너비:36.0 탄성:0.0]; // 명시적으로 필요할 때까지 자막 및 AirPlay 컨트롤을 숨깁니다. closedCaptionLayoutView.removed = 예; externalRouteLayoutView.removed = 예;</code></pre>
+
+<p>자신의 보기(로고, 컨트롤, 아무것도 없음 등)를 배치할 수 있는 빈 레이아웃 보기를 만들 수도 있습니다. 이 코드는 위에서 만든 logoLayoutView1 안에 UIImage 로고를 배치하는 방법을 보여줍니다.</p>
+
+<pre><code>// 컨트롤 막대에 표시할 이미지 보기 내부에 로고 이미지를 만듭니다. UIImage *logoImage1 = [UIImage imageNamed:@"myLogo"]; UIImageView *logoImageView1 = [[UIImageView 할당] initWithImage:logoImage1]; logoImageView1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight; logoImageView1.contentMode = UIViewContentModeScaleAspectFit; logoImageView1.frame = logoLayoutView1.frame; // 빈 레이아웃 뷰에 이미지 뷰를 추가합니다. [logoLayoutView1 addSubview:logoImageView1];</code></pre>
+
+<p>이제 레이아웃 보기에 패키지된 컨트롤 모음이 있으므로 이를 배열로 정렬할 수 있습니다. 각 컨트롤은 한 줄의 컨트롤, 즉 컨트롤 막대를 나타냅니다. 세로 및 가로 방향에 대해 다른 레이아웃을 가질 수 있으므로 일반적으로 두 개의 서로 다른 컨트롤 막대 배열을 설정합니다.</p>
+
+<p>가로 방향에 대한 이 표준 레이아웃에서는 컨트롤을 한 줄에 정렬한 다음 해당 배열을 전체 구성을 나타내는 다른 배열에 넣습니다.</p>
+
+<pre><code> NSArray *standardLayoutLine1 = @[ playbackLayoutView, jumpBackButtonLayoutView, currentTimeLayoutView, timeSeparatorLayoutView, durationLayoutView, progressLayoutView, spacerLayoutView1, logoLayoutView1, spacerLayoutView2, closedCaptionLayoutView, screenModeLayoutView, externalRouteLayoutView ]; NSArray *standardLayoutLines = @[ standardLayoutLine1 ]; </code></pre>
+
+<p>컴팩트 레이아웃에서 세로 방향의 경우 두 개의 컨트롤 배열을 만든 다음 이 두 배열을 컴팩트 레이아웃을 나타내는 다른 배열로 패키징합니다.</p>
+
+<p>각 레이아웃의 대부분의 컨트롤에 정확히 동일한 개체를 사용했습니다. 이 작업이 완료되고 세로 방향과 가로 방향 사이를 전환하면 개체가 부드러운 애니메이션을 사용하여 새 위치로 이동합니다.</p>
+
+<pre><code> NSArray *compactLayoutLine1 = @[ currentTimeLayoutView, progressLayoutView, durationLayoutView ]; NSArray *compactLayoutLine2 = @[ playbackLayoutView, jumpBackButtonLayoutView, spacerLayoutView1, closedCaptionLayoutView, screenModeLayoutView, externalRouteLayoutView, logoLayoutView2 ]; NSArray *compactLayoutLines = @[ compactLayoutLine1, compactLayoutLine2 ]; </code></pre>
+
+<p>마지막으로 전체 너비와 컴팩트 너비의 두 가지 레이아웃 구성이 있으므로 새 레이아웃을 만들 수 있습니다. <code> BCOVPUIControlLayout</code>개체 및 플레이어에서 설정&rsquo; s 컨트롤 뷰.</p>
+
+<pre><code>BCOVPUIControlLayout *customLayout = [[BCOVPUIControlLayout 할당] initWithStandardControls:standardLayoutLines compactControls:compactLayoutLines]; playerView.controlView.layout = 사용자 정의 레이아웃;</code></pre>
+
+<p>자주 표시하거나 숨겨야 하는 컨트롤이 있는 경우 다음을 설정할 수 있습니다. <code>제거됨</code>해당 컨트롤의 속성&rsquo; s 레이아웃 보기. 컨트롤을 변경한 경우 다음으로 전화하십시오. <code> setNeedsLayout</code>플레이어뷰에서&rsquo; s controlView:</p>
+
+<pre><code> logoLayoutView1.removed = YES; [playerView.controlsView setNeedsLayout]; </code></pre>
+
+<p>또한 몇 가지 일반<a href="Classes/BCOVPUIControlLayout.html"><code> BCOVPUIControlLayout</code></a>속성:</p>
+
+<ul>
+<li><code>컨트롤바 높이</code>각 컨트롤 행의 크기를 설정합니다.</li>
+<li><code>수평 항목 간격</code>각 사이의 간격을 설정합니다. <a href="Classes/BCOVPUILayoutView.html"><code> BCOVPUILayoutView</code></a>각 컨트롤 바에서</li>
+<li><code>컴팩트 레이아웃최대폭</code>사용되는 컨트롤 집합을 결정합니다. 컨트롤 뷰가 다음보다 작은 경우<code>컴팩트 레이아웃최대폭</code> , 컴팩트 컨트롤 세트가 사용되며, 그렇지 않으면 표준 컨트롤이 사용됩니다.</li>
+</ul>
+
+
+<p>표시되는 컨트롤 집합을 변경하려면 새 컨트롤을 만들고 설치해야 합니다. <a href="Classes/BCOVPUIControlLayout.html"><code> BCOVPUIControlLayout</code></a> .</p>
+
+<h1>자주 묻는 질문</h1>
+
+<p><strong>모든 Brightcove Player SDK 플러그인에서 작동합니까?</strong></p>
+
+<p>이 릴리스는 광고 없이 기본 VOD, 라이브 및 라이브 DVR 재생을 지원합니다. 향후 릴리스에서 다른 플러그인에 대한 지원을 추가할 예정입니다.</p>
+
+<p><strong>위에서 언급한 것 이외의 속성을 어떻게 사용자 정의할 수 있습니까?</strong></p>
+
+<p>우리의 목표는&rsquo;사용자 정의하기 쉽고 많은 기능과 동작을 기본적으로 제공합니다. 다음 릴리스에서는 새로운 API와 더 많은 문서로 더 많은 사용자 정의를 다룰 것입니다. 찾고 있는 기능이 있으면 포럼에서 알려주십시오.</p>
+
+<p><strong>향후 버전에서 주요 API 변경 사항이 있습니까?</strong></p>
+
+<p>정말 필요한 경우가 아니면 변경하지 않도록 최선을 다할 것입니다. 그러나 API를 변경해야 하는 경우 CHANGELOG에서 명확한 마이그레이션 단계를 제공합니다.</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">클래스 참조</h2>
+							<ul>
+								
+								<li>BCOVPUIBasicControlView<a href="Classes/BCOVPUIBasicControlView.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUIButton.html">BCOVPUI버튼</a></li>
+								
+								<li><a href="Classes/BCOVPUICommon.html">BCOVPUI공통</a></li>
+								
+								<li>BCOVPUIControlLayout<a href="Classes/BCOVPUIControlLayout.html"></a></li>
+								
+								<li>BCOVPUILayoutView<a href="Classes/BCOVPUILayoutView.html"></a></li>
+								
+								<li>BCOVPUIPlayerView<a href="Classes/BCOVPUIPlayerView.html"></a></li>
+								
+								<li>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></li>
+								
+								<li>BCOVPUISlider<a href="Classes/BCOVPUISlider.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">프로토콜 참조</h2>
+							<ul>
+								
+								<li>BCOVPUIPlayerViewDelegate<a href="Protocols/BCOVPUIPlayerViewDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">상수 참조</h2>
+							<ul>
+								
+									<li>BCOVPUIButtonIcon<a href="Constants/BCOVPUIButtonIcon.html"></a></li>
+								
+									<li><a href="Constants/BCOVPUIScreenMode.html">BCOVPUI 화면 모드</a></li>
+								
+									<li><a href="Constants/BCOVPUIVideoType.html">BCOVPUI동영상 유형</a></li>
+								
+									<li><a href="Constants/BCOVPUIViewTag.html">BCOVPUIView태그</a></li>
+								
+							</ul>
+							
+
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">저작권&copy; 2016 브라이트코브. 판권 소유. 업데이트됨: 2016-06-09</p>
+							
+							
+							<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

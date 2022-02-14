@@ -1,975 +1,123 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="robots" content="noindex,nofollow"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="이 항목에서는 Android용 브라이트코브 네이티브 SDK용 캐스트 플러그인을 사용하여 비디오를 크롬캐스트에 연결된 TV로 캐스팅하는 방법에 대해 알아봅니다.">
-  
-  <title>안드로이드용 네이티브 SDK 용 캐스트 플러그인</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/android/tv/">커넥티드 TV</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">안드로이드용 네이티브 SDK 용 캐스트 플러그인</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-player-sdks.html">브라이트코브 네이티브 SDK</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/native-video-playback.html">네이티브 비디오 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdk-features.html">네이티브 SDK 기능</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-feature-support.html">기능 지원 테이블</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-android.html">안드로이드 샘플 앱 실행</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-ios.html">iOS/tvOS 샘플 앱 실행</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-training-videos.html">네이티브 SDK 교육 비디오</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/features/index.html">기능<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/features/using-360deg-videos-native-sdks.html">360도 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/features/advertising-sdks.html">광고</a></li>
-                  
-                
-                  
-                    <li><a href="/features/analytics-sdks.html">분석</a></li>
-                  
-                
-                  
-                    <li><a href="/features/using-captions-brightcove-native-sdks.html">캡션</a></li>
-                  
-                
-                  
-                    <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV</a></li>
-                  
-                
-                  
-                    <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                  
-                
-                  
-                    <li><a href="/features/cross-device-resume-sdks.html">장치 간 재개</a></li>
-                  
-                
-                  
-                    <li><a href="/features/live-streams-native-sdks.html">라이브 스트림</a></li>
-                  
-                
-                  
-                    <li><a href="/features/multiple-audio-tracks-native-sdks.html">다중 오디오 트랙</a></li>
-                  
-                
-                  
-                    <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/features/brightcove-native-player-controls.html">플레이어 컨트롤</a></li>
-                  
-                
-                  
-                    <li><a href="/features/picture-picture-native-sdks.html">픽처 인 픽처</a></li>
-                  
-                
-                  
-                    <li><a href="/features/video-formats-and-captioning-native-sdks.html">비디오 형식 및 캡션</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/android/index.html">안드로이드 개발<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/basics/overview-brightcove-player-sdk-android.html">v6.16.0: 안드로이드용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/android/basics/architecture-brightcove-player-sdk-android.html">아키텍처</a></li>
-                        
-                        <li><a href="/android/basics/android-understanding-brightcoveplayer-class.html">브라이트코브플레이어 클래스</a></li>
-                        
-                        <li><a href="/android/basics/android-choosing-video-view.html">비디오 보기 선택</a></li>
-                        
-                        <li><a href="/android/basics/android-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/android/basics/understanding-events-native-sdk-android.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/android/basics/android-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">단계별: 간단한 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">SSAI를 사용한 광고 UI 사용자 정의</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                        <li><a href="/android/advertising/migrating-to-ima-plugin-6-15-0.html">이마 플러그인 6.15.0</a></li>
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/android/advertising/using-pulse-plugin-native-sdk-android.html">인비디 펄스 플러그인</a></li>
-                        
-                        <li><a href="/android/advertising/ssai-plugin-native-sdk-android.html">안드로이드용 SSAI플러그인</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/analytics/analytics-related-offline-playback-native-sdks.html">오프라인 재생과 관련된 분석</a></li>
-                        
-                        <li><a href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/captions/removing-android-captions-background-image.html">캡션 배경 이미지 제거</a></li>
-                        
-                        <li><a href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">프로그래밍 방식으로 캡션 선택</a></li>
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/tv/index.html">커넥티드 TV <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/tv/cast-plugin-native-sdk-android.html">크롬캐스트 플러그인</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                        <li><a href="/android/tv/customizing-android-tv-controls.html">안드로이드 TV 컨트롤 커스터마이징</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/framework/android-adding-viewmanaging-layout.html">뷰 추가/배치 관리</a></li>
-                        
-                        <li><a href="/android/framework/android-pie-support-native-sdk-android.html">안드로이드 파이 지원</a></li>
-                        
-                        <li><a href="/android/framework/creating-plugin-native-sdk-android.html">플러그인 만들기</a></li>
-                        
-                        <li><a href="/android/framework/migrating-exoplayer-2-framework.html">ExopLayer 2 프레임워크로 마이그레이션</a></li>
-                        
-                        <li><a href="/android/framework/resizing-video-view.html">비디오 보기 크기 조정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/playback/hevc-selection-native-sdk-android.html">HEVC 선택</a></li>
-                        
-                        <li><a href="/android/playback/hls-playback-native-sdk-android.html">HLS 재생</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/android/playback/android-managing-player-controls.html">플레이어 컨트롤 관리</a></li>
-                        
-                        <li><a href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">오프라인 재생을 위한 다중 오디오 트랙</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                        
-                        <li><a href="/android/playback/handling-orientation-change-native-sdk-android.html">방향 변경</a></li>
-                        
-                        <li><a href="/android/playback/android-source-selection.html">소스 선택</a></li>
-                        
-                        <li><a href="/android/playback/video-and-playlist-objects-json.html">JSON의 비디오 및 재생 목록 개체</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/troubleshooting/error-messages-native-sdk-android.html">오류 메시지 안내서</a></li>
-                        
-                        <li><a href="/android/troubleshooting/removing-android-log-messages.html">안드로이드 로그 메시지 제거</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/android-player-samples">안드로이드 코드 샘플</a></li>
-                        
-                        <li><a href="/android/resources/code-snippets-using-native-sdk-android.html">코드 조각</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/android-sdk/javadoc/index.html">안드로이드용 네이티브 SDK</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-native-sdk-android-release-notes.html">릴리즈 노트</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ios/index.html"><strong>iOS</strong>개발</a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.8.1: iOS용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-objective-c.html">단계별: 목표 - C를 사용하여 간단한 비디오 앱</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-swift.html">단계별: 스위프트를 사용하는 간단한 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/tv/index.html">커넥티드 TV <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">크롬캐스트 플러그인</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples">iOS 코드 샘플</a></li>
-                        
-                        <li><a href="/ios/resources/code-snippets-using-native-sdk-ios.html">코드 조각</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
-                        
-                        <li><a href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/tvos/index.html">tvOS 개발<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.8.1: tvOS용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">단계별: 스위프트를 사용하여 간단한 TV 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                        <li><a href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">애플 TV (페어플레이)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">애플 TV UI 컨트롤</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">기본 애플 TV 샘플</a></li>
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">애플 TV (SSAI와 함께)</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
-                        
-                        <li><a href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer-support/index.html">개발자 지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/announcements/index.html">공지 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">안드로이드 SDK EOL 지원</a></li>
-                        
-                        <li><a href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">안드로이드 버전 지원</a></li>
-                        
-                        <li><a href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">Apple 앱 제출 요구 사항</a></li>
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS/TVOS 용 iOS SDK EOL 지원</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/questions/index.html">질문 및 문제<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">SDK 개발자 포럼 아카이브</a></li>
-                        
-                        <li><a href="/developer-support/questions/faq-brightcove-native-player-sdks.html">자주 묻는 질문</a></li>
-                        
-                        <li><a href="/developer-support/questions/release-notes-brightcove-native-sdks.html">릴리즈 노트</a></li>
-                        
-                        <li><a href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">알려진 문제</a></li>
-                        
-                        <li><a href="/developer-support/questions/report-issue-brightcove-native-sdks.html">문제 신고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>안드로이드용 네이티브 SDK 용 캐스트 플러그인</h1>
+---
+title: 'Android용 네이티브 SDK용 Cast 플러그인'
+description: 이 주제에서는 Android용 Brightcove Native SDK용 Cast 플러그인을 사용하여 Chromecast 연결 TV로 비디오를 전송하는 방법을 배웁니다.
+parent: Connected TV 
+grandparent: Android Development
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>이 항목에서는 Android용 브라이트코브 네이티브 SDK용 캐스트 플러그인을 사용하여 비디오를 크롬캐스트에 연결된 TV로 캐스팅하는 방법에 대해 알아봅니다.</summary>
+  <summary>{{ page.description }}</summary>
 
 <section class="bcls-section">
 <h2 id="Overview">개요</h2>
 
-<p><a href="https://developers.google.com/cast/docs/developers">Google Cast</a>기술을 사용하면 모바일 디바이스에서 고화질 TV 및 홈 오디오 시스템까지 스트리밍된 동영상 콘텐츠를 시작하고 제어할 수 있습니다. 앱에서 전송 버튼을 탭하여 콘텐츠를 큰 화면으로 스트리밍하세요.</p>
+<p>와 함께<a href="https://developers.google.com/cast/docs/developers">구글캐스트</a>기술을 통해 모바일 장치에서 고화질 TV 및 홈 오디오 시스템으로 스트리밍된 비디오 콘텐츠를 시작하고 제어할 수 있습니다. 앱에서 전송 버튼을 탭하여 큰 화면에서 콘텐츠를 스트리밍하세요.</p>
 
-<p>Cast 응용 프로그램을 빌드하려면 다음 구성 요소가 필요합니다.</p>
+<p>Cast 애플리케이션을 빌드하려면 다음 구성요소가 필요합니다.</p>
 
 <ul>
 	<li>
-	<p>ㅏ<strong>발신자 신청서</strong> -이것은 모바일 장치에 상주하며 수신기 장치를 감지하고 보안 연결을 설정하고 콘텐츠를 미러링합니다. 발신자 앱은 콘텐츠를 Chromecast 기기의 수신기 앱으로 전송하는 데 사용되는 로컬 플레이어입니다. 수신기 앱으로 캐스팅 한 후에는 Chromecast의 리모콘으로 생각할 수 있습니다.</p>
+	<p>NS <strong>발신자 신청서</strong> - 이것은 모바일 장치에 상주하며 수신기 장치를 감지하고 보안 연결을 설정하고 콘텐츠를 미러링합니다. 발신자 앱은 콘텐츠를 Chromecast 기기의 수신자 앱으로 전송하는 데 사용되는 로컬 플레이어입니다. 리시버 앱으로 전송한 후에는 Chromecast용 리모컨으로 생각할 수 있습니다.</p>
 
-	<p>발신자 앱은 Android 용 Brightcove Native SDK 용 Cast 플러그인에서 제공합니다. 이 주제에서 그것에 대해 배우게됩니다.</p>
+	<p>발신자 앱은 Android용 Brightcove Native SDK용 Cast 플러그인에서 제공합니다. 이 주제에서 이에 대해 배우게 됩니다.</p>
 	</li>
 	<li>
-	<p>ㅏ<strong>수신기 신청</strong> -이 애플리케이션은 Chromecast 기기에서 실행됩니다. CSS 및 JavaScript 자산이있는 단일 페이지 HTML 앱으로 생각할 수 있습니다.</p>
+	<p>NS <strong>수신기 응용 프로그램</strong> - 이 애플리케이션은 Chromecast 기기에서 실행됩니다. CSS 및 JavaScript 자산이 포함된 단일 페이지 HTML 앱으로 생각할 수 있습니다.</p>
 
-	<p>테스트를 위해 다음과 같이 하십시오.</p>
+	<p>테스트를 위해 다음 단계를 따르세요.</p>
 
 	<ol class="bcls-tasklist">
-		<li><a href="https://github.com/googlecast/CastReceiver">Google의 샘플 캐스트 수신기로</a>시작</li>
-		<li>리뷰<a href="https://developers.google.com/cast/docs/sample-apps#castreceiver"> Google Cast 앱</a>선적 서류 비치</li>
+		<li>시작<a href="https://github.com/googlecast/CastReceiver"> Google의 샘플 캐스트 수신기</a></li>
+		<li>검토<a href="https://developers.google.com/cast/docs/sample-apps#castreceiver"> Google 캐스트 앱</a>선적 서류 비치</li>
 	</ol>
 
-	<p>프로덕션 용도로이 문서는 Brightcove Receiver v2.0.0을 사용하는 방법을 설명합니다.</p>
+	<p>프로덕션 사용을 위해 이 문서에서는 Brightcove Receiver v2.0.0을 사용하는 방법을 설명합니다.</p>
 	</li>
 </ul>
 
 <aside class="bcls-aside bcls-aside--information">
-  <p>참고:</p>
+  <p>노트:</p>
   <ol>
     <li>Google은 프로덕션 환경에서 데모 수신기 앱 사용을 지원하지 않습니다.</li>
-    <li>Android 용 Brightcove Native SDK 용 Cast 플러그인은 수신기 앱 기능을 제공하지 않습니다.</li>
+    <li>Android용 Brightcove Native SDK용 Cast 플러그인은 수신기 앱 기능을 제공하지 않습니다.</li>
   </ol>
   </aside>
 </section>
 
 <section class="bcls-section">
 <h2 id="Supported_SDK_version">지원되는 SDK 버전</h2>
-<p>새로운 Brightcove Receiver v2.0에서 Cast 플러그인을 사용하려면 Android 버전 6.16.0 이상용 Brightcove Native SDK를 사용해야합니다.</p>
+<p>새로운 Brightcove Receiver v2.0에서 Cast 플러그인을 사용하려면 Android 버전 6.16.0 이상용 Brightcove Native SDK를 사용해야 합니다.</p>
 </section>
 
 <section class="bcls-section">
-<h2 id="Understanding_the_Cast_plugin">Cast 플러그인 이해</h2>
-<p>캐스트 플러그인은<a href="https://medium.com/google-exoplayer/new-cast-extension-and-demo-app-55816a50012">새로운 ExopLayer 캐스트 확장 기능과 Google Play 서비스 캐스트</a>프레임 워크 위에 구축됩니다. 캐스트 플러그인 종속성을 추가 한 후, gradle은 다른 필요한 종속성과 함께 Play 서비스 캐스트 프레임 워크 종속성, ExopLayer 캐스트 확장 종속성을 가져옵니다.</p>
+<h2 id="Understanding_the_Cast_plugin">Cast 플러그인 이해하기</h2>
+<p>Cast 플러그인은<a href="https://medium.com/google-exoplayer/new-cast-extension-and-demo-app-55816a50012">새로운 ExoPlayer 캐스트 확장</a>및 Google Play 서비스 캐스트 프레임워크. 캐스트 플러그인 종속성을 추가한 후 gradle은 다른 필요한 종속성과 함께 Play Services Cast Framework 종속성, ExoPlayer Cast Extension 종속성을 가져옵니다.</p>
 
-<p>Cast 플러그인은 Video Cloud와 통합 할 때의 노력을 최소화하기 위해 재 설계되었습니다. Video Cloud를 사용할 때<code translate="No">BrightcoveCastMediaManager</code>클래스는 Brightcove와 같은 Video Cloud 응답에서 정보를 수집합니다. <code translate="No">Video</code>과<code translate="No">Source</code>개체, 매번<code translate="No">EventType.SET_SOURCE</code>이벤트가 발생합니다. 이 정보는 캐시되어 사용자가 비디오를 대기열에 넣기 위해 재생을 선택할 때 사용할 수 있습니다.</p>
+<p>Cast 플러그인은 Video Cloud와 통합할 때 노력을 최소화하도록 재설계되었습니다. Video Cloud를 사용할 때, <code translate="No">BrightcoveCastMediaManager</code>클래스는 Brightcove와 같은 Video Cloud 응답에서 정보를 수집합니다. <code translate="No">Video</code>그리고<code translate="No">Source</code>개체, 매번<code translate="No">EventType.SET_SOURCE</code>이벤트가 발생합니다. 이 정보는 캐시되어 사용자가 재생을 선택하여 비디오를 대기열에 넣을 때 사용할 수 있습니다.</p>
 </section>
 
 <section class="bcls-section">
 <h2 id="Integrating_the_Cast_plugin">Cast 플러그인 통합</h2>
-<p>앱을 Android Cast 플러그인 용 Native SDK와 통합 할 수있는 두 가지 방법이 있습니다. Brightcove Cast Receiver v2.0 또는 Google Cast 데모 수신기와 통합 할 수 있습니다.</p>
-<p>두 통합 모두 앱 프로젝트에이 종속성을 추가해야합니다.</p>
+<p>앱을 Android Cast 플러그인용 네이티브 SDK와 통합하는 방법에는 두 가지가 있습니다. Brightcove Cast Receiver v2.0 또는 Google Cast Demo Receiver와 통합할 수 있습니다.</p>
+<p>두 통합의 경우 앱 프로젝트에 이 종속성을 추가해야 합니다.</p>
 <pre>
-<code class="language-java" translate="No">implementation "com.brightcove.player:android-cast-plugin:6.16.0"</code></pre>
+<code class="language-java" translate="No">implementation &quot;com.brightcove.player:android-cast-plugin:6.16.0&quot;</code></pre>
 
-<h3 id="Using_the_Brightcove_Cast_Receiver_v2">Brightcove Cast Receiver v2.0 사용</h3>
-<p>이 통합은 콘텐츠를 제공하기 위해 Brightcove API를 사용하는 Brightcove 고객을위한 것입니다.</p>
-<p>전체 코드 샘플은<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/BasicCastBrightcoveReceiverSampleApp"> BasicCastBrightcoveReceiverSampleApp</a> .</p>
+<h3 id="Using_the_Brightcove_Cast_Receiver_v2">Brightcove Cast 수신기 v2.0 사용</h3>
+<p>이 통합은 Brightcove API를 사용하여 콘텐츠를 제공하는 Brightcove 고객을 위한 것입니다.</p>
+<p>전체 코드 샘플은 다음을 참조하세요. <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/BasicCastBrightcoveReceiverSampleApp"> BasicCastBrightcoveReceiverSampleApp</a> .</p>
 
 <h3 id="Using_the_Google_Cast_Demo_Receiver">Google Cast 데모 수신기 사용</h3>
-<p>이 통합은 캐스팅을 처음 사용하는 Brightcove 고객을위한 것입니다.</p>
-<p>전체 코드 샘플은<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/BasicCastGoogleReceiverSampleApp"> BasicCastGoogleReceiverSampleApp</a> .</p>
-<aside class="bcls-aside bcls-aside--tip">그만큼<strong> BasicCastGoogleReceiverSampleApp</strong>샘플 앱은 이전에<strong> BasicCastSampleApp</strong></aside>
+<p>이 통합은 캐스팅이 처음인 Brightcove 고객을 위한 것입니다.</p>
+<p>전체 코드 샘플은 다음을 참조하세요. <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/BasicCastGoogleReceiverSampleApp"> BasicCastGoogleReceiverSampleApp</a> .</p>
+<aside class="bcls-aside bcls-aside--tip">NS <strong> BasicCastGoogleReceiverSampleApp</strong>샘플 앱은 이전에<strong> BasicCastSampleApp</strong></aside>
 
 <h4 id="Specifying_your_own_Cast_Receiver_App_Id">자신의 Cast 수신기 앱 ID 지정</h4>
-<p>그만큼<strong> BasicCastGoogleReceiverSampleApp</strong>시작 및 테스트에는 도움이 될 수 있지만 프로덕션에는 도움이되지 않는 Google 데모 수신기 앱 ID를 설정합니다.</p>
-<p>Cast Receiver 애플리케이션으로이 값을 재정의하려면 샘플 앱의 다음 문자열 값을 정의하십시오. <strong> strings.xml</strong>파일:</p>
+<p>NS <strong> BasicCastGoogleReceiverSampleApp</strong>시작 및 테스트에 도움이 될 수 있지만 프로덕션에는 도움이 되지 않는 Google 데모 수신기 앱 ID를 설정합니다.</p>
+<p>Cast Receiver 애플리케이션으로 이 값을 재정의하려면 샘플 앱의 다음 문자열 값을 정의하십시오. <strong>문자열.xml</strong>파일:</p>
 <pre>
-<code class="language-java" translate="No">&lt;string name="cast_receiver_app_id"&gt;4F8B3483&lt;/string&gt;</code></pre>
+<code class="language-java" translate="No">&lt;string name=&quot;cast_receiver_app_id&quot;&gt;4F8B3483&lt;/string&gt;</code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="The_Brightcove_GoogleCastComponent">브라이트코브 Google캐스트 컴퍼넌트</h2>
+<h2 id="The_Brightcove_GoogleCastComponent">브라이트코브 GoogleCastComponent</h2>
 
-<p>그만큼<code translate="No">GoogleCastComponent</code> class는 Brightcove Cast 플러그인의 기본 클래스입니다. ExopLayer CastPlayer를 인스턴스화하고 리스너를 설정합니다. 비디오를로드하거나 대기열에 추가하는 몇 가지 필수 방법을 노출합니다. 또한 이<code translate="No">GoogleCastComponent</code>클래스는 활동 및 프래그먼트 라이프사이클 이벤트를 처리할 수 있는 여러 브라이트코브 이벤트 리스너와 미디어 정보를 내보내는 데 사용할 수 있는 다른 이벤트 리스너를 추가하여 Chromecast 디바이스에 비디오를 로드합니다.</p>
+<p>NS <code translate="No">GoogleCastComponent</code> class는 Brightcove Cast 플러그인의 기본 클래스입니다. ExoPlayer CastPlayer를 인스턴스화하고 리스너를 설정합니다. 비디오를 로드하거나 대기열에 추가하기 위한 몇 가지 필수 메소드를 제공합니다. NS <code translate="No">GoogleCastComponent</code>이 클래스는 또한 활동 및 조각 수명 주기 이벤트를 처리하기 위해 여러 Brightcove 이벤트 리스너를 추가하고, Chromecast 장치에 비디오를 로드하기 위해 미디어 정보를 내보내는 데 사용할 수 있는 기타 이벤트 리스너를 추가합니다.</p>
 
-<p>그만큼<code translate="No">GoogleCastComponent</code>이제 빌더 패턴을 사용합니다. v6.16.0 이전의 Android 용 Native SDK 버전에서는 구성 요소를 인스턴스화하고<code translate="No">Context</code>과<code translate="No">EventEmitter</code> ~로<code translate="No">GoogleCastComponent</code>건설자. 그런 다음 일련의 개별 메서드 호출에서 구성 요소의 옵션을 설정합니다.</p>
-<p>Android v6.16.0 용 네이티브 SDK부터 빌더 패턴을 사용하여<code translate="No">GoogleCastComponent</code>빌더 메소드 호출의 단일 체인 내에서 옵션을 설정합니다.</p>
+<p>NS <code translate="No">GoogleCastComponent</code>이제 빌더 패턴을 사용합니다. v6.16.0 이전 버전의 Android용 네이티브 SDK에서는 구성 요소를 인스턴스화하고 전달해야 했습니다. <code translate="No">Context</code>그리고<code translate="No">EventEmitter</code> ~로<code translate="No">GoogleCastComponent</code>건설자. 그런 다음 일련의 개별 메서드 호출에서 구성 요소의 옵션을 설정합니다.</p>
+<p>Android v6.16.0용 Native SDK부터 Builder 패턴을 사용하여<code translate="No">GoogleCastComponent</code> Builder 메서드 호출의 단일 체인 내에서 모두 옵션을 설정합니다.</p>
 </section>
 
 <section class="bcls-section">
-<h2 id="CustomData">CustomData</h2>
-<p>와 마찬가지로<code translate="No">GoogleCastComponent</code> , <code translate="No">CustomData</code>클래스는 Builder 패턴을 사용하여 객체를 인스턴스화하고 속성을 추가합니다. Brightcove 수신기는<code translate="No">CustomData</code> Brightcove 카탈로그에서 비디오를 검색하기 위해 완전한<code translate="No">CustomData</code>원격 자산 캐스팅과 같은 개체. Google Demo Receiver를 사용할 때<code translate="No">CustomData</code>지원되지 않습니다. 이 논의의 목적을 위해 우리는<code translate="No">CustomData</code> Brightcove 카탈로그에서 비디오 데이터를 검색하는 데 사용되는 수신기로 전송됩니다.</p>
+<h2 id="CustomData">커스텀 데이터</h2>
+<p>와 마찬가지로<code translate="No">GoogleCastComponent</code> , NS <code translate="No">CustomData</code>클래스는 빌더 패턴을 사용하여 개체를 인스턴스화하고 속성을 추가합니다. Brightcove 수신기가 사용할 수 있는 동안<code translate="No">CustomData</code> Brightcove 카탈로그에서 비디오를 검색하기 위해 완전한<code translate="No">CustomData</code>원격 자산 캐스팅과 같은 개체. 또한 Google Demo Receiver를 사용할 때<code translate="No">CustomData</code>지원되지 않습니다. 이 논의의 목적을 위해, 우리는 다음에 초점을 맞출 것입니다. <code translate="No">CustomData</code> Brightcove 카탈로그에서 비디오 데이터를 검색하는 데 사용되는 수신기로 전송됩니다.</p>
 
-<h3>CustomData 란 무엇입니까?</h3>
-<p><code translate="No">CustomData</code>에 포함 된 JSON 개체입니다. <code translate="No">MediaInfo</code>목적. 의도 된 용도는 Brightcove Cast Receiver App v2.0입니다.</p>
+<h3>커스텀데이터란?</h3>
+<p><code translate="No">CustomData</code>에 포함된 JSON 객체입니다. <code translate="No">MediaInfo</code>물체. 의도된 용도는 Brightcove Cast Receiver 앱 v2.0입니다.</p>
 
-<h3>Brightcove 수신기 및 카탈로그 데이터를 사용한 CustomData</h3>
-<p>Brightcove 수신기와 통합 할 때<code translate="No">CustomData</code> JSON 객체는 다음 형식을 취합니다.</p>
+<h3>Brightcove 수신기 및 카탈로그 데이터가 있는 CustomData</h3>
+<p>Brightcove Receiver와 통합할 때<code translate="No">CustomData</code> JSON 객체는 다음과 같은 형식을 취합니다.</p>
 <pre>
-<code class="language-java" translate="No">"customData": {
-	"accountId": "1234567890",
-	"analyticsParams": {
-		"application": "com.brightcove.player.test",
-		"user": "abcde1c44b951234"
+<code class="language-java" translate="No">&quot;customData&quot;: {
+	&quot;accountId&quot;: &quot;1234567890&quot;,
+	&quot;analyticsParams&quot;: {
+		&quot;application&quot;: &quot;com.brightcove.player.test&quot;,
+		&quot;user&quot;: &quot;abcde1c44b951234&quot;
 	},
-	"catalogParams": {
-		"adConfigId": null,
-		"type": "video",
-		"bcovAuthToken": null,
-		"id": "2345678901",
-		"policyKey": "BCpkPolicyKeyObject"
+	&quot;catalogParams&quot;: {
+		&quot;adConfigId&quot;: null,
+		&quot;type&quot;: &quot;video&quot;,
+		&quot;bcovAuthToken&quot;: null,
+		&quot;id&quot;: &quot;2345678901&quot;,
+		&quot;policyKey&quot;: &quot;BCpkPolicyKeyObject&quot;
 	}
 }
 </code></pre>
 
-<p>그만큼<code translate="No">CustomData</code>위의 개체 예제에는 Brightcove 수신기에서 비디오를 캐스팅하는 데 필요한 모든 데이터 요소가 포함되어 있습니다. 이 데이터는 암호화에 관계없이 동일합니다. 즉, DRM 동영상의 경우 라이선스 URL에 추가 구조가 필요하지 않습니다.</p>
-<p>당신은 또한의 예를 찾을 수 있습니다<code translate="No">CustomData</code>의 개체<strong> BrightcoveCastBrightcoveReceiverSampleApp</strong> .</p>
+<p>NS <code translate="No">CustomData</code>위의 개체 예제에는 Brightcove 수신기에서 비디오를 전송하는 데 필요한 모든 데이터 요소가 포함되어 있습니다. 이 데이터는 암호화 여부에 관계없이 동일합니다. 즉, DRM 동영상의 경우 라이선스 URL에 대한 추가 구조가 필요하지 않습니다.</p>
+<p>의 예도 찾을 수 있습니다. <code translate="No">CustomData</code>에 있는 개체<strong> BrightcoveCastBrightcoveReceiverSampleApp</strong> .</p>
 
 <h3>Google 데모 수신기를 사용한 CustomData</h3>
 <p>상술 한 바와 같이, <code translate="No">CustomData</code> Google 데모 수신기에서는 지원되지 않습니다.</p>
@@ -979,7 +127,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="BrightcoveCastMediaManager">BrightcoveCastMediaManager</h2>
 
-<p>연장이 가능합니다<code translate="No">BrightcoveCastMediaManager</code> , 위에 표시된대로 메서드를 재정의하거나 직접 구현합니다. BrightcoveCastMediaManager 클래스 확장의 예는 다음을 참조하십시오.</p>
+<p>연장이 가능합니다<code translate="No">BrightcoveCastMediaManager</code> , 위에 표시된 대로 메서드를 재정의하거나 자신의 메서드를 구현합니다. BrightcoveCastMediaManager 클래스를 확장하는 예는 다음을 참조하십시오.</p>
 <ul>
   <li>BrightcoveCastMediaManager 섹션 확장</li>
   <li>BasicCastCustomRemoteVideoSampleApp</li>
@@ -987,47 +135,47 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </section>
 
 <section class="bcls-section">
-<h2 id="OptionsProvider">OptionsProvider</h2>
+<h2 id="OptionsProvider">옵션 제공자</h2>
 
-<p>그런 다음 Google 캐스트 프레임 워크에 대한<a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider">옵션공급자</a>구현을 지정해야합니다. <code translate="No">OptionsProvider</code>인터페이스는<a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastContext">CastContext</a>클래스를 초기화하는 데 필요한 몇 가지 옵션을 설정하는 데 도움이됩니다. 여기서 캐스트 수신기 앱 ID를 설정합니다. 통합에 대해 자세히 알아 보려면<code translate="No">OptionsProvider</code> , Google의<a href="https://developers.google.com/cast/docs/android_sender_integrate#initialize_the_cast_context">캐스트 컨텍스트 초기화</a>문서.</p>
-<p>Brightcove Cast 플러그인에는<code translate="No">DefaultOptionsProvider</code>여기에서 Cast Receiver 앱 ID는<strong> strings.xml</strong>리소스 파일. 자세한 내용과 앱에서 재정의하는 방법을 알아 보려면<a href="#Using_your_own_Cast_Receiver_App_Id">자신의 Cast 수신기 앱 ID 사용</a>위 섹션.</p>
-<p>사용 여부<code translate="No">DefaultOptionsProvider</code>수업 또는 자신의<code translate="No">OptionsProvider</code>구현하려면<code translate="No">OptionsProvider</code>앱의 구현 클래스 이름<strong> AndroidManifest.xml</strong>다음과 같이 파일을 키-값 쌍 메타 데이터로 저장합니다.</p>
+<p>다음으로 지정해야 합니다. <a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider">옵션 제공자</a> Google Cast 프레임워크 구현. NS <code translate="No">OptionsProvider</code>인터페이스는 초기화에 필요한 여러 옵션을 설정하는 데 도움이 됩니다. <a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastContext">캐스트 컨텍스트</a>수업. 여기에서 Cast Receiver 앱 ID를 설정합니다. 통합에 대해 자세히 알아보려면<code translate="No">OptionsProvider</code> , Google의<a href="https://developers.google.com/cast/docs/android_sender_integrate#initialize_the_cast_context">캐스트 컨텍스트 초기화</a>문서.</p>
+<p>Brightcove Cast 플러그인에는<code translate="No">DefaultOptionsProvider</code>여기서 Cast Receiver 앱 ID는 에 설정된 문자열 키를 통해 설정됩니다. <strong>문자열.xml</strong>리소스 파일. 자세한 내용과 앱에서 재정의하는 방법을 알아보려면<a href="#Using_your_own_Cast_Receiver_App_Id">고유한 Cast 수신기 앱 ID 사용</a>위 섹션.</p>
+<p>사용 여부<code translate="No">DefaultOptionsProvider</code>수업 또는 자신의<code translate="No">OptionsProvider</code>구현, 당신은 설정해야<code translate="No">OptionsProvider</code>앱의 구현 클래스 이름<strong> AndroidManifest.xml</strong>다음과 같이 파일을 키-값 쌍 메타데이터로 사용합니다.</p>
 <pre>
-<code class="language-java" translate="No">&lt;meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.brightcove.cast.DefaultOptionsProvider" /&gt;</code></pre>
-<p>사용하는 경우<code translate="No">DefaultOptionsProvider</code>클래스, 당신은 설정할 수 있습니다<code translate="No">ExpandedControllerActivity</code>유사한 메타 데이터 정보를 설정하여 전송 알림을 켜거나 끄려면<strong> AndroidManifest</strong> .</p>
+<code class="language-java" translate="No">&lt;meta-data android:name=&quot;com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME&quot; android:value=&quot;com.brightcove.cast.DefaultOptionsProvider&quot; /&gt;</code></pre>
+<p>사용하는 경우<code translate="No">DefaultOptionsProvider</code>클래스, 당신은 설정할 수 있습니다<code translate="No">ExpandedControllerActivity</code>유사한 메타데이터 정보를 설정하여 전송 알림을 켜거나 끕니다. <strong>안드로이드 매니페스트</strong> .</p>
 </section>
 
 <section class="bcls-section">
-<h2 id="Expanded_Controller_Activity">확장된 컨트롤러 작업</h2>
+<h2 id="Expanded_Controller_Activity">확장된 컨트롤러 활동</h2>
 
-<p><a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/media/widget/ExpandedControllerActivity">ExpandedControllerActivity는</a> Google 캐스트 라이브러리와 함께 제공되며 크롬캐스트 기기에서 전송되는 동영상을 제어할 수 있습니다. 이 클래스는 몇 가지 사용자 정의 유연성을 제공합니다. 예를 들어 버튼을 표시하는 데 사용할 수 있는 슬롯이 다섯 개 있으며 세 번째 슬롯은 구성할 수 없는 재생 버튼용으로 예약되어 있습니다. 나머지 단추는 미리 정의된 다른 단추 또는 사용자 정의 단추로 설정할 수 있습니다.</p>
+<p>NS <a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/media/widget/ExpandedControllerActivity">확장 컨트롤러 활동</a> Google Cast 라이브러리와 함께 제공되며 Chromecast 기기에서 전송 중인 동영상을 제어할 수 있습니다. 이 클래스는 사용자 정의 유연성을 제공합니다. 예를 들어 버튼을 표시하는 데 사용할 수 있는 슬롯이 5개 있으며, 여기서 세 번째 슬롯은 구성할 수 없는 재생 버튼용으로 예약되어 있습니다. 나머지 버튼은 미리 정의된 다른 버튼이나 사용자 정의 버튼으로 설정할 수 있습니다.</p>
 
-<p>브라이트코브 캐스트 플러그인은 하위 클래스를 제공합니다<code translate="No">DefaultExpandedControllerActivity</code> . 다음과 같은 순서로 다음 버튼을 활성화했습니다.</p>
+<p>Brightcove Cast 플러그인은 하위 클래스를 제공합니다. <code translate="No">DefaultExpandedControllerActivity</code> . 다음 버튼을 다음 순서로 활성화했습니다.</p>
 
 <ul>
-	<li><strong>폐쇄 자막</strong></li>
+	<li><strong>자막</strong></li>
 	<li><strong>이전 건너뛰기</strong></li>
-	<li><strong>플레이</strong></li>
+	<li><strong>놀다</strong></li>
 	<li><strong>다음 건너뛰기</strong></li>
 	<li><strong>음소거 토글</strong></li>
 </ul>
 
-<p>또한 Seek Bar는 표준에 사용된 드로어 블과 동일한 기본 드로어 블을 설정합니다<code translate="No">BrightcoveMediaController</code> .</p>
+<p>또한 Seek Bar는 표준에서 사용된 것과 동일한 기본 드로어블을 설정합니다. <code translate="No">BrightcoveMediaController</code> :</p>
 
 <ul>
-	<li>진행 드로어 블:
+	<li>진행 드로어블:
 	<pre>
 <code class="language-java" translate="No">R.drawable.default_scrubber_progress_horizontal</code></pre>
 	</li>
-	<li>엄지 손가락 드로어 블:
+	<li>엄지 드로어블:
 	<pre>
 <code class="language-java" translate="No">R.drawable.default_scrubber_thumb</code></pre>
 	</li>
 </ul>
 
-<p>탐색 모음을 사용자 지정하는 방법에 대한 자세한 내용은 찾기 도구<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/SeekBarColorsSampleApp/src/main">모음색상샘플앱을 참조하십시오</a> .</p>
+<p>탐색 표시줄을 사용자화하는 방법을 배우려면 다음을 참조하십시오. <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/SeekBarColorsSampleApp/src/main"> SeekBarColorsSampleApp</a> .</p>
 
-<p><code translate="No">DefaultExpandedControllerActivity</code>또는 직접<code translate="No">ExpandedControllerActivity</code>설정하려면<strong>AndroidManifest.xml</strong>파일에서 다음 메타데이터를 설정합니다.</p>
+<p>설정하려면<code translate="No">DefaultExpandedControllerActivity</code>또는 자신의<code translate="No">ExpandedControllerActivity</code> , 다음 메타데이터를<strong> AndroidManifest.xml</strong>파일:</p>
 <pre class="line-numbers">
 <code class="language-java" translate="No">&lt;meta-data  android:name="com.brightcove.cast.DefaultOptionsProvider.EXPANDED_CONTROLLER_ACTIVITY_CLASS_NAME"
 android:value="com.brightcove.cast.DefaultExpandedControllerActivity" /&gt;</code></pre>
@@ -1036,22 +184,22 @@ android:value="com.brightcove.cast.DefaultExpandedControllerActivity" /&gt;</cod
 <section class="bcls-section">
 <h2 id="Cast_Notification">캐스트 알림</h2>
 
-<p>전송 알림을 사용하도록 설정하면 동영상을 전송하고 앱을 백그라운드에 넣을 때 (예: 홈 키를 누른 후) 알림이 표시됩니다.</p>
-&lt;p 전송 알림을 사용하려면 다음 메타 데이터를<strong> AndroidManifest.xml</strong>파일을 저장하고 알림을 클릭 할 때 실행할 활동의 이름을 제공합니다.</p>
+<p>전송 알림이 활성화된 경우 비디오를 전송하고 앱을 백그라운드에 넣을 때 알림이 표시됩니다. 예를 들어 홈 키를 누른 후.</p>
+&lt;p캐스트 알림을 활성화하려면 다음 메타데이터를 설정하세요. <strong> AndroidManifest.xml</strong>파일을 만들고 알림을 클릭할 때 시작할 활동의 이름을 제공합니다.</p>
 <pre class="line-numbers">
 <code class="language-java" translate="No">&lt;meta-data android:name="com.brightcove.cast.DefaultOptionsProvider.NOTIFICATION_TARGET_ACTIVITY_CLASS_NAME"
 android:value="com.brightcove.cast.BrightcoveControllerActivity" /&gt;</code></pre>
 
-<p>알림_대상_활동_클래스 이름을 제공하지 않거나 값에 잘못된 활동 이름이 있는 경우 전송 알림이 해제됩니다.</p>
+<p>com.brightcove.cast.DefaultOptionsProvider.NOTIFICATION_TARGET_ACTIVITY_CLASS_NAME을 제공하지 않거나 값에 잘못된 활동 이름이 있는 경우 전송 알림이 꺼집니다.</p>
 
-<aside class="bcls-aside bcls-aside--information">제거하는 동안<code translate="No">meta-data</code>태그에서<strong> AndroidManifest.xml</strong>파일은 발신자 앱의 알림을 사용 중지하지만 기기가 Wi-Fi 네트워크에서 전송 중임을 나타내는 알림을 발신자 기기에서 볼 수 있습니다. 이 알림은 발신자 앱의 알림이 아니라 앱 구성과 관계없이 발신자 장치의 알림입니다.</aside>
+<aside class="bcls-aside bcls-aside--information">제거하면서<code translate="No">meta-data</code>태그<strong> AndroidManifest.xml</strong>파일이 발신자 앱의 알림을 비활성화하더라도 기기가 Wi-Fi 네트워크에서 전송 중임을 나타내는 알림을 발신자 기기에서 계속 볼 수 있습니다. 이것은 발신자 앱의 알림이 아니라 앱 구성과 관계없이 발신자 장치의 알림입니다.</aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="The_Cast_Button">캐스트 버튼</h2>
+<h2 id="The_Cast_Button">전송 버튼</h2>
 
-<p>전송 버튼을 사용하면 디바이스와 동일한 네트워크에서 Chromecast 디바이스를 선택할 수 있으며 세션을 연결하고 생성할 수 있습니다. 애플리케이션에 전송 버튼을 추가하려면 Google의<a href="https://developers.google.com/cast/docs/android_sender_integrate#add_a_cast_button"> Cast 통합 : 전송 버튼 추가</a>문서.</p>
-<p>브라이트코브 캐스트 플러그인은 캐스트 버튼을 쉽게 설정할 수 있는 유틸리티 방법을 제공합니다. 이 기능은 [활동/조각] 메뉴에 [캐스트] 버튼을 추가하려는 경우에 유용합니다. 자세한 내용은 다음 코드를 참조하십시오.</p>
+<p>전송 버튼을 사용하면 기기와 동일한 네트워크에 있는 Chromecast 기기를 선택할 수 있으며 연결하고 세션을 만들 수 있습니다. 애플리케이션에 전송 버튼을 추가하려면 Google의<a href="https://developers.google.com/cast/docs/android_sender_integrate#add_a_cast_button">캐스트 통합: 전송 버튼 추가</a>문서.</p>
+<p>Brightcove Cast 플러그인은 Cast 버튼을 쉽게 설정할 수 있는 유틸리티 방법을 제공합니다. Activity/Fragment 메뉴에 Cast 버튼을 추가하려는 경우에 유용합니다. 자세한 내용은 다음 코드를 참조하세요.</p>
 	<pre class="line-numbers">
 <code class="language-java" translate="No">//Activity
 @Override
@@ -1065,8 +213,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 <section class="bcls-section">
 <h2 id="The_Mini_Controller">미니 컨트롤러</h2>
 
-<p>미니 컨트롤러는 일반적으로 레이아웃의 하단에 위치한 활동에 첨부되는 조각입니다. 미니 컨트롤러를 사용하면 비디오를 재생하거나 일시 정지할 수 있으며 Chromecast 장치에서 비디오가 재생되는 시기를 알려줍니다. 미니 컨트롤러를 클릭하면 확장된 컨트롤러가 실행됩니다.</p>
-<p>미니 컨트롤러를 활성화하려면 활동 레이아웃에 다음 코드를 추가하십시오.</p>
+<p>미니 컨트롤러는 일반적으로 레이아웃의 맨 아래에 있는 활동에 연결되는 프래그먼트입니다. 미니 컨트롤러를 사용하면 동영상을 재생 및 일시중지할 수 있으며 Chromecast 기기에서 동영상이 재생 중일 때 표시됩니다. 미니 컨트롤러를 클릭하면 확장 컨트롤러가 실행됩니다.</p>
+<p>미니 컨트롤러를 활성화하려면 활동 레이아웃에 다음 코드를 추가하세요.</p>
 	<pre class="line-numbers">
 <code class="language-java" translate="No">&lt;fragment
    android:id="@+id/castMiniController"
@@ -1076,15 +224,15 @@ public boolean onCreateOptionsMenu(Menu menu) {
    android:visibility="gone"
    class="com.google.android.gms.cast.framework.media.widget.MiniControllerFragment" /&gt;</code></pre>
 
-<p>미니 컨트롤러로 모범 사례를 알아보려면<a href="https://developers.google.com/cast/docs/design_checklist/sender#sender-mini-controller">설계 체크리스트를 참조하십시오. 발신자 미니 컨트롤러</a>문서입니다. 구현에 대한 자세한 내용은<a href="https://developers.google.com/cast/docs/android_sender_integrate#add_mini_controller">통합 캐스트: 미니 컨트롤러 문서를 추가합니다</a> .</p>
+<p>미니 컨트롤러의 모범 사례를 알아보려면 다음을 참조하십시오. <a href="https://developers.google.com/cast/docs/design_checklist/sender#sender-mini-controller">디자인 체크리스트: 발신자 미니 컨트롤러</a>문서. 구현에 대한 자세한 내용은 다음을 참조하십시오. <a href="https://developers.google.com/cast/docs/android_sender_integrate#add_mini_controller">캐스트 통합: 미니 컨트롤러 추가</a>문서.</p>
 </section>
 
 <section class="bcls-section">
 <h2 id="Advanced_Topics">고급 주제</h2>
 
-<h3 id="Listening_for_Cast_session">캐스트 세션 듣기</h3>
+<h3 id="Listening_for_Cast_session">Cast 세션 듣기</h3>
 
-<p>캐스트 연결이 시작되거나 끝날 때 앱이 반응하도록 하려면 다음과 같이<code translate="No">GoogleCastEventType.CAST_SESSION_STARTED</code>또는<code translate="No">GoogleCastEventType.CAST_SESSION_ENDED</code>이벤트 리스너를 추가할 수 있습니다.</p>
+<p>Cast 연결이 시작되거나 종료될 때 앱이 반응하도록 하려면 다음을 추가할 수 있습니다. <code translate="No">GoogleCastEventType.CAST_SESSION_STARTED</code>또는<code translate="No">GoogleCastEventType.CAST_SESSION_ENDED</code>여기에 표시된 이벤트 리스너:</p>
 
 <pre class="line-numbers">
 <code class="language-java" translate="No">eventEmitter.on(GoogleCastEventType.CAST_SESSION_STARTED, new EventListener() {
@@ -1100,11 +248,11 @@ eventEmitter.on(GoogleCastEventType.CAST_SESSION_ENDED, new EventListener() {
    }
 });</code></pre>
 
-<p>또는 를<code translate="No">GoogleCastComponent.isSessionAvailable()</code>호출하여 사용 가능한 세션을 확인할 수 있습니다.</p>
+<p>또는 다음으로 전화할 수 있습니다. <code translate="No">GoogleCastComponent.isSessionAvailable()</code>사용 가능한 세션을 확인합니다.</p>
 
-<h3 id="Casting_a_Video">비디오 캐스팅</h3>
+<h3 id="Casting_a_Video">비디오 전송</h3>
 
-<p>성공적인 연결 후 비디오를 크롬캐스트로 전송하려면 EventEmitter를 사용하여 미디어 정보 정보를 내보내거나 직접<code translate="No">GoogleCastComponent</code>메서드를 사용할 수 있습니다.</p>
+<p>연결에 성공한 후 비디오를 Chromecast로 전송하려면 EventEmitter를 사용하고 미디어 정보 정보를 내보내거나 직접 사용할 수 있습니다. <code translate="No">GoogleCastComponent</code>행동 양식.</p>
 
 <p>미디어 정보를 내보내려면 다음 이벤트를 사용할 수 있습니다.</p>
 
@@ -1115,23 +263,24 @@ eventEmitter.on(GoogleCastEventType.CAST_SESSION_ENDED, new EventListener() {
 	<li><code translate="No">GoogleCastEventType.ADD_MEDIA_QUEUE_ITEM</code></li>
 </ul>
 
-<p>다음 표에서는 각 이벤트에 대해 예상되는 속성을 보여 줍니다.</p>
+<p>다음 표에서는 각 이벤트에 대해 예상되는 속성을 보여줍니다.</p>
 
 <table class="bcls-table">
 	<thead class="bcls-table__head">
 		<tr>
 			<th rowspan="2">이벤트 이름</th>
-			<th colspan="2">등록 정보</th>
+			<th colspan="2">속성</th>
 		</tr>
 		<tr>
-			<th>키</th>
-			<th>값 분류 유형</th>
+			<th>열쇠</th>
+			<th>값 클래스 유형</th>
 		</tr>
 	</thead>
 	<tbody class="bcls-table__body">
 		<tr>
 			<td><code translate="No">LOAD_MEDIA_INFO</code></td>
-			<td><code translate="No">GoogleCastComponent.CAST_MEDIA_INFO</code><br/> <code translate="No">GoogleCastComponent.CAST_MEDIA_PLAY_POSITION</code></td>
+			<td><code translate="No">GoogleCastComponent.CAST_MEDIA_INFO</code><br />
+			<code translate="No">GoogleCastComponent.CAST_MEDIA_PLAY_POSITION</code></td>
 			<td><code translate="No">MediaInfo</code>정수</td>
 		</tr>
 		<tr>
@@ -1141,7 +290,8 @@ eventEmitter.on(GoogleCastEventType.CAST_SESSION_ENDED, new EventListener() {
 		</tr>
 		<tr>
 			<td><code translate="No">ADD_MEDIA_INFO</code></td>
-			<td><code translate="No">GoogleCastComponent.CAST_MEDIA_INFO</code><br/> <code translate="No">GoogleCastComponent.CAST_MEDIA_PLAY_POSITION</code></td>
+			<td><code translate="No">GoogleCastComponent.CAST_MEDIA_INFO</code><br />
+			<code translate="No">GoogleCastComponent.CAST_MEDIA_PLAY_POSITION</code></td>
 			<td><code translate="No">MediaInfo</code>정수</td>
 		</tr>
 		<tr>
@@ -1173,74 +323,74 @@ eventEmitter.on(GoogleCastEventType.CAST_SESSION_ENDED, new EventListener() {
 	</li>
 </ul>
 
-<h3 id="Changing_the_default_MediaInfo_data">기본 미디어 정보 데이터 변경</h3>
+<h3 id="Changing_the_default_MediaInfo_data">기본 MediaInfo 데이터 변경</h3>
 
-<p>기본적으로 캐스트 플러그인은 에서 방출하는 현재 Video 및 Source 객체에 대한 정보를 수집합니다<code translate="No">EventType.SET_SOURCE event</code> . 사용자 지정 JSON 개체를 추가하는 등 추가 정보를 변경하거나 추가하려는 경우<code translate="No">MediaInfo</code>앱 수신기가 이해하는 경우<code translate="No">loadMediaInfo()</code>과<code translate="No">addMediaInfo()</code>방법에서<code translate="No">BrightcoveCastMediaManager</code> . 그런 다음<code translate="No">BrightcoveCastMediaManager</code>하위 클래스가 생성자 매개 변수로<code translate="No">GoogleCastComponent</code>클래스에 전달됩니다.</p>
+<p>기본적으로 Cast 플러그인은<code translate="No">EventType.SET_SOURCE event</code> . 사용자 정의 JSON 객체를 추가하는 것과 같은 추가 정보를 변경하거나 추가하려는 경우<code translate="No">MediaInfo</code>앱 수신자가 이해하는 경우 덮어쓰기하여 수행할 수 있습니다. <code translate="No">loadMediaInfo()</code>그리고<code translate="No">addMediaInfo()</code>방법<code translate="No">BrightcoveCastMediaManager</code> . 그러면 당신의<code translate="No">BrightcoveCastMediaManager</code>하위 클래스는 생성자 매개변수로 전달됩니다. <code translate="No">GoogleCastComponent</code>수업.</p>
 
-<p>이러한 메서드 내에서<code translate="No">MediaInfo</code>개체를 만들고 이전에 표시된대로 적절한 이벤트를 내보낼 수 있습니다. 확인하십시오<code translate="No">com.brightcove.cast.util.CastMediaUtil</code> , 생성하는 몇 가지 유틸리티 메서드를 제공하므로<code translate="No">MediaInfo</code>비디오 및 소스 개체에서.</p>
+<p>이러한 메서드 내에서 다음을 만들 수 있습니다. <code translate="No">MediaInfo</code>개체를 만들고 이전에 표시된 대로 적절한 이벤트를 내보냅니다. 반드시 확인하세요<code translate="No">com.brightcove.cast.util.CastMediaUtil</code> , 생성하는 몇 가지 유틸리티 메서드를 제공하므로<code translate="No">MediaInfo</code>비디오 및 소스 개체에서.</p>
 
-<h3 id="Configuring_the_Cast_MediaController">캐스트 미디어 컨트롤러 구성하기</h3>
+<h3 id="Configuring_the_Cast_MediaController">캐스트 MediaController 구성</h3>
 
-<p>캐스트 세션이 시작될 때 브라이트코브 비디오 뷰에 표시되는 컨트롤러 레이아웃을 변경하려면 다음 단계를 따르십시오.</p>
+<p>Cast 세션이 시작될 때 Brightcove Video View에 나타나는 컨트롤러 레이아웃을 변경하려면 다음 단계를 따르십시오.</p>
 
 <ol class="bcls-tasklist-restart">
-	<li><a href="#Extend_the_BrightcoveCastMediaManager">브라이트코브캐스트 미디어 관리자 확장</a></li>
-	<li><a href="#Set_the_MediaControllerConfig">미디어 컨트롤러 구성 설정</a></li>
+	<li><a href="#Extend_the_BrightcoveCastMediaManager">BrightcoveCastMediaManager 확장</a></li>
+	<li><a href="#Set_the_MediaControllerConfig">MediaControllerConfig 설정</a></li>
 	<li><a href="#Overwrite_the_control_bar_setup">컨트롤 바 설정 덮어쓰기</a></li>
 </ol>
 
-<h4 id="Extend_the_BrightcoveCastMediaManager">브라이트코브캐스트 미디어 관리자 확장</h4>
+<h4 id="Extend_the_BrightcoveCastMediaManager">BrightcoveCastMediaManager 확장</h4>
 
-<p>의 기본 동작을 변경하려면 하위 클래스를 만들고 몇 가지 주요 메서드를 덮어씁니다. <code translate="No">BrightcoveCastMediaManager</code></p>
+<p>기본 동작을 변경하려면<code translate="No">BrightcoveCastMediaManager</code> , 하위 클래스를 만들고 몇 가지 주요 메서드를 덮어씁니다.</p>
 
 <ul>
 	<li>
 	<pre>
 <code class="language-java" translate="No">public void updateBrightcoveMediaController(boolean isRemote)</code></pre>
 
-	<p>이 메서드는 세션이 변경될<code translate="No">GoogleCastComponent</code>때 (즉, 세션이 시작되거나 종료된 경우) 에 의해 호출됩니다. 세션이 시작되면<code translate="No">isRemote</code>매개 변수가<code translate="No">true</code>되고<code translate="No">setupRemoteController</code>메서드가 호출됩니다. 그렇지<code translate="No">isRemote</code>않으면 가<code translate="No">false</code>되고<code translate="No">resetToLocalController</code>가 호출됩니다.</p>
+	<p>이 메서드는<code translate="No">GoogleCastComponent</code>세션이 변경될 때; 즉, 세션이 시작되거나 종료될 때입니다. 세션이 시작되면<code translate="No">isRemote</code>매개변수는<code translate="No">true</code>그리고<code translate="No">setupRemoteController</code>메소드가 호출됩니다. 그렇지 않으면<code translate="No">isRemote</code>될거야<code translate="No">false</code>그리고<code translate="No">resetToLocalController</code>라고 합니다.</p>
 	</li>
 	<li>
 	<pre>
 <code class="language-java" translate="No">protected void setupRemoteController()</code></pre>
 
-	<p>이 메서드는 이벤트를 내 보냅니다. <code translate="No">EventType.SET_MEDIA_CONTROLLER_CONFIG</code>와 더불어<code translate="No">MediaControllerConfig</code>목적. 우리는이 섹션의<code translate="No">MediaControllerConfig</code>후반부에 대해 더 이야기 할 것입니다. 또한 이 메서드는<code translate="No">BrightcoveMediaController.CONTROL_BAR_CREATED</code>이벤트를 수신하고<code translate="No">setupBrightcoveControlBar</code>메서드를 호출하여 반응합니다.</p>
+	<p>이 메서드는 이벤트를 발생시킵니다. <code translate="No">EventType.SET_MEDIA_CONTROLLER_CONFIG</code>이랑<code translate="No">MediaControllerConfig</code>물체. 우리는에 대해 더 이야기 할 것입니다<code translate="No">MediaControllerConfig</code>이 섹션의 뒷부분에서. 이 방법은 또한<code translate="No">BrightcoveMediaController.CONTROL_BAR_CREATED</code>이벤트를 호출하여 반응하고<code translate="No">setupBrightcoveControlBar</code>방법.</p>
 	</li>
 	<li>
 	<pre>
 <code class="language-java" translate="No">protected void resetToLocalController()</code></pre>
 
-	<p>이 메소드는<code translate="No">BrightcoveMediaController</code>을 (를) 방출하여 원래 컨트롤러 레이아웃으로 재설정합니다<code translate="No">EventType.RESTORE_DEFAULT_MEDIA_CONTROLLER</code> .</p>
+	<p>이 방법은 재설정을 담당합니다. <code translate="No">BrightcoveMediaController</code>를 방출하여 원래 컨트롤러 레이아웃으로<code translate="No">EventType.RESTORE_DEFAULT_MEDIA_CONTROLLER</code> .</p>
 	</li>
 	<li>
 	<pre>
 <code class="language-java" translate="No">protected void setupBrightcoveControlBar(BrightcoveControlBar controlBar)</code></pre>
 
-	<p>일단<code translate="No">BrightcoveMediaController</code>제공되는 레이아웃으로 재현되었습니다. <code translate="No">MediaControllerConfig</code>에 액세스 할 수 있습니다. <code translate="No">BrightcoveControlBar</code>전망. 여기에서 버튼과 같은 UI 보기에 액세스할 수 있습니다. 여기에서 를 추가할<code translate="No">OnClickListener</code>수 있습니다.</p>
+	<p>일단<code translate="No">BrightcoveMediaController</code>에 제공된 레이아웃으로 재창조되었습니다. <code translate="No">MediaControllerConfig</code>에 액세스할 수 있습니다. <code translate="No">BrightcoveControlBar</code>보다. 여기에서 추가할 수 있는 버튼과 같은 UI 보기에 액세스할 수 있습니다. <code translate="No">OnClickListener</code>그들에게.</p>
 	</li>
 </ul>
 
-<h4 id="Set_the_MediaControllerConfig">미디어 컨트롤러 구성 설정</h4>
+<h4 id="Set_the_MediaControllerConfig">MediaControllerConfig 설정</h4>
 
-<p><code translate="No">MediaControllerConfig</code>는 클래스의 기본 제어 레이아웃을 변경하는 데 사용할 수 있는 구성<code translate="No">BrightcoveMediaController</code>클래스입니다. 이 클래스에서는 레이아웃 및 을 설정할 수<code translate="No">OnTouchListener</code>있습니다. 생성 및 구성되면 아래 그림과 같이이 객체를 방출 할 수 있습니다:</p>
+<p>NS <code translate="No">MediaControllerConfig</code>는 기본 컨트롤 레이아웃을 변경하는 데 사용할 수 있는 구성 클래스입니다. <code translate="No">BrightcoveMediaController</code>수업. 이 클래스에서는 레이아웃과<code translate="No">OnTouchListener</code> . 생성 및 구성이 완료되면 아래와 같이 이 객체를 내보낼 수 있습니다.</p>
 
 <pre class="line-numbers">
 <code class="language-java" translate="No">Map&lt;String, Object&gt; properties = new HashMap&lt;&gt;();
 properties.put(Event.MEDIA_CONTROLLER_CONFIG, myMediaControllerConfig);
 eventEmitter.emit(EventType.SET_MEDIA_CONTROLLER_CONFIG,properties);</code></pre>
 
-<p>기본<code translate="No">MediaControllerConfig</code>대상체는 을<code translate="No">R.layout.cast_media_controller</code>단일<strong>재생</strong>버튼으로 레이아웃으로 설정합니다. 클릭하면 두 가지 옵션이 있는 대화 상자가 열립니다.</p>
+<p>기본값<code translate="No">MediaControllerConfig</code>객체는 다음을 설정합니다<code translate="No">R.layout.cast_media_controller</code>하나의 레이아웃으로<strong>놀다</strong>단추. 클릭하면 두 가지 옵션이 있는 대화 상자가 열립니다.</p>
 
 <ul>
-	<li><strong>지금 재생</strong> - 이 옵션을 선택하면<code translate="No">loadMediaInfo()</code>메서드가 호출되고 비디오가 크롬캐스트에서 로드되고 재생됩니다.</li>
-	<li><strong>대기열에 추가</strong> - 이 옵션을 선택하면<code translate="No">addMediaInfo()</code>메서드가 호출되고 비디오가 대기열 끝에 추가됩니다.</li>
+	<li><strong>지금 플레이</strong> - 선택 시, <code translate="No">loadMediaInfo()</code>메서드가 호출되고 동영상이 Chromecast에서 로드되고 재생됩니다.</li>
+	<li><strong>목록에 추가해</strong> - 선택 시, <code translate="No">addMediaInfo()</code>메서드가 호출되고 비디오가 대기열 끝에 추가됩니다.</li>
 </ul>
 
-<aside class="bcls-aside bcls-aside--information">동일한 UI를 유지하지만 캐스팅 중인 비디오에 추가 정보를 로드하려는 경우<code translate="No">loadMediaInfo()</code>및<code translate="No">addMediaInfo()</code>메서드를 덮어쓰고<code translate="No">MediaInfo</code>개체를 사용합니다.</aside>
+<aside class="bcls-aside bcls-aside--information">동일한 UI를 유지하지만 전송 중인 비디오에 추가 정보를 로드하려는 경우 덮어쓸 수 있습니다. <code translate="No">loadMediaInfo()</code>그리고<code translate="No">addMediaInfo()</code>방법 및 사용자 정의에 추가하는 정보<code translate="No">MediaInfo</code>물체.</aside>
 
 <h4 id="Overwrite_the_control_bar_setup">컨트롤 바 설정 덮어쓰기</h4>
 
-<p>미디어 컨트롤러 레이아웃이<code translate="No">MediaControllerConfig</code> , <code translate="No">BrightcoveControlBar</code>보기가 생성되고<code translate="No">BrightcoveCastMediaManager.setupBrightcoveControlBar()</code>메서드가 호출됩니다. Id로 UI 구성 요소를 가져 와서 적절한 리스너를 추가 할 수 있습니다.</p>
+<p>미디어 컨트롤러 레이아웃이<code translate="No">MediaControllerConfig</code> , NS <code translate="No">BrightcoveControlBar</code>보기가 생성되고<code translate="No">BrightcoveCastMediaManager.setupBrightcoveControlBar()</code>메소드가 호출됩니다. 여기에서 Id로 UI 구성 요소를 가져오고 적절한 수신기를 추가할 수 있습니다.</p>
 
 <pre class="line-numbers">
 <code class="language-java" translate="No">@Override
@@ -1330,9 +480,9 @@ protected void setupBrightcoveControlBar(BrightcoveControlBar controlBar) {
 
 <h3>안드로이드 9</h3>
 
-<p>Android 9 이상에서 Chromecast를 사용하는 경우 다음을 포함해야합니다. <code translate="No">FOREGROUND_SERVICE</code>허가. 이를 통해 앱이 백그라운드로 전환되고 포그라운드로 다시 가져올 때 앱이 알림을 사용하여 캐스팅 세션을 제어할 수 있습니다.</p>
+<p>Android 9 이상에서 Chromecast를 사용하는 경우 다음을 포함해야 합니다. <code translate="No">FOREGROUND_SERVICE</code>허가. 이렇게 하면 앱이 백그라운드로 설정되고 포그라운드로 다시 돌아올 때 앱이 알림을 사용하여 캐스팅 세션을 제어할 수 있습니다.</p>
 
-<p><code translate="No">uses-permission</code>태그는 다음과 같이 앱의<strong>AndroidManifest.xml</strong>파일에 추가되어야 합니다.</p>
+<p>NS <code translate="No">uses-permission</code>앱에 태그를 추가해야 합니다. <strong> AndroidManifest.xml</strong>파일을 다음과 같이</p>
 
 <pre>
 <code class="language-java" translate="No">&lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE"/&gt;</code></pre>
@@ -1343,161 +493,6 @@ protected void setupBrightcoveControlBar(BrightcoveControlBar controlBar) {
 
 <h4>구글 플레이 서비스</h4>
 
-<p>발신자의 Google Play 서비스 버전이 최신 버전이 아닌 경우 캐스팅 연결이 생성되지 않을 수 있습니다. 발신자의 Google Play 서비스, 특히 캐스트 서비스 프레임 워크가 오래된 경우 캐스트 연결을 생성하지 못할 수 있습니다. 이는 Google Play 스토어를 통해 발신자의 Google Play 서비스를 업데이트하면 해결됩니다.</p>
+<p>발신자의 Google Play 서비스 버전이 최신 버전이 아닌 경우 전송 연결이 생성되지 않을 수 있습니다. 발신자의 Google Play 서비스, 특히 Cast Services 프레임워크가 오래된 경우 Cast 연결을 생성하지 못할 수 있습니다. 이 문제는 Google Play 스토어를 통해 발신자의 Google Play 서비스를 업데이트하여 해결됩니다.</p>
 </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

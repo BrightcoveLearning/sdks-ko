@@ -1,0 +1,230 @@
+
+---
+title: "Key/License Protection with the Native SDKs"
+description: "이 주제에서는 Brightcove 재생 제한과 관련된 키/라이센스 보호를 사용하도록 기본 SDK를 구성하는 방법을 배웁니다."
+parent: Features 
+grandparent: Home
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  
+  <br/>
+  <aside class="bcls-aside bcls-aside--tip">이 기능은 Brightcove 재생 제한의 제한된 가용성 단계에 액세스할 수 있는 특정 고객 집합에서 사용할 수 있습니다.</aside>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">소개</h2>
+    <p>키 / 라이선스 보호는 DRM 보호 또는 HTTP HLSe (Live Streaming Encryption) 콘텐츠와 함께 Dynamic Delivery를 사용할 때 추가 보안 수준을 제공합니다. 라이센스 요청은 서명된<a href="https://general.support.brightcove.com/developer/create-json-web-token.html"> JSON 웹 토큰(JWT)</a> . </p>
+
+    <p>토큰은 비디오가 플레이어에 로드되고 소스가 선택되면 비디오 라이선스를 요청할 때 사용됩니다.</p>
+
+    <aside class="bcls-aside bcls-aside--information">HLSe 콘텐츠를 사용하면 플레이어가 연결성을 개선하거나 첫 번째 세그먼트가 로드된 후 변환을 변경할 때 새 라이선스 요청이 만들어집니다.</aside>
+
+    <p>이 기능에 익숙하지 않은 경우 다음을 참조하십시오. <a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">개요: Brightcove 재생 제한</a>문서.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Android_Implementation">안드로이드 구현</h2>
+
+    <p>Android용 기본 SDK는 현재 HLSe 및 Widevine DASH 소스에 대한 키/라이선스 보호를 지원합니다. 단일 비디오 또는 재생 목록에 대한 Brightcove 카탈로그 요청의 일부로 인증 토큰을 제공합니다.</p>
+
+    <p>
+      Brightcove 카탈로그를 요청하려면 다음 단계를 따르십시오.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          생성<code translate="No">HttpRequestConfig</code>개체를 만들고 여기에 표시된 대로 Brightcove 인증 토큰을 설정합니다.
+        </p>
+        <pre class="line-numbers"><code class="language-java" translate="No">HttpRequestConfig httpRequestConfig = new HttpRequestConfig.Builder()
+  .setBrightcoveAuthorizationToken("<span class="bcls-input">your jwt token</span>")
+  .build();
+</code></pre>
+        <p>
+          Authorization 토큰의 값은 JSON Web Token의 값이 됩니다.
+        </p>
+      </li>
+      <li>
+        <p>
+          생성한 후에는<code translate="No">HttpRequestConfig</code>개체를 다음 카탈로그 메서드 중 하나로 전달합니다.
+        </p>
+        <p>
+          비디오 요청의 경우 다음 중 하나를 사용합니다.
+        </p>
+        <pre class="line-numbers"><code class="language-java" translate="No">findVideoByID(String, HttpRequestConfig, VideoListener)
+</code></pre>
+        <pre class="line-numbers"><code class="language-java" translate="No">findVideoByReferenceID(String, HttpRequestConfig, VideoListener)
+</code></pre>
+        <p>
+          재생 목록 요청의 경우 다음 중 하나를 사용합니다.
+        </p>
+        <pre class="line-numbers"><code class="language-java" translate="No">findPlaylistByID(String, HttpRequestConfig, PlaylistListener)
+</code></pre>
+        <pre class="line-numbers"><code class="language-java" translate="No">findPlaylistByReferenceID(String, HttpRequestConfig, PlaylistListener)
+</code></pre>
+        <p>
+          HLSe 및 Widevine 라이선스 취득을 위한 토큰 사용에 대한 세부 정보는 SDK에서 처리합니다.
+        </p>
+        <aside class="bcls-aside bcls-aside--information">재생 목록 요청의 경우 재생 목록의 모든 동영상은 동일한 토큰을 사용해야 합니다. 향후 릴리스에서는 재생 목록의 각 비디오에 다른 토큰을 할당할 수 있습니다. 비디오 ID와 토큰 간의 매핑을 유지 관리해야 합니다. NS <code translate="No">conid</code>에 정의된 대로<a href="https://general.support.brightcove.com/developer/create-json-web-token.html#Create_a_JSON_Web_Token"> JWT 토큰 클레임</a>토큰과 연결된 비디오 ID 값입니다.</aside>
+      </li>
+    </ol>
+
+    <h3>코드 예</h3>
+    <p>
+      다음은 카탈로그 요청 시 인증 토큰을 전달하는 방법을 보여주는 예입니다.
+    </p>
+    <pre class="line-numbers"><code class="language-java" translate="No">String myToken = &quot;...&quot;;
+HttpRequestConfig httpRequestConfig = new HttpRequestConfig.Builder()
+  .setBrightcoveAuthorizationToken(myToken)
+  .build();
+&hellip;
+
+Catalog catalog = new Catalog(eventEmitter, accountId, policyKey, playbackApiBaseUrl);
+catalog.findVideoByReferenceID(videoReferenceId, httpRequestConfig, new VideoListener(){...});
+</code></pre>
+
+    <h3>오프라인 재생</h3>
+    <p>
+      오프라인 카탈로그<code translate="No">findVideo</code> , <code translate="No">requestPurchaseLicense</code>그리고<code translate="No">requestRentalLicense</code>방법은 모두<code translate="No">HttpRequestConfig</code>인수로.
+    </p>
+    <aside class="bcls-aside bcls-aside--tip">오프라인 재생을 통한 키/라이선스 보호는 Android v6.8.1 이상용 네이티브 SDK에서 지원됩니다.</aside>
+    <p>다음은 예입니다.</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">private HttpRequestConfig httpRequestConfig;
+private String pasToken = &quot;<span class="bcls-input">your jwt token</span>&quot;;
+...
+HttpRequestConfig.Builder httpRequestConfigBuilder = new HttpRequestConfig.Builder();
+httpRequestConfigBuilder.setBrightcoveAuthorizationToken(pasToken);
+httpRequestConfig = httpRequestConfigBuilder.build();
+playlist.findPlaylist(catalog, httpRequestConfig, new PlaylistListener() {
+    @Override
+    public void onPlaylist(Playlist playlist) {
+        videoListAdapter.setVideoList(playlist.getVideos());
+        onVideoListUpdated(false);
+        brightcoveVideoView.addAll(playlist.getVideos());
+    }
+
+    @Override
+    public void onError(String error) {
+        String message = showToast(&quot;Failed to find playlist[%s]: %s&quot;, playlist.displayName, error);
+        Log.w(TAG, message);
+        onVideoListUpdated(true);
+    }
+});</code></pre>
+
+    <p>
+      자세한 내용은<a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-exoplayer/OfflinePlaybackSampleApp/src/main/java/com/brightcove/player/samples/offlineplayback/MainActivity.java">오프라인 재생 샘플 앱</a> .
+    </p>
+
+    <h3>응답</h3>
+    <p>
+      다음 응답은 PAS와 연결됩니다.
+    </p>
+    <ul>
+      <li>
+        200 - 라이센스를 계속 사용할 수 있습니다.
+      </li>
+      <li>
+        401 - 라이센스 전달을 계속할 수 없습니다.
+      </li>
+    </ul>
+
+    <h3>제한 사항</h3>
+    <p>
+      현재 릴리스에는 다음과 같은 제한이 있습니다.
+    </p>
+    <ul>
+      <li>
+        Chromecast는 키 / 라이선스 보호와 함께 지원되지 않습니다.
+      </li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="iOS_Implementation">iOS 구현</h2>
+
+    <p>키/라이센스 보호를 사용할 때 인증 토큰을 전달할 수 있는 재생 서비스 방법을 사용해야 합니다. 이것은 다음을 사용하여 수행됩니다. <code translate="No">authToken</code>매개변수.</p>
+
+    <p>
+      비디오 요청의 경우 다음 중 하나를 사용합니다.
+    </p>
+    <pre class="line-numbers"><code class="language-objectivec" translate="No">- (void)findVideoWithVideoID:(NSString *)videoID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error))completionHandler;
+</code></pre>
+    <pre class="line-numbers"><code class="language-objectivec" translate="No">- (void)findVideoWithReferenceID:(NSString *)referenceID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error))completionHandler;
+</code></pre>
+
+    <p>
+      재생 목록 요청의 경우 다음 중 하나를 사용합니다.
+    </p>
+    <pre class="line-numbers"><code class="language-objectivec" translate="No">- (void)findPlaylistWithPlaylistID:(NSString *)playlistID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error))completionHandler;
+</code></pre>
+    <pre class="line-numbers"><code class="language-objectivec" translate="No">- (void)findPlaylistWithReferenceID:(NSString *)referenceID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error))completionHandler;
+</code></pre>
+
+    <p>
+      HLSe 및 FairPlay 라이선스 취득을 위한 토큰 사용에 대한 세부 정보는 SDK에서 처리합니다.
+    </p>
+    <aside class="bcls-aside bcls-aside--information">재생 목록 요청의 경우 재생 목록의 모든 동영상은 동일한 토큰을 사용해야 합니다. 향후 릴리스에서는 재생 목록의 각 비디오에 다른 토큰을 할당할 수 있습니다. 비디오 ID와 토큰 간의 매핑을 유지 관리해야 합니다. NS <code translate="No">conid</code>에 정의된 대로<a href="https://general.support.brightcove.com/developer/create-json-web-token.html#Create_a_JSON_Web_Token"> JWT 토큰 클레임</a>토큰과 연결된 비디오 ID 값입니다.</aside>
+
+    <p>
+      자세한 내용은<a href="/ios/reference/sdk/index.html#PlaybackAuthorizationService">재생 승인 서비스</a> iOS용 네이티브 SDK 참조 섹션.
+    </p>
+
+    <h3>오프라인 재생</h3>
+    <p>
+      오프라인 재생과 함께 재생 인증 서비스를 사용하는 경우 인증 토큰을 허용하는 FairPlay 라이선스를 갱신하는 새로운 방법이 있습니다.
+    </p>
+    <pre class="line-numbers"><code class="language-objectivec" translate="No">// Request license renewal
+    [BCOVOfflineVideoManager.sharedManager renewFairPlayLicense:offlineVideoToken
+        video:video // recent video from Playback API or Playback Service class
+        authToken: authToken
+        Parameters: parameters
+        completion:^(BCOVOfflineVideoToken offlineVideoToken, NSError *error)
+    {
+        // handle errors
+    }];
+</code></pre>
+
+    <p>
+      라이선스 갱신이 완료되면 전달된 것과 동일한 오프라인 비디오 토큰으로 완료 블록이 호출됩니다. NS <code translate="No">NSError</code>발생한 문제를 표시합니다(오류가 없으면 nil).
+    </p>
+
+    <p>
+      자세한 내용은<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/OfflinePlayback.md#renewing-a-fairplay-license"> FairPlay 라이선스 갱신</a> iOS용 네이티브 SDK 참조 섹션.
+    </p>
+
+    <h3>응답</h3>
+    <p>
+      다음 응답은 PAS와 연결됩니다.
+    </p>
+    <ul>
+      <li>
+        200 - 라이센스를 계속 사용할 수 있습니다.
+      </li>
+      <li>
+        401 - 라이센스 전달을 계속할 수 없습니다.
+      </li>
+    </ul>
+
+  </section>
+
+  <!-- <section class="bcls-section">
+    <h2 id="Related_topics">Related topics</h2>
+    <ul>
+      <li>
+        <a href="/playback-authorization/getting-started/overview-playback-authorization-service.html">Overview: DRM with Playback Authorization Service</a>
+      </li>
+      <li>
+        <a href="/playback-authorization/getting-started/technical-workflow-pas.html">Implementing DRM with Playback Authorization Service</a>
+      </li>
+      <li>
+        <a href="/playback-authorization/guides/using-pas-with-bcp.html">Using Playback Authorization DRM with Brightcove Player</a>
+      </li>
+      <li>
+        <a href="/playback-authorization/guides/additional-apis-for-pas.html">Additional APIs for Playback Authorization Service</a>
+      </li>
+    </ul>
+  </section> -->
+
+</article>

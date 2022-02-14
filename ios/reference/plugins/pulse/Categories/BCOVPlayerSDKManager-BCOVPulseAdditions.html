@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager(BCOVPulseAdditions) 범주 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:">- createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:</option>
+		
+		<option value="//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:">- createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:옵션:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager(BCOVPulseAdditions) 범주 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>선언</th>
+	<td>BCOVPulseComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>Pulse를 지원하기 위해 BCOVPlayerSDKManager에 범주 메서드가 추가되었습니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:" title="createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:">&ndash;&nbsp; createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 펄스 호스트, OOContentMetadata 개체, OORequestSettings 개체 및 사용자 옵션을 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 Pulse 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createPulsePlaybackControllerWithPulseHost:(NSString *)<code><em>펄스 호스트</em> contentMetadata:(OOContentMetadata *)<em>콘텐츠메타데이터</em> requestSettings:(OORequestSettings *)<em>요청 설정</em> adContainer:(UIView *)<em>광고 컨테이너</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> viewStrategy:(BCOVPlaybackControllerViewStrategy)<em>전략</em> 옵션:(NSDictionary *)<em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>펄스 호스트</code></th>
+						<td><p>사용 중인 클라이언트 계정의 Pulse 호스트 이름입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>콘텐츠메타데이터</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 세션 개체를 구성하는 데 사용할 OOContentMetadata입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>요청 설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 세션 개체를 구성하는 데 사용되는 OORequestSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>채울 BCOVPulseCompanionSlot의 배열입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>펄스 옵션의 NSDictionary. 0이거나 비어 있을 수 있습니다. 유효한 옵션 키는 kBCOVPulseOptionPulsePlaybackSessionDelegateKey kBCOVPulseOptionPulseDeviceContainerKey kBCOVPulseOptionPulsePersistentIdKey입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 재생 컨트롤러입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 펄스 호스트, OOContentMetadata 개체, OORequestSettings 개체 및 사용자 옵션을 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 Pulse 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPulseComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:" title="createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:">&ndash;&nbsp; createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>새 항목을 만들고 반환합니다. <a href="../Classes/BCOVPulseSessionProvider.html"> BCOVPulseSessionProvider</a>지정된 매개변수로.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createPulseSessionProviderWithPulseHost:(NSString *)<code><em>펄스 호스트</em> contentMetadata:(OOContentMetadata *)<em>콘텐츠메타데이터</em> requestSettings:(OORequestSettings *)<em>요청 설정</em> adContainer:(UIView *)<em>광고 컨테이너</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> upstreamSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<em>공급자</em> 옵션:(NSDictionary *)<em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>펄스 호스트</code></th>
+						<td><p>사용 중인 클라이언트 계정의 Pulse 호스트 이름입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>콘텐츠메타데이터</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 세션 개체를 구성하는 데 사용할 OOContentMetadata입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>요청 설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 세션 개체를 구성하는 데 사용되는 OORequestSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>채울 BCOVPulseCompanionSlot의 배열입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>업스트림을 연결하고 반환된 세션 제공자에게 재생 세션을 전달하는 세션 제공자.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>펄스 옵션의 NSDictionary. 0이거나 비어 있을 수 있습니다. 유효한 옵션 키는 kBCOVPulseOptionPulsePlaybackSessionDelegateKey kBCOVPulseOptionPulseDeviceContainerKey kBCOVPulseOptionPulsePersistentIdKey입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>새로운<a href="../Classes/BCOVPulseSessionProvider.html"> BCOVPulseSessionProvider</a>지정된 매개변수로.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>새 항목을 만들고 반환합니다. <a href="../Classes/BCOVPulseSessionProvider.html"> BCOVPulseSessionProvider</a>지정된 매개변수로.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPulseComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

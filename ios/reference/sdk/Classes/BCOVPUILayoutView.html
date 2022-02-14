@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUILayoutView 클래스 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/elasticity">탄력</option>
+		
+		<option value="//api/name/minimumWidth">최소폭</option>
+		
+		<option value="//api/name/removed">제거됨</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUILayoutView 클래스 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>다음에서 상속</th>
+	<td>UIView</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVPUILayoutView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>BCOVPUILayoutView 보기 개체는<a href="../Classes/BCOVPUIBasicControlView.html"> BCOVPUIBasicControlView</a> . 레이아웃 보기는 일반적으로 BCOVPUIBasicControlView로 생성됩니다. &rsquo; s +layoutViewWithControlFromTag:width:elasticity: 메서드를 포함하고 재생 버튼, 시간 코드 레이블 또는 진행 슬라이더와 같은 표준 플레이어 UI 요소를 포함합니다. 고유한 하위 보기를 추가할 빈 레이아웃 보기를 만들 수도 있습니다. 레이아웃 보기 속성은 가변 너비 레이아웃에서 보기가 서로에 대해 배치되는 방식을 정확히 결정합니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/minimumWidth" title="minimumWidth"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumWidth">&nbsp;&nbsp;최소폭</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>레이아웃을 위해 크기를 조정할 때 보기에 설정될 가장 작은 너비입니다. 만약에<a href="#//api/name/elasticity">탄력</a> 0으로 설정하면 뷰의 정확한 너비가 됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, readwrite) float minimumWidth</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>레이아웃을 위해 크기를 조정할 때 보기에 설정될 가장 작은 너비입니다. 만약에<a href="#//api/name/elasticity">탄력</a> 0으로 설정하면 뷰의 정확한 너비가 됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/elasticity" title="elasticity"></a>
+	<h3 class="method-title"><code><a href="#//api/name/elasticity">&nbsp;&nbsp;탄력</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>탄력성은 플레이어 UI의 사용 가능한 너비를 채우기 위해 각 보기의 크기를 조정하는 정도를 결정합니다. &rsquo;다른 모든 보기에 상대적인 컨트롤 막대. 컨트롤 막대에 두 개의 레이아웃 보기가 있고 하나는 탄력성이 1.0이고 다른 하나는 탄력성이 2.0인 경우 보기 크기를 조정할 때 후자는 두 배만큼 늘어납니다. 컨트롤 레이아웃의 각 행에는 일반적으로 탄력성이 0보다 큰 레이아웃 보기가 하나 이상 포함되어야 합니다. 탄력성이 0인 보기는 최소 너비로 유지됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, readwrite) 플로트 탄성</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>탄력성은 플레이어 UI의 사용 가능한 너비를 채우기 위해 각 보기의 크기를 조정하는 정도를 결정합니다. &rsquo;다른 모든 보기에 상대적인 컨트롤 막대. 컨트롤 막대에 두 개의 레이아웃 보기가 있고 하나는 탄력성이 1.0이고 다른 하나는 탄력성이 2.0인 경우 보기 크기를 조정할 때 후자는 두 배만큼 늘어납니다. 컨트롤 레이아웃의 각 행에는 일반적으로 탄력성이 0보다 큰 레이아웃 보기가 하나 이상 포함되어야 합니다. 탄력성이 0인 보기는 최소 너비로 유지됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removed" title="removed"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removed">&nbsp;&nbsp;제거됨</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>NS &ldquo;제거됨&rdquo;속성을 YES 또는 NO로 설정하여 특정 레이아웃 보기를 빠르게 숨기거나 표시할 수 있습니다. 이것은 완전히 새로운 설정보다 더 효율적입니다. <a href="../Classes/BCOVPUIControlLayout.html"> BCOVPUIControlLayout</a>제거되거나 추가된 보기와 함께. -setNeedsLayout을 호출하십시오. <a href="../Classes/BCOVPUIBasicControlView.html"> BCOVPUIBasicControlView</a>새 레이아웃을 표시하도록 이 속성을 설정한 후</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, readwrite, getter=isRemoved) BOOL 제거됨</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>NS &ldquo;제거됨&rdquo;속성을 YES 또는 NO로 설정하여 특정 레이아웃 보기를 빠르게 숨기거나 표시할 수 있습니다. 이것은 완전히 새로운 설정보다 더 효율적입니다. <a href="../Classes/BCOVPUIControlLayout.html"> BCOVPUIControlLayout</a>제거되거나 추가된 보기와 함께. -setNeedsLayout을 호출하십시오. <a href="../Classes/BCOVPUIBasicControlView.html"> BCOVPUIBasicControlView</a>새 레이아웃을 표시하도록 이 속성을 설정한 후</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

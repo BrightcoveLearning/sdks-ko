@@ -1,0 +1,459 @@
+
+---
+title: 'Android용 네이티브 SDK용 SSAI 플러그인'
+description: 이 주제에서는 Android용 Brightcove 기본 SDK와 함께 SSAI(서버 측 광고 삽입) 플러그인을 사용하는 방법을 배웁니다.
+parent: Advertising 
+grandparent: Android Development
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Using_the_SSAI_Plugin">SSAI 플러그인 사용</h2>
+
+<p>SSAI 플러그인을 사용하면 Dynamic Delivery 및 서버 측 광고로 콘텐츠를 재생할 수 있습니다.</p>
+
+<p>서버 측 광고로 콘텐츠를 재생하는 데는 두 가지 옵션이 있습니다.</p>
+
+<ol class="bcls-tasklist">
+	<li><a href="#Provide_a_URL_for_SSAI_content">SSAI 콘텐츠에 대한 URL 제공</a></li>
+	<li><a href="#Provide_a_Video_with_VMAP">VMAP로 비디오 제공</a></li>
+</ol>
+
+<p>두 경우 모두 SSAI 플러그인은 VMAP 소스를 요청하고이를 구문 분석하여 VideoView에 자동으로 추가합니다.</p>
+
+<h3 id="Provide_a_URL_for_SSAI_content">SSAI 콘텐츠에 대한 URL 제공</h3>
+
+<p>SSAI 자산 URL을 사용하여 다음 메서드를 호출합니다.</p>
+
+<pre>
+<code class="language-java" translate="No">SSAIComponent.processVideo(String url)</code></pre>
+
+<p>다음은 예입니다.</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">String ssaiUrl = "https://onceux.host.com/path/to/content.once"
+SSAIComponent ssaiComponent = new SSAIComponent(context, brightcoveVideoView);
+ssaiComponent.processVideo(ssaiUrl);
+</code></pre>
+
+<h3 id="Provide_a_Video_with_VMAP">VMAP로 비디오 제공</h3>
+
+<p>이 옵션의 경우 SSAI 자산 URL과 함께 VMAP 속성이 포함 된 소스가있는 비디오를 제공합니다. SSAI 플러그인을 사용하려면 다음 단계를 따르세요.</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>VideoCloud SSAI 콘텐츠를 요청하려면 먼저 Dynamic Delivery 및 SSAI를 사용하도록 계정을 구성해야합니다. 자세한 내용은<a href="https://ssai.support.brightcove.com/getting-started/video-cloud-ssai-overview.html"> Video Cloud SSAI 개요</a>문서.</li>
+	<li>다음으로 광고 구성 (adConfig) 개체를 만들어야합니다. 자세한 내용은<a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">서버 측 광고 설정 구성</a>문서. Android 용 Brightcove 네이티브 SDK 자체에는 adConfig를 생성하거나 관리하는 기능이 포함되어 있지 않습니다.</li>
+	<li>adConfig의<code translate="No">id</code>속성을 URL 매개 변수 ( <code translate="No">ad_config_id</code> )가 Catalog 메서드 호출에 추가되었습니다.
+	<pre>
+<code class="language-java" translate="No">findVideoById</code></pre>
+
+	<p>또는</p>
+
+	<pre>
+<code class="language-java" translate="No">findVideoByReferenceId  </code></pre>
+	</li>
+	<li>findVideo 메서드로 Video 객체를 검색 한 후 SSAI 플러그인에서 다음 메서드를 호출합니다.
+	<pre>
+<code class="language-java" translate="No">SSAIComponent.processVideo(Video ssaiVideo)</code></pre>
+	</li>
+</ol>
+
+<p>다음은 예입니다.</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">Catalog catalog = new Catalog(eventEmitter, myAccountId, myPolicyKey);
+SSAIComponent plugin = new SSAIComponent(appContext, getBrightcoveVideoView());
+
+// Set the ad_config_id URL parameter
+HttpRequestConfig httpRequestConfig = new HttpRequestConfig.Builder()
+        .addQueryParameter("ad_config_id", myAdConfig)
+        .build();
+
+// Find the Video by ID
+catalog.findVideoByID(myVideoId, httpRequestConfig, new VideoListener() {
+        @Override
+        public void onVideo(Video video) {
+
+        // Process the Video
+        plugin.processVideo(video);
+    }
+});
+</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Working_with_companion_ads">컴패니언 광고 작업</h2>
+
+<p>광고에 컴패니언이있는 경우 다음을 제공하여 앱에 쉽게 표시 할 수 있습니다. <code translate="No">ViewGroup</code> Companion 이미지를 보관하려면 다음을 호출합니다.</p>
+
+<pre>
+<code class="language-java" translate="No">SSAIComponent.addCompanionContainer(ViewGroup companionContainer)
+</code></pre>
+
+<p>여기에 예가 있습니다. 먼저 활동 또는 조각 레이아웃에 FrameLayout을 추가합니다.</p>
+
+<pre class="line-numbers">
+<code class="language-xml" translate="No">// my_activity.xml
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"&gt;
+ ...
+  &lt;FrameLayout
+        android:id="@+id/ad_frame"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:visibility="invisible" /&gt;
+…
+&lt;/RelativeLayout&gt;
+</code></pre>
+
+<p>그런 다음 사용<code translate="No">FrameLayout</code>플러그인에 전달하려면 :</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">ViewGroup viewGroup = findViewById(R.id.ad_frame);
+plugin.addCompanionContainer(viewGroup);
+
+// process your Video
+plugin.processVideo(video);
+</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Handling_events">이벤트 처리</h2>
+
+<p>SSAI 관련 이벤트의 경우 다음을 사용하여들을 수 있습니다. <code translate="No">EventEmitter</code> . 이러한 이벤트는<code translate="No">SSAIEventType</code>수업.</p>
+
+<p>그만큼<code translate="No">START_AD_SEGMENT</code>과<code translate="No">END_AD_SEGMENT</code>이벤트가<code translate="No">EventType.AD_BREAK_STARTED</code>과<code translate="No">EventType.AD_BREAK_COMPLETED</code>각기. 자세한 내용은<a href="#Appendix_B">부록 B</a>과<a href="#Appendix_C">부록 C</a> .</p>
+
+<p>상대적이고 절대적인 위치를 얻으려면<code translate="No">com.brightcove.ssai.AdPod</code>와 더불어<code translate="No">SSAIEvent.AD_POD</code>키. 다음은 예입니다.</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">private void registerEventHandlers() {
+  EventEmitter eventEmitter = brightcoveVideoView.getEventEmitter();
+  eventEmitter.on(EventType.AD_BREAK_STARTED, new EventListener() {
+    @Override
+    public void processEvent(Event event) {
+      Object adPodObject = event.getProperties().get(SSAIEvent.AD_POD);
+      if (adPodObject instanceof AdPod) {
+        AdPod adPod = (AdPod) adPodObject;
+        adPod.getRelativeStartPosition();
+        adPod.getAbsoluteStartPosition();
+        adPod.getAbsoluteEndPosition();
+      }
+    }
+  });
+}
+</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Handling_errors">오류 처리</h2>
+
+<p>모든 오류는 다음을 사용하여 개발자에게 표시됩니다. <code translate="No">EventType.ERROR</code>여기에 표시된대로 이벤트 :</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">eventEmitter.on(EventType.ERROR, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    String errorMessage = event.getProperty(Event.ERROR_MESSAGE, String.class);
+    Throwable error = event.getProperty(Event.ERROR, Throwable.class);
+    Log.w(TAG, String.format("Received the error message: %s with error: %s", errorMessage, error));
+  }
+});
+</code></pre>
+</section>
+
+<!-- <section class="bcls-section">
+<h2 id="Migrating_from_the_OnceUx_Plugin">Migrating from the OnceUx Plugin</h2>
+
+<p>If you are already using the OnceUx plugin to play your SSAI videos in your app, you only need to follow a few steps to migrate to the new SSAI plugin.</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>In your app’s <strong>build.gradle</strong> file, replace
+
+	<pre>
+<code class="language-java" translate="No">implementation 'com.brightcove.player:android-onceux-plugin:6.5.1'
+</code></pre>
+
+	<p>with the following: (use the latest plugin version)</p>
+
+	<pre>
+<code class="language-java" translate="No">implementation 'com.brightcove.player:android-ssai-plugin:6.7.0'
+</code></pre>
+	</li>
+	<li>Replace the <code translate="No">OnceUxComponent</code> class with the <code translate="No">SSAIComponent</code> class.</li>
+	<li>Replace <code translate="No">OnceUxEventType.NO_AD_DATA_URL</code> with <code translate="No">EventType.ERROR</code>.</li>
+	<li>If your code uses any of the constants that were found in <code translate="No">OnceUxEventType</code> class, replace these with <code translate="No">SSAIEventType</code> and <code translate="No">SSAIEvent</code> constants, according to their function:
+	<ul>
+		<li>The constants used to listen for an event are now found in the <code translate="No">SSAIEventType</code> class. For example:
+		<pre>
+<code class="language-java" translate="No">SSAIEventtType.AD_DATA_READY</code></pre>
+		</li>
+		<li>The constants used as keys for Event properties are now found in the SSAIEvent class. For example:
+		<pre>
+<code class="language-java" translate="No">SSAIEvent.SSAI_AD</code></pre>
+		</li>
+	</ul>
+	</li>
+	<li>The SSAI and OnceUx plugins share an internal library responsible for parsing the VMAP object. If your app directly uses objects from this library (<code translate="No">package com.brightcove.iab</code>), there are changes in the new version that you might find useful.</li>
+	<li>
+	<p>For more information, see <a href="#Appendix_A">Appendix A</a>.</p>
+
+	<p>For a comparison between the Events sent in the OnceUx plugin and the SSAI plugin, see the following:</p>
+
+	<ul>
+		<li><a href="#Appendix_B">Appendix B</a></li>
+		<li><a href="#Appendix_C">Appendix C</a></li>
+	</ul>
+	</li>
+</ol>
+</section> -->
+
+<section class="bcls-section">
+<h2 id="IAB_Android_library">IAB Android 라이브러리</h2>
+<p>SSAI 플러그인은 VMAP 개체 구문 분석을 담당하는 내부 라이브러리를 사용합니다. 앱이이 라이브러리 ( <code translate="No">package com.brightcove.iab</code> ), 최신 버전의 변경 사항을 검토하십시오.</p>
+
+<h3>릴리즈 노트</h3>
+<h4>IAB Android 라이브러리 1.5.0</h4>
+<ul>
+	<li>마이크로 초 단위로 시간 값을 반환하는 다음 메서드를 추가했습니다.
+	<ul>
+		<li><code translate="No">com.brightcove.iab.ssai.BrightcoveSSAI.getContentLengthUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.ssai.BrightcoveSSAI.getPayloadLengthUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vmap.AdBreak.getTimeOffsetUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vmap.AdBreak.getDurationUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.Linear.getDurationUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.Linear.getSkipOffsetUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.NonLinear.getMinSuggestedDurationUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.Icon.getDurationUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.Icon.getOffsetUs():long</code></li>
+		<li><code translate="No">com.brightcove.iab.vast.Tracking.getOffsetUs():long</code></li>
+	</ul>
+	</li>
+	<li>추가됨<code translate="No">AdBreak.POST_ROLL_TIME_OFFSET_US</code>사용시 포스트 롤 AdBreak의 값을 지정하려면<code translate="No">AdBreak.getTimeOffsetUs()</code> .</li>
+	<li>추가<code translate="No">BrightcoveSSAI</code> camelcase 명명 규칙을 따르는 속성 게터.</li>
+	<li>더 이상 사용되지 않는<code translate="No">BrightcoveSSAI</code>카멜 케이스 이름 지정 규칙을 따르지 않는 속성 게터.</li>
+</ul>
+</section>
+
+<!-- <section class="bcls-section">
+<h2 id="Appendix_B">Appendix B</h2>
+
+<p>This table shows the differences between the <code translate="No">EventType</code> properties sent with the OnceUx and the SSAI plugin:</p>
+
+<table class="bcls-table">
+	<thead class="bcls-table__head">
+		<tr>
+			<th style="width:20%">EventType class</th>
+			<th style="width:40%">OnceUx plugin</th>
+			<th style="width:40%">SSAI plugin</th>
+		</tr>
+	</thead>
+	<tbody class="bcls-table__body">
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_BREAK_STARTED">AD_BREAK_STARTED</a></td>
+			<td>none</td>
+			<td><code translate="No">Event.DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">SSAIEvent.STITCHED_POSITION</code>:Integer<br />
+			<code translate="No">SSAIEvent.AD_POD:com.brightcove.ssai.AdPod</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_STARTED">AD_STARTED</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VAST_LINEAR:com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION</code>:Integer</td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">SSAIEvent.VAST_LINEAR:com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">SSAIEvent.STITCHED_POSITION</code>:Integer</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_PAUSED">AD_PAUSED</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.VIDEO</code>:Video</td>
+			<td>same</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_RESUMED">AD_RESUMED</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">Event.VIDEO_DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.SOURCE</code>:Source<br />
+			<code translate="No">Event.VIDEO</code>:Video<br />
+			<code translate="No">Event.FORWARD_BUFFER_SECONDS</code>:Integer</td>
+			<td>same</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_PROGRESS">AD_PROGRESS</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">Event.VIDEO_DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.ORIGINAL_PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.SOURCE</code>:Source<br />
+			<code translate="No">Event.VIDEO</code>:Video<br />
+			<code translate="No">Event.FORWARD_BUFFER_SECONDS</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VMAP_SEGMENT_INDEX</code>:Integer</td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">Event.VIDEO_DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.ORIGINAL_PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.SOURCE</code>:Source<br />
+			<code translate="No">Event.VIDEO</code>:Video<br />
+			<code translate="No">Event.FORWARD_BUFFER_SECONDS</code>:Integer</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_COMPLETED">AD_COMPLETED</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VAST_LINEAR:com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION:Integer</code></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event.AD_TITLE</code>:String<br />
+			<code translate="No">SSAIEvent.VAST_LINEAR:com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">SSAIEvent.STITCHED_POSITION:Integer</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#AD_BREAK_COMPLETED">AD_BREAK_COMPLETED</a></td>
+			<td>none</td>
+			<td><code translate="No">Event.DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">SSAIEvent.STITCHED_POSITION</code>:Integer<br />
+			<code translate="No">SSAIEvent.AD_POD:com.brightcove.ssai.AdPod</code></td>
+		</tr>
+	</tbody>
+</table>
+</section> -->
+
+<!-- <section class="bcls-section">
+<h2 id="Appendix_C">Appendix C</h2>
+
+<p>This table shows the differences between the <code translate="No">OnceUxEventType</code> and the <code translate="No">SSAIEventType</code> classes and their properties:</p>
+
+<table class="bcls-table">
+	<thead class="bcls-table__head">
+		<tr>
+			<th style="width:20%">Plugin Constant</th>
+			<th style="width:40%">OnceUx plugin - OnceUxEventType class</th>
+			<th style="width:40%">SSAI plugin - SSAIEventType class</th>
+		</tr>
+	</thead>
+	<tbody class="bcls-table__body">
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#AD_DATA_READY">AD_DATA_READY</a></td>
+			<td><code translate="No">OnceUxEventType.VMAP_EVENT_MAP</code>:List&lt;Event&gt;<br />
+			<code translate="No">OnceUxEventType.VMAP_TIMELINE</code>:TImeline<br />
+			<code translate="No">OnceUxEventType.VMAP_RESPONSE</code>:VMAP</td>
+			<td><code translate="No">SSAIEvent.VMAP_TIMELINE</code>:TImeline (ssai)<br />
+			<code translate="No">SSAIEvent.VMAP_RESPONSE</code>:VMAP (iab)</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#START_AD_SEGMENT">START_AD_SEGMENT</a></td>
+			<td><code translate="No">Event.DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.SEEK_CONTROLS_VISIBILITY</code>:HashMap&lt;String:View.Visibility&gt;<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VMAP_AD_SEGMENT</code>:<code translate="No">com.brightcove.iab.vmap.AdSegment</code></td>
+			<td>removed</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#START_AD_BREAK">START_AD_BREAK</a></td>
+			<td><code translate="No">OnceUxEventType.EXECUTED</code>:Integer</td>
+			<td>none</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#START_AD">START_AD</a></td>
+			<td><code translate="No">OnceUxEventType.VAST_AD:com.brightcove.iab.vast.Ad </code></td>
+			<td><code translate="No">SSAIEvent.VAST_AD:com.brightcove.iab.vast.Ad</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#START_LINEAR">START_LINEAR</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event:AD_TITLE</code>:String<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VAST_LINEAR</code>:<code translate="No">com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION</code>:Integer</td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event:AD_TITLE</code>:String<br />
+			<code translate="No">SSAIEvent.VAST_LINEAR</code>:<code translate="No">com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">SSAIEvent..STITCHED_POSITION</code>:Integer</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#END_LINEAR">END_LINEAR</a></td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event:AD_TITLE</code>:String<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VAST_LINEAR</code>:<code translate="No">com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION</code>:Integer</td>
+			<td><code translate="No">Event.AD_ID</code>:String<br />
+			<code translate="No">Event:AD_TITLE</code>:String<br />
+			<code translate="No">SSAIEvent.VAST_LINEAR</code>:<code translate="No">com.brightcove.iab.vast.Linear</code><br />
+			<code translate="No">SSAIEvent.STITCHED_POSITION</code>:Integer</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#END_AD">END_AD</a></td>
+			<td><code translate="No">OnceUxEventType.EXECUTED</code>:Integer</td>
+			<td><code translate="No">SSAIEvent.VAST_AD:com.brightcove.iab.vast.Ad</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#END_AD_BREAK">END_AD_BREAK</a></td>
+			<td><code translate="No">OnceUxEventType.EXECUTED</code>:Integer</td>
+			<td>none</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#END_AD_SEGMENT">END_AD_SEGMENT</a></td>
+			<td><code translate="No">Event.DURATION</code>:Integer<br />
+			<code translate="No">Event.PLAYHEAD_POSITION</code>:Integer<br />
+			<code translate="No">Event.SEEK_CONTROLS_VISIBILITY</code>:HashMap&lt;String:View.Visibility&gt;<br />
+			<code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.STITCHED_POSITION</code>:Integer<br />
+			<code translate="No">OnceUxEventType.VMAP_AD_SEGMENT</code>:<code translate="No">com.brightcove.iab.vmap.AdSegment</code></td>
+			<td>removed</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#START_COMPANION">START_COMPANION</a></td>
+			<td><code translate="No">OnceUxEventType.VAST_COMPANION:com.brightcove.iab.vast.Companion</code></td>
+			<td><code translate="No">SSAIEvent.VAST_COMPANION:com.brightcove.iab.vast.Companion</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#END_COMPANION">END_COMPANION</a></td>
+			<td><code translate="No">OnceUxEventType.VAST_COMPANION:com.brightcove.iab.vast.Companion</code></td>
+			<td><code translate="No">SSAIEvent.VAST_COMPANION:com.brightcove.iab.vast.Companion</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#SEND_IMPRESSION">SEND_IMPRESSION</a></td>
+			<td><code translate="No">OnceUxEventType.EXECUTED</code>:Integer<br />
+			<code translate="No">OnceUxEventType.IMPRESSION:com.brightcove.iab.vast.Impression</code></td>
+			<td><code translate="No">SSAIEvent.IMPRESSION:com.brightcove.iab.vast.Impression</code></td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#SEND_TRACKING_BEACON">SEND_TRACKING_BEACON</a></td>
+			<td><code translate="No">OnceUxEventType.EXECUTED</code>:Integer <code translate="No">OnceUxEventType.VAST_TRACKING:com.brightcove.iab.vast.Tracking</code></td>
+			<td><code translate="No">SSAIEvent.VAST_TRACKING:com.brightcove.iab.vast.Tracking SSAIEvent.TRACKING_TYPE</code>: Creative.TrackingType</td>
+		</tr>
+		<tr>
+			<td><a href="/android/reference/javadoc/com/brightcove/onceux/event/OnceUxEventType.html#CLICK_THROUGH_LINEAR">CLICK_THROUGH_LINEAR</a></td>
+			<td><code translate="No">OnceUxEventType.VAST_VIDEO_CLICKS:com.brightcove.iab.vast.VideoClicks</code></td>
+			<td>removed</td>
+		</tr>
+		<tr>
+			<td>CLICK_LINEAR_CREATIVE</td>
+			<td>n/a</td>
+			<td><code translate="No">SSAIEvent.CREATIVE_CLICKS:com.brightcove.ssai.ad.creative.Click</code></td>
+		</tr>
+	</tbody>
+</table>
+</section> -->
+</article>

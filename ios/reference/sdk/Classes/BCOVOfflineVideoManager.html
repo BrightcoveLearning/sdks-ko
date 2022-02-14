@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVOfflineVideoManager 클래스 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/authProxy">인증 프록시</option>
+		
+		<option value="//api/name/delegate">대리자</option>
+		
+		<option value="//api/name/offlineVideoTokens">offlineVideoTokens</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/initializeOfflineVideoManagerWithDelegate:options:">+ initializeOfflineVideoManagerWithDelegate:옵션:</option>
+		
+		<option value="//api/name/sharedManager">+ 공유매니저</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addFairPlayApplicationCertificate:identifier:">- addFairPlayApplicationCertificate:identifier:</option>
+		
+		<option value="//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:">- AlternativeRenditionAttributesDictionariesForVideo:완료:</option>
+		
+		<option value="//api/name/cancelVideoDownload:">-CancelVideoDownload:</option>
+		
+		<option value="//api/name/clearOfflineVideoCache">- clearOfflineVideoCache</option>
+		
+		<option value="//api/name/deleteOfflineVideo:">- 삭제오프라인비디오:</option>
+		
+		<option value="//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:">-downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:</option>
+		
+		<option value="//api/name/estimateDownloadSize:options:completion:">- 추정다운로드크기:옵션:완료:</option>
+		
+		<option value="//api/name/fairPlayLicenseExpiration:">- FairPlay 라이선스 만료:</option>
+		
+		<option value="//api/name/forceStopAllDownloadTasks">- forceStopAllDownloadTasks</option>
+		
+		<option value="//api/name/invalidateFairPlayLicense:">-FairPlayLicense 무효화:</option>
+		
+		<option value="//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:">- mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:</option>
+		
+		<option value="//api/name/offlineVideoStatus">- 오프라인 비디오 상태</option>
+		
+		<option value="//api/name/offlineVideoStatusForToken:">- offlineVideoStatusForToken:</option>
+		
+		<option value="//api/name/pauseVideoDownload:">- pauseVideo다운로드:</option>
+		
+		<option value="//api/name/preloadFairPlayLicense:parameters:completion:">- preloadFairPlayLicense:parameters:completion:</option>
+		
+		<option value="//api/name/renewFairPlayLicense:video:authToken:parameters:completion:">-renewFairPlayLicense:video:authToken:parameters:completion:</option>
+		
+		<option value="//api/name/renewFairPlayLicense:video:parameters:completion:">-renewFairPlayLicense:비디오:매개변수:완료:</option>
+		
+		<option value="//api/name/requestVideoDownload:mediaSelections:parameters:completion:">- requestVideoDownload:mediaSelections:매개변수:완료:</option>
+		
+		<option value="//api/name/resumeVideoDownload:">- 이력서비디오다운로드:</option>
+		
+		<option value="//api/name/urlAssetForVideo:error:">- urlAssetForVideo:오류:</option>
+		
+		<option value="//api/name/variantAttributesDictionariesForVideo:completion:">- variantAttributesDictionariesForVideo:완료:</option>
+		
+		<option value="//api/name/variantBitratesForVideo:completion:">- variantBitratesForVideo:완료:</option>
+		
+		<option value="//api/name/videoObjectFromOfflineVideoToken:">- videoObjectFromOfflineVideoToken:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVOfflineVideoManager 클래스 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>다음에서 상속</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVOfflineVideoManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>BCOVOfflineVideoManager 이 싱글톤 클래스는 대부분의 비디오 파일 다운로드 측면을 처리합니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/authProxy" title="authProxy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authProxy">&nbsp;&nbsp;인증 프록시</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>정의된 대로 FairPlay 키 교환의 특정 하위 작업을 처리하는 프록시 개체<a href="../Protocols/BCOVFPSAuthorizationProxy.html"> BCOVFPS인증 프록시</a>규약.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 강력) id&lt;BCOVFPSAuthorizationProxy&gt; authProxy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;대리자</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 BCOVOfflineVideoManager에 대한 대리인입니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 할당) id&lt;BCOVOfflineVideoManagerDelegate&gt; 대리자</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoTokens" title="offlineVideoTokens"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoTokens">&nbsp;&nbsp; offlineVideoTokens</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>모든 오프라인 비디오 토큰의 배열을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 읽기 전용) NSArray&lt;BCOVOfflineVideoToken&gt; *offlineVideoTokens</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>각 토큰은 현재 다운로드 중인 동영상과 취소, 일시 중지 또는 실패한 동영상을 포함하여 장치 저장소의 동영상 다운로드를 나타냅니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedManager" title="sharedManager"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedManager">+ &nbsp;공유 관리자</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>싱글톤 BCOVOfflineVideoManager 개체에 액세스하는 데 사용되는 공유 인스턴스입니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVOfflineVideoManager *)sharedManager<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initializeOfflineVideoManagerWithDelegate:options:" title="initializeOfflineVideoManagerWithDelegate:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initializeOfflineVideoManagerWithDelegate:options:">+ &nbsp; initializeOfflineVideoManagerWithDelegate:옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>오프라인 비디오 관리자를 초기화합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (무효)initializeOfflineVideoManagerWithDelegate:(id&lt;BCOVOfflineVideoManagerDelegate&gt;)<em>대리자</em> 옵션:(NSDictionary *)<em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>대리자</code></th>
+						<td><p>NS <a href="#//api/name/delegate">대리자</a>에 일치하는 개체<a href="../Protocols/BCOVOfflineVideoManagerDelegate.html"> BCOVOfflineVideoManagerDelegate</a>규약.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>옵션의 NSDictionary입니다. 유효한 사전 항목은 kBCOVOfflineVideoManagerAllowsCellularDownloadKey, kBCOVOfflineVideoManagerAllowsCellularPlaybackKey, kBCOVOfflineVideoManagerAllowsCellularAnalyticsKey 및 kBCOVOfflineVideoManagerAnalyticsStorageLimitKey입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이것은 오프라인 비디오 관리자에 대한 첫 번째 호출이어야 합니다. 이 메서드를 다시 호출하여 업데이트할 수 있습니다. <a href="#//api/name/delegate">대리자</a>및 옵션.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestVideoDownload:mediaSelections:parameters:completion:" title="requestVideoDownload:mediaSelections:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestVideoDownload:mediaSelections:parameters:completion:">&ndash;&nbsp; requestVideoDownload:mediaSelections:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>비디오 다운로드 요청을 시작합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)요청비디오다운로드:(BCOV비디오 *)<em>동영상</em> mediaSelections:(NSArray&lt;AVMediaSelection*&gt; *)<em>미디어 선택</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVOfflineVideoToken offlineVideoToken , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV비디오</a>다운로드할 수 있습니다. 동영상에는 HTTPS 체계가 있는 HLS 소스가 있어야 하며 FairPlay 암호화를 사용할 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>미디어 선택</code></th>
+						<td><p>기본 비디오 외에 다운로드할 AVMediaSelections의 배열입니다. BCOVVideo에 사용 가능한 AVMediaSelections는 -urlAssetForVideo:error: 다음에 [AVAsset preferredMediaSelection] 또는 [AVAsset allMediaSelections]를 호출하여 검색할 수 있습니다. mediaSelections에 nil을 전달하면 선호하는 AVMediaSelections를 가져옵니다. iOS 13 이상에서는 requestVideoDownload:mediaSelections:parameters:completion:에 대한 단일 호출을 사용하여 모든 비디오 자산을 다운로드해야 합니다. 추가 트랙은 나중에 다운로드할 수 없습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>이 다운로드 요청에 사용된 매개변수의 NSDictionary입니다. 0일 수 있습니다. 유효한 매개변수는 kBCOVOfflineVideoManagerRequestedBitrateKey, kBCOVFairPlayLicensePurchaseKey, kBCOVFairPlayLicenseRentalDurationKey입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 후 새 offlineVideoToken을 수신하는 블록입니다. 오류가 있는 경우 offlineVideoToken은 nil이 되고 error는 NSError를 보고합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>Video Cloud Dynamic Delivery와 함께 FairPlay 비디오를 사용하는 경우 FairPlay 애플리케이션 인증서가 자동으로 다운로드되어 필요에 따라 사용됩니다. 레거시 Video Cloud FairPlay 비디오를 사용하는 경우 -[addFairPlayApplicationCertificate:identifier:]를 사용하여 다운로드를 시작하기 전에 BCOVOfflineVideoManger에 필요한 애플리케이션 인증서를 추가해야 합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoStatus" title="offlineVideoStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoStatus">&ndash;&nbsp;오프라인동영상상태</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>현재 다운로드 중인 비디오와 취소, 일시중지 또는 실패한 비디오를 포함하여 모든 비디오 다운로드 상태의 배열을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSArray&lt;BCOVOfflineVideoStatus*&gt; *)offlineVideoStatus<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>배열의 모든 개체는 복사본이므로 개체를 수정할 수는 있지만 다운로드 관리자에는 영향을 주지 않습니다.</p>
+
+<p>이 메서드는 다운로드 상태, 시작 시간, 진행률, 기본 AVAssetDownloadTask 및 오류(완료 시 있는 경우)와 같은 각 다운로드에 대한 정보를 제공합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoStatusForToken:" title="offlineVideoStatusForToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoStatusForToken:">&ndash;&nbsp; offlineVideoStatusForToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>의 사본을 반환합니다. <a href="../Classes/BCOVOfflineVideoStatus.html"> BCOV오프라인동영상상태</a>특정 비디오 다운로드를 위한 개체입니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVOfflineVideoStatus *)offlineVideoStatusForToken:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p><a href="../Classes/BCOVOfflineVideoStatus.html">BCOV오프라인동영상상태</a>다운로드 상태, 시작 시간, 진행률, 기본 AVAggregateAssetDownloadTask 및 오류(완료 시 있는 경우)와 같은 다운로드에 대한 정보를 제공합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pauseVideoDownload:" title="pauseVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pauseVideoDownload:">&ndash;&nbsp; pauseVideo다운로드:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>현재 비디오 다운로드 작업을 일시 중지합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)pauseVideoDownload:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드 작업을 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resumeVideoDownload:" title="resumeVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resumeVideoDownload:">&ndash;&nbsp;이력서동영상다운로드:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>일시 중단된 비디오 다운로드 작업 재개</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)resumeVideoDownload:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드 작업을 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cancelVideoDownload:" title="cancelVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cancelVideoDownload:">&ndash;&nbsp;취소비디오다운로드:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>비디오 다운로드 작업 취소</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)CancelVideoDownload:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드 작업을 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteOfflineVideo:" title="deleteOfflineVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteOfflineVideo:">&ndash;&nbsp;삭제오프라인동영상:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 오프라인 비디오 토큰과 관련된 로컬 저장소의 모든 파일을 삭제합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)deleteOfflineVideo:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 호출 후에는 offlineVideoToken이 유효하지 않은 것으로 간주됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/forceStopAllDownloadTasks" title="forceStopAllDownloadTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/forceStopAllDownloadTasks">&ndash;&nbsp; forceStopAllDownloadTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>진행 중인 모든 다운로드 작업을 중지합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)forceStopAllDownloadTasks<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 방법은 기본 다운로드 폴더를 삭제하여 모든 다운로드 작업을 오류와 함께 강제 종료합니다. 이미 완료된 다운로드는 영향을 받지 않습니다.</p>
+
+<p>경고: 이 방법은 매우 특정한 경우에만 사용해야 합니다. iOS 11.0.x 및 iOS 11.1.x에는 다운로드 작업이 일시 중지되었다가 취소된 경우 완료될 때까지 재개되는 문제가 있습니다. 이 경우 폭주 작업을 취소하거나 삭제할 수 없으므로 가장 좋은 방법은 모든 다운로드 작업을 삭제하는 것입니다.</p>
+
+<p>이 방법은 모든 다운로드 작업을 중지하지 않을 수 있습니다.</p>
+
+<p>iOS 11.2 이상에서는 다음을 사용하여 다운로드 작업을 개별적으로 취소해야 합니다. <a href="#//api/name/cancelVideoDownload:">취소비디오다운로드:</a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/estimateDownloadSize:options:completion:" title="estimateDownloadSize:options:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/estimateDownloadSize:options:completion:">&ndash;&nbsp;추정다운로드크기:옵션:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>비디오 다운로드의 크기를 메가바이트 단위로 추정합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)estimateDownloadSize:(BCOVVideo *)<code><em>동영상</em> 옵션:(NSDictionary *)<em>옵션</em> 완료:(void ( ^ ) ( 더블 메가바이트 , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p>NS <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>비디오 클라우드의 개체. 비디오 개체는 유효한 HLS 소스를 포함해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>이 요청에 사용된 옵션의 NSDictionary입니다. kBCOVOfflineVideoManagerRequestedBitrateKey를 사용하여 다운로드하려는 비트 전송률을 지정합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 후 비디오의 예상 크기를 수신하는 블록입니다. 오류가 있는 경우, <code>메가바이트</code> 0으로 설정되고<code>오류</code>모든 NSError를 보고합니다.</p>
+
+<p>완료 핸들러는 특정 스레드에서 호출되지 않습니다. UI 작업을 수행해야 하는 경우 기본 스레드로 전환해야 합니다. 동기식 또는 비동기식으로 호출될 수 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 메서드는 HLS 매니페스트에서 가장 큰 변환의 비디오 크기를 메가바이트 단위로 추정하여 완료 핸들러를 호출합니다. 값을 검색하는 데 문제가 있는 경우<code>오류</code>설정될 것이며, <code>크기</code> 0이 될 것입니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/urlAssetForVideo:error:" title="urlAssetForVideo:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/urlAssetForVideo:error:">&ndash;&nbsp; urlAssetForVideo:오류:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>주어진<a href="../Classes/BCOVVideo.html"> BCOV비디오</a> , 오프라인 다운로드에 사용할 비디오 소스를 나타내는 AVURLAsset을 반환합니다. <a href="../Classes/BCOVVideo.html">BCOV비디오</a>객체는 iOS에서 재생하기에 안전하고 적절한 기본 소스와 함께 여러 비디오 소스를 포함할 수 있습니다. 온라인 재생과 관련하여 이 방법을 사용하지 마십시오.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (AVURLAsset *)urlAssetForVideo:(BCOVVideo *)<code><em>동영상</em> 오류:(NSError **)<em>오류</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/variantAttributesDictionariesForVideo:completion:" title="variantAttributesDictionariesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/variantAttributesDictionariesForVideo:completion:">&ndash;&nbsp; variantAttributesDictionariesForVideo:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 온라인 HLS 비디오의 각 변형 스트림에 대해 하나씩 NSDictionary 개체의 배열을 검색합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)variantAttributesDictionariesForVideo:(BCOVVideo *)<code><em>동영상</em> 완료:( 무효 ( ^ ) ( NSArray&lt;NSDictionary*&gt; *variantAttributesDictionariesArray , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p>NS <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>비디오 클라우드의 개체. 비디오 개체는 유효한 온라인 HLS 소스를 포함해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 경우 변형 속성 NSDictionary 객체의 배열을 수신하는 블록입니다. 오류가 있는 경우, <code>변형속성사전배열</code> 0이 될 것이고, <code>오류</code>모든 NSError를 보고합니다.</p>
+
+<p>완료 핸들러는 특정 스레드에서 호출되지 않습니다. UI 작업을 수행해야 하는 경우 기본 스레드로 전환해야 합니다. 동기식 또는 비동기식으로 호출될 수 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>각 사전에는 각 변형 스트림에 대한 키:값 쌍이 포함됩니다. &rsquo; HLS 매니페스트에서 해당 EXT-X-STREAM-INF 태그로 지정된 속성.</p>
+
+<p>이러한 속성은 다운로드할 특정 비트 전송률을 선택할 때 사용할 수 있습니다. 비트 전송률 값만 필요한 경우 -[variantBitratesForVideo:completion:]을 사용합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:" title="alternativeRenditionAttributesDictionariesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:">&ndash;&nbsp; AlternativeRenditionAttributesDictionariesForVideo:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 온라인 HLS 비디오의 각 대체 변환에 대해 하나씩 NSDictionary 개체의 배열을 검색합니다. 대체 변환에는 캡션, 자막 및 보조 오디오 트랙이 포함됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)alternativeRenditionAttributesDictionariesForVideo:(BCOVVideo *)<code><em>동영상</em> 완료:( 무효 ( ^ ) ( NSArray&lt;NSDictionary*&gt; *alternativeRenditionAttributesDictionariesArray , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p>NS <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>비디오 클라우드의 개체. 비디오 개체는 유효한 온라인 HLS 소스를 포함해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 경우 변환 속성 NSDictionary 객체의 배열을 수신하는 블록입니다. 오류가 있는 경우, <code> AlternativeRenditionAttributesDictionariesArray</code> 0이 될 것이고, <code>오류</code>모든 NSError를 보고합니다.</p>
+
+<p>완료 핸들러는 특정 스레드에서 호출되지 않습니다. UI 작업을 수행해야 하는 경우 기본 스레드로 전환해야 합니다. 동기식 또는 비동기식으로 호출될 수 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>각 사전에는 각 변환에 대한 키:값 쌍이 포함됩니다. &rsquo; HLS 매니페스트에서 해당 EXT-X-MEDIA 태그로 지정된 속성. 이러한 속성은 텍스트 및 오디오 트랙에 사용할 수 있는 언어를 결정하는 데 사용할 수 있으므로 이러한 언어를 최종 사용자에게 제공하거나 로케일 또는 기타 기준에 따라 직접 다운로드하도록 선택할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/variantBitratesForVideo:completion:" title="variantBitratesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/variantBitratesForVideo:completion:">&ndash;&nbsp; variantBitratesForVideo:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 온라인 HLS 비디오에 대해 사용 가능한 비트 전송률의 배열을 검색합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)variantBitratesForVideo:(BCOVVideo *)<code><em>동영상</em> 완료:( 무효 ( ^ ) ( NSArray&lt;NSNumber*&gt; *bitrates , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p>NS <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>비디오 클라우드의 개체. 비디오 개체는 유효한 온라인 HLS 소스를 포함해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 경우 비트 전송률 배열을 수신하는 블록입니다. 오류가 있는 경우, <code>비트레이트</code> 0이 될 것이고, <code>오류</code>모든 NSError를 보고합니다.</p>
+
+<p>완료 핸들러는 특정 스레드에서 호출되지 않습니다. UI 작업을 수행해야 하는 경우 기본 스레드로 전환해야 합니다. 동기식 또는 비동기식으로 호출될 수 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>배열은 가장 작은 비트 전송률에서 가장 큰 비트 전송률 순으로 정렬됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/videoObjectFromOfflineVideoToken:" title="videoObjectFromOfflineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoObjectFromOfflineVideoToken:">&ndash;&nbsp; videoObjectFromOfflineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>오프라인 비디오 토큰을 재생 가능으로 변환<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>물체.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVVideo *)videoObjectFromOfflineVideoToken:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>반환<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>또한 다운로드한 썸네일 및 포스터 이미지 파일 경로, FairPlay 라이선스 만료 날짜, 다운로드 시작 및 종료 시간 등과 같이 위에 나열된 모든 새 속성이 포함되어 있습니다.</p>
+
+<p>비디오의 downloadState가<code> BCOVOfflineVideoDownloadStateCompleted</code>그러면 토큰과 연결된 비디오가 캐시됩니다. 어떤 이유로든 캐시를 지워야 하는 경우 다음을 호출할 수 있습니다. <a href="#//api/name/clearOfflineVideoCache"><code> clearOfflineVideoCache</code></a> ~에<code> BCOVOfflineVideoManager</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearOfflineVideoCache" title="clearOfflineVideoCache"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearOfflineVideoCache">&ndash;&nbsp; clearOfflineVideoCache</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>오프라인 캐시 지우기<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>사물</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)clearOfflineVideoCache</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>언제<a href="#//api/name/videoObjectFromOfflineVideoToken:"><code> videoObjectFromOfflineVideoToken:</code></a> downloadState가 인 비디오와 함께 사용됩니다. <code> BCOVOfflineVideoDownloadStateCompleted</code>그러면 BCOVOfflienVideoManager가 해당 개체를 캐시하여 성능을 향상시킵니다. 이 방법은 캐시를 정리하여 다음에<a href="#//api/name/videoObjectFromOfflineVideoToken:"><code> videoObjectFromOfflineVideoToken:</code></a>신품이라고 합니다<a href="../Classes/BCOVVideo.html"> BCOV비디오</a>객체가 생성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/preloadFairPlayLicense:parameters:completion:" title="preloadFairPlayLicense:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/preloadFairPlayLicense:parameters:completion:">&ndash;&nbsp; preloadFairPlayLicense:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>비디오 다운로드가 시작되기 전에 FairPlay 라이선스를 미리 로드하십시오.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)preloadFairPlayLicense:(BCOVVideo *)<em>동영상</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVOfflineVideoToken offlineVideoToken , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV비디오</a>다운로드할 수 있습니다. 비디오에는 FairPlay 암호화와 HTTPS 체계를 사용하는 소스가 있어야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>이 다운로드 요청에 사용된 매개변수의 NSDictionary입니다. 유효한 매개변수는 kBCOVFairPlayLicensePurchaseKey, kBCOVFairPlayLicenseRentalDurationKey입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>요청이 성공적으로 이루어진 후 새 offlineVideoToken을 수신하는 블록입니다. 오류가 있는 경우 offlineVideoToken은 nil이 되고 error는 NSError를 보고합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>비디오에 FairPlay 소스가 없으면 오류가 반환됩니다. FairPlay로 보호된 여러 비디오를 다운로드할 때 다운로드를 시작하기 전에 각 비디오에 대해 이 메서드를 호출하여 각 비디오에 대한 라이선스를 획득해야 합니다. 이렇게 하면 백그라운드에서 다운로드가 시작된 경우에도 비디오가 제대로 저장될 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/renewFairPlayLicense:video:parameters:completion:" title="renewFairPlayLicense:video:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/renewFairPlayLicense:video:parameters:completion:">&ndash;&nbsp;갱신FairPlayLicense:비디오:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>새로운 FairPlay 라이선스에 대한 요청을 시작합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)갱신FairPlayLicense:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em> 비디오:(BCOV비디오 *)<em>동영상</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVOfflineVideoToken offlineVideoToken , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>새 라이선스를 얻기 위해 다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV비디오</a> Playback API 또는<a href="../Classes/BCOVPlaybackService.html"> BCOV재생 서비스</a>수업. 이 비디오는 다음에서 만든 것이 아니어야 합니다. &lsquo; -videoObjectFromOfflineVideoToken: &rsquo; .</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>이 라이선스 갱신 요청에 사용된 매개변수의 NSDictionary입니다. 0일 수 있습니다. 유효한 매개변수는 kBCOVFairPlayLicensePurchaseKey, kBCOVFairPlayLicenseRentalDurationKey입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>라이선스 갱신 요청이 완료된 후 호출되는 블록입니다. 요청 결과 오류가 발생하면 여기에 NSError로 반환됩니다. offlineVideoToken 매개변수는 첫 번째 매개변수로 전달된 것과 동일한 오프라인 비디오 토큰이 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>최초 라이선스를 취득한 후 언제든지 새로운 FairPlay 라이선스를 요청할 수 있습니다.</p>
+
+<p>매개변수에서 새 대여 기간을 지정하거나 대여 라이센스를 구매 라이센스로 변환할 수 있습니다.</p>
+
+<p>새로운 FairPlay 라이선스를 사용하기 위해 비디오를 다시 다운로드할 필요는 없지만 Playback API에서 새 비디오 개체를 검색해야 합니다(직접 또는<a href="../Classes/BCOVPlaybackService.html"> BCOV재생 서비스</a>수업). 참조된 비디오를 더 이상 Playback API를 통해 사용할 수 없는 경우 실질적으로 유사한 비디오를 사용할 수 있습니다. 즉, 비디오는 동일한 계정에 있어야 하고 동일한 FairPlay 구성을 가져야 합니다.</p>
+
+<p>매개변수에 비트 전송률을 지정하면 안 됩니다. 비트 전송률을 변경하려면 현재 다운로드를 삭제한 다음 새 비트 전송률에서 완전히 새로운 다운로드를 시작해야 합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/renewFairPlayLicense:video:authToken:parameters:completion:" title="renewFairPlayLicense:video:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/renewFairPlayLicense:video:authToken:parameters:completion:">&ndash;&nbsp;갱신FairPlayLicense:비디오:authToken:매개변수:완료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>새로운 FairPlay 라이선스에 대한 요청을 시작합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)갱신FairPlayLicense:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em> 비디오:(BCOV비디오 *)<em>동영상</em> authToken:(NSString *)<em>인증 토큰</em> 매개변수:(NSDictionary *)<em>매개변수</em> 완료:( 무효 ( ^ ) ( BCOVOfflineVideoToken offlineVideoToken , NSError *error ))<em>완료 핸들러</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>새 라이선스를 얻기 위해 다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동영상</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV비디오</a> Playback API 또는<a href="../Classes/BCOVPlaybackService.html"> BCOV재생 서비스</a>수업. 이 비디오는 다음에서 만든 것이 아니어야 합니다. &lsquo; -videoObjectFromOfflineVideoToken: &rsquo; .</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>인증 토큰</code></th>
+						<td><p>비디오를 검증하는 데 사용하는 인증 토큰&rsquo;라이센스</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>매개변수</code></th>
+						<td><p>이 라이선스 갱신 요청에 사용된 매개변수의 NSDictionary입니다. 0일 수 있습니다. 유효한 매개변수는 kBCOVFairPlayLicensePurchaseKey, kBCOVFairPlayLicenseRentalDurationKey입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>완료 핸들러</code></th>
+						<td><p>라이선스 갱신 요청이 완료된 후 호출되는 블록입니다. 요청 결과 오류가 발생하면 여기에 NSError로 반환됩니다. offlineVideoToken 매개변수는 첫 번째 매개변수로 전달된 것과 동일한 오프라인 비디오 토큰이 됩니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>최초 라이선스를 취득한 후 언제든지 새로운 FairPlay 라이선스를 요청할 수 있습니다.</p>
+
+<p>매개변수에서 새 대여 기간을 지정하거나 대여 라이센스를 구매 라이센스로 변환할 수 있습니다.</p>
+
+<p>새로운 FairPlay 라이선스를 사용하기 위해 비디오를 다시 다운로드할 필요는 없지만 Playback API에서 새 비디오 개체를 검색해야 합니다(직접 또는<a href="../Classes/BCOVPlaybackService.html"> BCOV재생 서비스</a>수업). 참조된 비디오를 더 이상 Playback API를 통해 사용할 수 없는 경우 실질적으로 유사한 비디오를 사용할 수 있습니다. 즉, 비디오는 동일한 계정에 있어야 하고 동일한 FairPlay 구성을 가져야 합니다.</p>
+
+<p>매개변수에 비트 전송률을 지정하면 안 됩니다. 비트 전송률을 변경하려면 현재 다운로드를 삭제한 다음 새 비트 전송률에서 완전히 새로운 다운로드를 시작해야 합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addFairPlayApplicationCertificate:identifier:" title="addFairPlayApplicationCertificate:identifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addFairPlayApplicationCertificate:identifier:">&ndash;&nbsp; addFairPlayApplicationCertificate:식별자:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 방법은 오프라인 비디오 관리자에 FairPlay 애플리케이션 인증서를 추가하는 데 사용됩니다. &rsquo;사용 가능한 FairPlay 애플리케이션 인증서 목록.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addFairPlayApplicationCertificate:(NSData *)<em>응용 프로그램 인증서 데이터</em> 식별자:(NSString *)<em>식별자</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>응용 프로그램 인증서 데이터</code></th>
+						<td><p>NSData 개체의 FairPlay 애플리케이션 인증서. nil로 설정하면 지정된 식별자에 대한 기존 애플리케이션 인증서가 제거됩니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>식별자</code></th>
+						<td><p>애플리케이션 인증서를 찾는 데 사용되는 문자열입니다.</p>
+
+<p>이 문자열은 nil이 아닐 수 있습니다.</p>
+
+<p>Dynamic Delivery의 경우 식별자는 이 인증서를 검색하는 데 사용된 URL이어야 합니다.</p>
+
+<p>레거시 Video Cloud 계정의 경우 모든 계정에 적용하려면 kBCOVDefaultFairPlayApplicationCertificateIdentifier로 설정해야 합니다.</p>
+
+<p>여러 기존 Video Cloud 계정을 사용하는 경우 이 매개변수를 계정 ID로 설정하십시오.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>인증서는 응용 프로그램의 수명 동안 유지됩니다. 인증서를 제거하려면 인증서 데이터와 동일한 식별자를 nil로 추가하십시오.</p>
+
+<p>Dynamic Delivery를 사용하는 경우 응용 프로그램 인증서는 FairPlay 플러그인에 의해 자동으로 검색되므로 이 방법이 필요하지 않습니다. 그러나 이 방법을 사용하여 애플리케이션 인증서를 미리 로드하여 첫 번째 FairPlay로 암호화된 비디오의 재생 속도를 높일 수 있습니다.</p>
+
+<p>인증서는 저장되고 후속 비디오에 재사용됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invalidateFairPlayLicense:" title="invalidateFairPlayLicense:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invalidateFairPlayLicense:">&ndash;&nbsp;무효화FairPlay 라이선스:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 오프라인 비디오 토큰에 대한 FairPlay 라이선스를 무효화합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (무효)FairPlayLicense 무효화:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>라이선스가 무효화될 다운로드된 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 메서드는 오프라인 비디오 토큰과 연결된 비디오에 대한 FairPlay 라이선스(있는 경우)를 삭제합니다.</p>
+
+<p>라이선스 없이 FairPlay 보호 비디오를 재생하려고 하면 kBCOVOfflineVideoManagerErrorCodeInvalidLicense 오류가 발생합니다.</p>
+
+<p>필요한 경우 삭제된 비디오에 대한 새 FairPlay 라이선스를 요청할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fairPlayLicenseExpiration:" title="fairPlayLicenseExpiration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fairPlayLicenseExpiration:">&ndash;&nbsp; FairPlay 라이선스 만료:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>오프라인 비디오 토큰과 연결된 비디오의 FairPlay 라이선스 만료를 나타내는 NSDate를 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSDate *)fairPlayLicenseExpiration:(BCOVOfflineVideoToken)<code><em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>FairPlay 라이선스의 만료를 나타내는 NSDate, 구매 라이선스 또는 클리어(FairPlay 없음) 비디오의 경우 NSDate.distantFuture, 라이선스가 없는 경우 nil.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>NSDate.distantFuture를 반환합니다. &ldquo;구입&rdquo;라이센스.</p>
+
+<p>비디오가 FairPlay로 암호화되지 않은 경우 NSDate.distantFuture를 반환합니다.</p>
+
+<p>비디오에 FairPlay 라이선스가 없으면 nil을 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:" title="mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:">&ndash;&nbsp; mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>오프라인 비디오 토큰으로 지정된 다운로드한 비디오의 미디어 선택 그룹을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (AVMediaSelectionGroup *)mediaSelectionGroupForMediaCharacteristic:(NSString *)<code><em>미디어특성</em> offlineVideoToken:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>미디어특성</code></th>
+						<td><p>관심 있는 미디어 특성입니다. 지원되는 값은 AVMediaCharacteristicAudible 및 AVMediaCharacteristicLegible입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다. 진행 중인 다운로드를 참조하지 않아야 합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>다운로드한 비디오는 완전해야 합니다. 그렇지 않으면 이 메서드는 nil을 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:" title="downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:">&ndash;&nbsp; downloadMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>기본 AVURLAsset에 대해 AVMediaCache에서 보고한 대로 오프라인 비디오 토큰으로 지정된 다운로드된 비디오에 대한 다운로드된 미디어 선택 옵션을 반환합니다. 0을 반환할 수 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSArray&lt;AVMediaSelectionOption*&gt; *)downloadedMediaSelectionOptionsForMediaCharacteristic:(NSString *)<code><em>미디어특성</em> offlineVideoToken:(BCOVOfflineVideoToken)<em>오프라인비디오토큰</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>미디어특성</code></th>
+						<td><p>관심 있는 미디어 특성입니다. 지원되는 값은 AVMediaCharacteristicAudible 및 AVMediaCharacteristicLegible입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>오프라인비디오토큰</code></th>
+						<td><p>다운로드한 비디오를 식별하는 데 사용되는 오프라인 비디오 토큰입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

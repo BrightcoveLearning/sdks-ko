@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOV비디오 프로토콜 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/cuePoints">큐포인트</option>
+		
+		<option value="//api/name/economics">경제학</option>
+		
+		<option value="//api/name/iFramePlaylistURL">iFramePlaylistURL</option>
+		
+		<option value="//api/name/properties">속성</option>
+		
+		<option value="//api/name/sources">출처</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/update:">- update:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOV비디오 프로토콜 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>준수</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVVideo.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>Brightcove Player SDK 생태계의 비디오. Brightcove는 콘텐츠를 비디오라고 하는 엔티티로 구성합니다. <a href="#//api/name/sources">출처</a>콘텐츠 액세스와 관련된 정보를 포함합니다. 비디오는 이러한 항목을 참조하기 위한 컨테이너를 제공합니다. <a href="#//api/name/sources">출처</a>집계에서, 그리고 비디오 또는 컬렉션에 대한 메타데이터를 위한 장소<a href="#//api/name/sources">출처</a>형태<a href="#//api/name/properties">속성</a> . 또한 비디오에는 비디오의 특정 위치를 설명하는 큐 포인트 집합인 큐 포인트 컬렉션이 있을 수 있습니다. &rsquo; s 콘텐츠 타임라인.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/cuePoints" title="cuePoints"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cuePoints">&nbsp;&nbsp;큐포인트</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 비디오와 연결된 큐 포인트입니다. 이 큐 포인트는 이 비디오의 각 콘텐츠에 동일하게 적용됩니다. &rsquo; NS <a href="#//api/name/sources">출처</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) BCOVCuePointCollection *cuePoints</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 비디오와 연결된 큐 포인트입니다. 이 큐 포인트는 이 비디오의 각 콘텐츠에 동일하게 적용됩니다. &rsquo; NS <a href="#//api/name/sources">출처</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/properties" title="properties"></a>
+	<h3 class="method-title"><code><a href="#//api/name/properties">&nbsp;&nbsp;속성</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 비디오 또는 해당 비디오와 관련된 메타데이터 또는 속성<a href="#//api/name/sources">출처</a>집계에서. 이 헤더 파일의 상단에서 이 사전과 함께 이 SDK가 사용하는 키에 대한 상수를 찾을 수 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSDictionary *properties</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 비디오 또는 해당 비디오와 관련된 메타데이터 또는 속성<a href="#//api/name/sources">출처</a>집계에서. 이 헤더 파일의 상단에서 이 사전과 함께 이 SDK가 사용하는 키에 대한 상수를 찾을 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/economics" title="economics"></a>
+	<h3 class="method-title"><code><a href="#//api/name/economics">&nbsp;&nbsp;경제학</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Video Cloud에서 나온 경제학 분야. kBCOVEconomicsAdSupported가 기본값이며 광고가 표시되어야 함을 의미합니다. kBCOVEconomicsFree는 동영상 재생 중에 광고가 표시되지 않아야 함을 의미합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BCOVEconomics economics</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>Video Cloud에서 나온 경제학 분야. kBCOVEconomicsAdSupported가 기본값이며 광고가 표시되어야 함을 의미합니다. kBCOVEconomicsFree는 동영상 재생 중에 광고가 표시되지 않아야 함을 의미합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sources" title="sources"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sources">&nbsp;&nbsp;출처</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 비디오의 실제 목적지를 구성하는 소스&rsquo; s 콘텐츠에 액세스할 수 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSArray&lt;BCOVSource*&gt; *sources</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 비디오의 실제 목적지를 구성하는 소스&rsquo; s 콘텐츠에 액세스할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/iFramePlaylistURL" title="iFramePlaylistURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/iFramePlaylistURL">&nbsp;&nbsp; iFramePlaylistURL</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>썸네일 스크러빙에 사용할 I-FRAME 매니페스트 URL입니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy, nullable) NSURL *iFramePlaylistURL</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>썸네일 스크러빙에 사용할 I-FRAME 매니페스트 URL입니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/update:" title="update:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/update:">&ndash;&nbsp;업데이트:</a></code><span class="task-item-suffix">필요한 방법</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>이 소스의 수정된 버전을 반환합니다. BCOVVideo 개체는 변경할 수 없으므로 한 번만 변경해도 완전히 새로운 BCOVVideo를 만들어야 합니다. 따라서 이 메서드는 이 인스턴스의 임시 변경 가능한 복사본을 얻고 수정하는 편리한 방법을 제공합니다( <code>업데이트 차단</code> ).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)update:(void ( ^ ) ( id&lt;BCOVMutableVideo&gt; mutableVideo ))<em>업데이트 차단</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>업데이트 차단</code></th>
+						<td><p>이 비디오의 변경 가능한 사본이 전달되는 블록입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>에 의해 수정된 이 비디오의 사본<code>업데이트 차단</code> .</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>이 소스의 수정된 버전을 반환합니다. BCOVVideo 개체는 변경할 수 없으므로 한 번만 변경해도 완전히 새로운 BCOVVideo를 만들어야 합니다. 따라서 이 메서드는 이 인스턴스의 임시 변경 가능한 복사본을 얻고 수정하는 편리한 방법을 제공합니다( <code>업데이트 차단</code> ).</p>
+
+<p>전달된 변경 가능한 비디오에 대한 참조를 저장하려고 시도하지 마십시오. <code>업데이트 차단</code> , 이 작업을 수행하는 동작이 정의되어 있지 않습니다. 대신 블록에서 필요한 수정을 수행한 다음 이 메서드에서 반환된 비디오 개체를 캡처합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVVideo.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

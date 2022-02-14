@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager 클래스 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/sessionID">세션 ID</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/sharedManager">+ 공유매니저</option>
+		
+		<option value="//api/name/sharedManagerWithOptions:">+ sharedManagerWithOptions:</option>
+		
+		<option value="//api/name/version">+ 버전</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createBasicSessionProviderWithOptions:">- createBasicSessionProviderWithOptions:</option>
+		
+		<option value="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">- createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</option>
+		
+		<option value="//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:">- createFairPlayPlaybackControllerWithAuthorizationProxy:</option>
+		
+		<option value="//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:">- createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:</option>
+		
+		<option value="//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:">- createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:</option>
+		
+		<option value="//api/name/createPlaybackController">- createPlaybackController</option>
+		
+		<option value="//api/name/createPlaybackControllerWithSessionProvider:viewStrategy:">- createPlaybackControllerWithSessionProvider:viewStrategy:</option>
+		
+		<option value="//api/name/createPlaybackControllerWithViewStrategy:">- createPlaybackControllerWithViewStrategy:</option>
+		
+		<option value="//api/name/createSidecarSubtitlesPlaybackControllerWithViewStrategy:">- createSidecarSubtitlesPlaybackControllerWithViewStrategy:</option>
+		
+		<option value="//api/name/createSidecarSubtitlesSessionProviderWithOptions:">- createSidecarSubtitlesSessionProviderWithOptions:</option>
+		
+		<option value="//api/name/createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:">- createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:</option>
+		
+		<option value="//api/name/registerComponent:">- 레지스터 구성 요소:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager 클래스 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>다음에서 상속</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>선언</th>
+	<td>BCOVPlayerSDKManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>Player SDK Manager는 iOS용 Brightcove Player SDK에서 공장, 중앙 레지스트리 및 진단 센터 역할을 하는 싱글톤 인스턴스입니다. Manager의 인스턴스를 얻은 후 이를 사용하여 Player SDK 에코시스템에서 다른 개체의 인스턴스를 가져옵니다.</p>
+
+<p>BCOVPlayerSDKManager에 메서드를 추가하여 FairPlay 플레이어 및 세션 공급자를 생성합니다.</p>
+
+<p>@constant kBCOVSSTextTracksKeySourceTypeM3U8URL</p><p>이 키/값 쌍은 소스 URL이 M3U8 파일을 참조하지만&ldquo; .m3u8 &rdquo;확대.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">기타 방법</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/version" title="version"></a>
+	<h3 class="method-title"><code><a href="#//api/name/version">+ &nbsp;버전</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>SDK 버전을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSString *) 버전</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>SDK 버전</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>SDK 버전을 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sessionID" title="sessionID"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sessionID">&nbsp;&nbsp;세션 ID</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>sessionID는 이 애플리케이션 인스턴스와 연결된 고유 식별자입니다. 이 식별자는 다른 분석 데이터와 함께 Brightcove 메트릭 서버로 전송됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property(비원자, 읽기 전용, 강력한) NSString *sessionID</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>sessionID는 이 애플리케이션 인스턴스와 연결된 고유 식별자입니다. 이 식별자는 다른 분석 데이터와 함께 Brightcove 메트릭 서버로 전송됩니다.</p>
+
+<p>sessionID는 특정 재생 문제와 관련된 문제를 추적하려고 할 때 유용할 수 있습니다. 예를 들어 재생 문제를 감지하면 sessionID와 비디오 ID를 자체 오류 추적 서버로 보낸 다음 이 두 값을 Brightcove 서비스 엔지니어에게 보고하여 서버 로그에서 문제의 원인을 추적할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlaybackController" title="createPlaybackController"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlaybackController">&ndash;&nbsp; createPlaybackController</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>기본 세션 공급자와 기본 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다( <code> [BCOVPlayerSDKManager createPlaybackControllerWithViewStrategy:nil]</code> ).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createPlaybackController<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>재생 컨트롤러.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>기본 세션 공급자와 기본 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다( <code> [BCOVPlayerSDKManager createPlaybackControllerWithViewStrategy:nil]</code> ).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlaybackControllerWithViewStrategy:" title="createPlaybackControllerWithViewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlaybackControllerWithViewStrategy:">&ndash;&nbsp; createPlaybackControllerWithViewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>기본 세션 공급자와 지정된 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다. 통과<code>무</code>보기 전략이 반환된 재생 컨트롤러를 구성하므로&rsquo; NS <code>보다</code>속성을 꾸미지 않은 기본 비디오 보기로 사용합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createPlaybackControllerWithViewStrategy:(BCOVPlaybackControllerViewStrategy)<code><em>보기전략</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>보기전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 전략으로 구성된 재생 컨트롤러입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>기본 세션 공급자와 지정된 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다. 통과<code>무</code>보기 전략이 반환된 재생 컨트롤러를 구성하므로&rsquo; NS <code>보다</code>속성을 꾸미지 않은 기본 비디오 보기로 사용합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlaybackControllerWithSessionProvider:viewStrategy:" title="createPlaybackControllerWithSessionProvider:viewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlaybackControllerWithSessionProvider:viewStrategy:">&ndash;&nbsp; createPlaybackControllerWithSessionProvider:viewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 세션 공급자 및 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createPlaybackControllerWithSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<code><em>공급자</em> viewStrategy:(BCOVPlaybackControllerViewStrategy)<em>보기전략</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>반환된 재생 컨트롤러에 재생 세션을 제공하는 세션 공급자입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>보기전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수로 구성된 재생 컨트롤러입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 세션 공급자 및 보기 전략으로 구성된 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createBasicSessionProviderWithOptions:" title="createBasicSessionProviderWithOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createBasicSessionProviderWithOptions:">&ndash;&nbsp; createBasicSessionProviderWithOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 옵션과 함께 기본 재생 세션 공급자를 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createBasicSessionProviderWithOptions:(BCOVBasicSessionProviderOptions *)<code><em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>세션 공급자가 반환할 옵션입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 옵션으로 구성된 기본 재생 세션 공급자입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 옵션과 함께 기본 재생 세션 공급자를 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerComponent:" title="registerComponent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerComponent:">&ndash;&nbsp;레지스터 구성 요소:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BCOVPlayerSDKManager에 지정된 구성 요소 개체를 등록합니다. 구성 요소는 메서드를 구현해야 합니다. <a href="../Protocols/BCOVComponent.html"><code> BCOV컴포넌트</code></a>규약. 구성 요소 등록&ldquo;그것을 활성화&rdquo;기능을 활성화하여 사용할 수 있습니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)registerComponent:(id&lt;BCOVComponent&gt;)<code><em>요소</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>요소</code></th>
+						<td><p>BCOVPlayerSDKManager에 등록할 개체입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>BCOVPlayerSDKManager에 지정된 구성 요소 개체를 등록합니다. 구성 요소는 메서드를 구현해야 합니다. <a href="../Protocols/BCOVComponent.html"><code> BCOV컴포넌트</code></a>규약. 구성 요소 등록&ldquo;그것을 활성화&rdquo;기능을 활성화하여 사용할 수 있습니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedManager" title="sharedManager"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedManager">+ &nbsp;공유 관리자</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어 SDK 관리자 싱글톤을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVPlayerSDKManager *)sharedManager<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>플레이어 SDK 관리자 싱글톤.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어 SDK 관리자 싱글톤을 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedManagerWithOptions:" title="sharedManagerWithOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedManagerWithOptions:">+ &nbsp;공유 관리자와 옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>플레이어 SDK 관리자 싱글톤을 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVPlayerSDKManager *)sharedManagerWithOptions:(NSDictionary *)<code><em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>0으로 설정합니다. 향후 사용을 위해 예약되어 있습니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>플레이어 SDK 관리자 싱글톤.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>플레이어 SDK 관리자 싱글톤을 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVPlayerSDKManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="BCOVSSAdditionsDepricated Methods" name="task_BCOVSSAdditionsDepricated Methods"></a>
+						<h2 class="task-title">BCOVSS추가Deprited 메서드</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createSidecarSubtitlesSessionProviderWithOptions:" title="createSidecarSubtitlesSessionProviderWithOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSidecarSubtitlesSessionProviderWithOptions:">&ndash;&nbsp; createSidecarSubtitlesSessionProviderWithOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createSidecarSubtitlesSessionProviderWithOptions:(BCOVSSSessionProviderOption *)<code><em>옵션</em></code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="BCOVFPSAdditions Methods" name="task_BCOVFPSAdditions Methods"></a>
+						<h2 class="task-title">BCOVFPS추가 메서드</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:" title="createFairPlayPlaybackControllerWithAuthorizationProxy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:">&ndash;&nbsp; createFairPlayPlaybackControllerWithAuthorizationProxy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>FairPlay 지원 재생 컨트롤러를 만들고 반환합니다. Video Cloud Dynamic Delivery를 사용하는 경우 Fairplay 애플리케이션 인증서가 자동으로 검색됩니다. <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>재생 목록을 재생할 때. 전화를 걸어 응용 프로그램 인증서를 별도로 제공할 수 있습니다. <code> BCOVBasicPlaybackController addApplicationCertificate:식별자:</code> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (null이 아닌 ID&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithAuthorizationProxy:(null이 아닌 ID&lt;BCOVFPSAuthorizationProxy&gt;)<em>대리</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>대리</code></th>
+						<td><p>NS <a href="../Protocols/BCOVFPSAuthorizationProxy.html"> BCOVFPS인증 프록시</a>이 세션 공급자에 사용합니다. 0이 아니어야 합니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>재생 컨트롤러.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>FairPlay 지원 재생 컨트롤러를 만들고 반환합니다. Video Cloud Dynamic Delivery를 사용하는 경우 Fairplay 애플리케이션 인증서가 자동으로 검색됩니다. <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>재생 목록을 재생할 때. 전화를 걸어 응용 프로그램 인증서를 별도로 제공할 수 있습니다. <code> BCOVBasicPlaybackController addApplicationCertificate:식별자:</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:" title="createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:">&ndash;&nbsp; createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수를 사용하여 FairPlay 세션 공급자를 만들고 반환합니다. Video Cloud Dynamic Delivery를 사용하는 경우 Fairplay 애플리케이션 인증서가 자동으로 검색됩니다. <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>재생 목록을 재생할 때. 전화를 걸어 응용 프로그램 인증서를 별도로 제공할 수 있습니다. <code> BCOVBasicPlaybackController addApplicationCertificate:식별자:</code> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (null이 아닌 ID&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithAuthorizationProxy:(null이 아닌 ID&lt;BCOVFPSAuthorizationProxy&gt;)<em>대리</em> upstreamSessionProvider:(nullable ID&lt;BCOVPlaybackSessionProvider&gt;)<em>공급자</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>대리</code></th>
+						<td><p>NS <a href="../Protocols/BCOVFPSAuthorizationProxy.html"> BCOVFPS인증 프록시</a>이 세션 공급자에 사용합니다. 0이 아니어야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>그리고 연결할 업스트림 세션 공급자. 0이면 a <a href="../Classes/BCOVBasicSessionProvider.html"> BCOVBasicSessionProvider</a>으로 사용될 것.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>세션 제공자.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수를 사용하여 FairPlay 세션 공급자를 만들고 반환합니다. Video Cloud Dynamic Delivery를 사용하는 경우 Fairplay 애플리케이션 인증서가 자동으로 검색됩니다. <a href="../Classes/BCOVVideo.html"> BCOV비디오</a>재생 목록을 재생할 때. 전화를 걸어 응용 프로그램 인증서를 별도로 제공할 수 있습니다. <code> BCOVBasicPlaybackController addApplicationCertificate:식별자:</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:" title="createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">&ndash;&nbsp; createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>FairPlay 지원 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (null이 아닌 ID&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithApplicationCertificate:(nullable NSData *)<em>앱인증서</em> AuthorizationProxy:(null이 아닌 ID&lt;BCOVFPSAuthorizationProxy&gt;)<em>대리</em> viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)<em>보기전략</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>앱인증서</code></th>
+						<td><p>이 세션 제공자를 위한 Fairplay 애플리케이션 인증서. Brightcove FPS Server를 사용하는 경우 다음을 통해 검색할 수 있습니다. <a href="../Classes/BCOVFPSBrightcoveAuthProxy.html"> BCOVFPSBrightcoveAuthProxy</a> . 0일 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>대리</code></th>
+						<td><p>NS <a href="../Protocols/BCOVFPSAuthorizationProxy.html"> BCOVFPS인증 프록시</a>이 세션 공급자에 사용합니다. 0이 아니어야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>보기전략</code></th>
+						<td><p>사용할 보기 전략입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>재생 컨트롤러.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>FairPlay 지원 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:" title="createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:">&ndash;&nbsp; createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수를 사용하여 FairPlay 세션 공급자를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (null이 아닌 id&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithApplicationCertificate:(nullable NSData *)<em>앱인증서</em> AuthorizationProxy:(null이 아닌 ID&lt;BCOVFPSAuthorizationProxy&gt;)<em>대리</em> upstreamSessionProvider:(nullable ID&lt;BCOVPlaybackSessionProvider&gt;)<em>공급자</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>앱인증서</code></th>
+						<td><p>이 세션 제공자에 대한 FairPlay 애플리케이션 인증서입니다. Brightcove FPS Server를 사용하는 경우 다음을 통해 검색할 수 있습니다. <a href="../Classes/BCOVFPSBrightcoveAuthProxy.html"> BCOVFPSBrightcoveAuthProxy</a> . 0일 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>대리</code></th>
+						<td><p>NS <a href="../Protocols/BCOVFPSAuthorizationProxy.html"> BCOVFPS인증 프록시</a>이 세션 공급자에 사용합니다. 0이 아니어야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>그리고 연결할 업스트림 세션 공급자. 0이면 a <a href="../Classes/BCOVBasicSessionProvider.html"> BCOVBasicSessionProvider</a>으로 사용될 것.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>세션 제공자.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수를 사용하여 FairPlay 세션 공급자를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="BCOVSSAdditions Methods" name="task_BCOVSSAdditions Methods"></a>
+						<h2 class="task-title">BCOVSS추가 메서드</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createSidecarSubtitlesPlaybackControllerWithViewStrategy:" title="createSidecarSubtitlesPlaybackControllerWithViewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSidecarSubtitlesPlaybackControllerWithViewStrategy:">&ndash;&nbsp; createSidecarSubtitlesPlaybackControllerWithViewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 보기 전략을 사용하여 사이드카 자막에 대해 구성된 새 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;BCOVPlaybackController&gt;)CreateSidecarSubtitlesPlaybackControllerWithViewStrategy:(BCOVPlaybackControllerViewStrategy)<em>보기전략</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>보기전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>사이드카 자막 재생 세션을 위해 구성된 새로운 재생 컨트롤러.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 보기 전략을 사용하여 사이드카 자막에 대해 구성된 새 재생 컨트롤러를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVSSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:" title="createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:">&ndash;&nbsp; createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수를 사용하여 새 사이드카 자막 세션 공급자를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<code><em>공급자</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>선택적 업스트림 세션 제공자.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 세션 공급자입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수를 사용하여 새 사이드카 자막 세션 공급자를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVSSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

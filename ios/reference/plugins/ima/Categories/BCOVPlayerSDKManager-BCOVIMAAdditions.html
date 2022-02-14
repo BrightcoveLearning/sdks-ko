@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager(BCOVIMAAdditions) 범주 참조</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player for iOS </a> </h1>
+
+			<p id="developer-home">
+				<a href="../index.html">브라이트코브</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">색인</a></li>
+<li><a href="../hierarchy.html">계층</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							이 페이지에서
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">이동…</option>
+	
+	<option value="overview">개요</option>
+	
+
+	
+	
+	<option value="tasks">작업</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:">- createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:</option>
+		
+		<option value="//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:">- createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:</option>
+		
+		<option value="//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:">- createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:</option>
+		
+		<option value="//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:options:">- createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:options:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager(BCOVIMAAdditions) 범주 참조</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>선언</th>
+	<td>BCOVIMAComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">개요</h2>
+						<p>IMA를 지원하기 위해 BCOVPlayerSDKManager에 범주 메서드가 추가되었습니다.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:" title="createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:">&ndash;&nbsp; createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 IMASettings 개체, IMAAdsRenderingSettings 개체, 보기 전략 및 광고 컨테이너를 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 IMA 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createIMAPlaybackControllerWithSettings:(IMASettings *)<code><em>설정</em> adsRenderingSettings:(IMAAdsRenderingSettings *)<em>광고렌더링설정</em> adsRequestPolicy:(BCOVIMAAdsRequestPolicy *)<em>광고 요청 정책</em> adContainer:(UIView *)<em>광고 컨테이너</em> viewController:(UIViewController *)<em>adContainerViewController</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> viewStrategy:(BCOVPlaybackControllerViewStrategy)<em>전략</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 IMAAdsLoader 개체를 구성하는 데 사용되는 IMASettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고렌더링설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 IMAAdsManager 개체를 구성하는 데 사용되는 IMAAdsRenderingSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 요청 정책</code></th>
+						<td><p><a href="../Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>지정된 입력 재생 세션에서 사용할 IMAAdsRequests를 생성하는 인스턴스입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">adContainerViewController<code></code></th>
+						<td><p>광고 컨테이너가 포함된 보기 컨트롤러입니다. 여기에 제공되지 않은 경우 광고 또는 스트림 요청을 하기 전에 IMAAdDisplayContainer에 설정해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>IMACompanionAdSlot 인스턴스의 목록입니다. 0이거나 비어 있을 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 재생 컨트롤러입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 IMASettings 개체, IMAAdsRenderingSettings 개체, 보기 전략 및 광고 컨테이너를 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 IMA 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVIMAComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:" title="createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:">&ndash;&nbsp; createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:viewStrategy:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 IMASettings 개체, IMAAdsRenderingSettings 개체, 보기 전략 및 광고 컨테이너를 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 IMA 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createIMAPlaybackControllerWithSettings:(IMASettings *)<code><em>설정</em> adsRenderingSettings:(IMAAdsRenderingSettings *)<em>광고렌더링설정</em> adsRequestPolicy:(BCOVIMAAdsRequestPolicy *)<em>광고 요청 정책</em> adContainer:(UIView *)<em>광고 컨테이너</em> viewController:(UIViewController *)<em>adContainerViewController</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> viewStrategy:(BCOVPlaybackControllerViewStrategy)<em>전략</em> 옵션:(NSDictionary *)<em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 IMAAdsLoader 개체를 구성하는 데 사용되는 IMASettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고렌더링설정</code></th>
+						<td><p>반환된 재생 컨트롤러에서 사용하는 IMAAdsManager 개체를 구성하는 데 사용되는 IMAAdsRenderingSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 요청 정책</code></th>
+						<td><p><a href="../Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>지정된 입력 재생 세션에서 사용할 IMAAdsRequests를 생성하는 인스턴스입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">adContainerViewController<code></code></th>
+						<td><p>광고 컨테이너가 포함된 보기 컨트롤러입니다. 여기에 제공되지 않은 경우 광고 또는 스트림 요청을 하기 전에 IMAAdDisplayContainer에 설정해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>IMACompanionAdSlot 인스턴스의 목록입니다. 0이거나 비어 있을 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>전략</code></th>
+						<td><p>반환된 재생 컨트롤러의 보기를 결정하는 보기 전략입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>IMA 옵션의 NSDictionary입니다. 0이거나 비어 있을 수 있습니다. 유일한 유효한 옵션 키는 kBCOVIMAOptionIMAPlaybackSessionDelegateKey kBCOVIMAOptionBlockAdTargetingAPIsKey입니다. &ldquo;기기 광고 타겟팅&rdquo;자세한 내용은 IMA 플러그인 README 섹션을 참조하세요.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 재생 컨트롤러입니다.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 IMASettings 개체, IMAAdsRenderingSettings 개체, 보기 전략 및 광고 컨테이너를 사용하여 새 재생 컨트롤러를 만들고 반환합니다. 반환된 재생 컨트롤러는 IMA 세션 공급자로 구성됩니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVIMAComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:" title="createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:">&ndash;&nbsp; createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수를 사용하여 새 BCOVIMASessionProvider를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createIMASessionProviderWithSettings:(IMASettings *)<code><em>설정</em> adsRenderingSettings:(IMAAdsRenderingSettings *)<em>광고렌더링설정</em> adsRequestPolicy:(BCOVIMAAdsRequestPolicy *)<em>광고 요청 정책</em> adContainer:(UIView *)<em>광고 컨테이너</em> viewController:(UIViewController *)<em>adContainerViewController</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> upstreamSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<em>공급자</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>설정</code></th>
+						<td><p>반환된 세션 공급자가 사용하는 IMAAdsLoader 개체를 구성하는 데 사용되는 IMASettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고렌더링설정</code></th>
+						<td><p>반환된 세션 공급자가 사용하는 IMAAdsManager 개체를 구성하는 데 사용되는 IMAAdsRenderingSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 요청 정책</code></th>
+						<td><p><a href="../Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>지정된 입력 재생 세션에서 사용할 IMAAdsRequests를 생성하는 인스턴스입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">adContainerViewController<code></code></th>
+						<td><p>광고 컨테이너가 포함된 보기 컨트롤러입니다. 여기에 제공되지 않은 경우 광고 또는 스트림 요청을 하기 전에 IMAAdDisplayContainer에 설정해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>IMACompanionAdSlot 인스턴스의 목록입니다. 0이거나 비어 있을 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>업스트림을 연결하고 반환된 세션 제공자에게 재생 세션을 전달하는 세션 제공자.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 BCOVIMASessionProvider.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수를 사용하여 새 BCOVIMASessionProvider를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVIMAComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:options:" title="createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:options:">&ndash;&nbsp; createIMASessionProviderWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:viewController:companionSlots:upstreamSessionProvider:옵션:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>지정된 매개변수를 사용하여 새 BCOVIMASessionProvider를 만들고 반환합니다.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createIMASessionProviderWithSettings:(IMASettings *)<code><em>설정</em> adsRenderingSettings:(IMAAdsRenderingSettings *)<em>광고렌더링설정</em> adsRequestPolicy:(BCOVIMAAdsRequestPolicy *)<em>광고 요청 정책</em> adContainer:(UIView *)<em>광고 컨테이너</em> viewController:(UIViewController *)<em>adContainerViewController</em> 동반자 슬롯:(NSArray *)<em>동반자 슬롯</em> upstreamSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<em>공급자</em> 옵션:(NSDictionary *)<em>옵션</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">매개변수</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>설정</code></th>
+						<td><p>반환된 세션 공급자가 사용하는 IMAAdsLoader 개체를 구성하는 데 사용되는 IMASettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고렌더링설정</code></th>
+						<td><p>반환된 세션 공급자가 사용하는 IMAAdsManager 개체를 구성하는 데 사용되는 IMAAdsRenderingSettings입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 요청 정책</code></th>
+						<td><p><a href="../Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>지정된 입력 재생 세션에서 사용할 IMAAdsRequests를 생성하는 인스턴스입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>광고 컨테이너</code></th>
+						<td><p>광고가 표시되고 광고 정보 UI가 렌더링되는 보기입니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">adContainerViewController<code></code></th>
+						<td><p>광고 컨테이너가 포함된 보기 컨트롤러입니다. 여기에 제공되지 않은 경우 광고 또는 스트림 요청을 하기 전에 IMAAdDisplayContainer에 설정해야 합니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>동반자 슬롯</code></th>
+						<td><p>IMACompanionAdSlot 인스턴스의 목록입니다. 0이거나 비어 있을 수 있습니다.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>공급자</code></th>
+						<td><p>업스트림을 연결하고 반환된 세션 제공자에게 재생 세션을 전달하는 세션 제공자.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>옵션</code></th>
+						<td><p>IMA 옵션의 NSDictionary입니다. 0이거나 비어 있을 수 있습니다. 유일한 유효한 옵션 키는 kBCOVIMAOptionIMAPlaybackSessionDelegateKey kBCOVIMAOptionBlockAdTargetingAPIsKey입니다. &ldquo;기기 광고 타겟팅&rdquo;자세한 내용은 IMA 플러그인 README 섹션을 참조하세요.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">반환 값</h4>
+				<p>지정된 매개변수가 있는 새 BCOVIMASessionProvider.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">논의</h4>
+				<p>지정된 매개변수를 사용하여 새 BCOVIMASessionProvider를 만들고 반환합니다.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">선언</h4>
+				<p>BCOVIMAComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">저작권&copy; 2021 브라이트코브. 판권 소유. 업데이트됨: 2021-07-08</p>
+						
+						
+						<p class="generator">에 의해 생성 된<a href="http://appledoc.gentlebytes.com"> appledoc 2.2.1(빌드 1334)</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
