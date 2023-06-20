@@ -1,863 +1,1893 @@
-﻿<!doctype html>
-<html lang="ko">
+﻿<!DOCTYPE html>
+<html lang="ko"> 
+    <head>
+        <title>안드로이드용 네이티브 SDK를 사용하는 코드 스 니펫</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="이 항목에서는 SDK로 개발하는 동안 참조로 유용 할 수 있습니다 코드 조각의 컬렉션을 찾을 수 있습니다. 자세한 솔루션은 Android 플레이어 샘플을 참조하세요.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="이 항목에서는 SDK로 개발하는 동안 참조로 유용 할 수 있습니다 코드 조각의 컬렉션을 찾을 수 있습니다. 자세한 솔루션은 Android 플레이어 샘플을 참조하세요.">
-  
-  <title>안드로이드용 네이티브 SDK를 사용하는 코드 스 니펫</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
 
 
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/android/resources/">리소스</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">안드로이드용 네이티브 SDK를 사용하는 코드 스 니펫</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="로고" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
           
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
           
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-player-sdks.html">브라이트코브 네이티브 SDK</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/native-video-playback.html">네이티브 비디오 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdk-features.html">네이티브 SDK 기능</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-feature-support.html">기능 지원 테이블</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-android.html">안드로이드 샘플 앱 실행</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-ios.html">iOS/tvOS 샘플 앱 실행</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-training-videos.html">네이티브 SDK 교육 비디오</a></li>
-                  
-                
-              </ul>
-            
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
           
-            
-              <h5 class="submenu-header"><a href="/features/index.html">기능<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/features/using-360deg-videos-native-sdks.html">360도 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/features/advertising-sdks.html">광고</a></li>
-                  
-                
-                  
-                    <li><a href="/features/analytics-sdks.html">분석</a></li>
-                  
-                
-                  
-                    <li><a href="/features/using-captions-brightcove-native-sdks.html">캡션</a></li>
-                  
-                
-                  
-                    <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV</a></li>
-                  
-                
-                  
-                    <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                  
-                
-                  
-                    <li><a href="/features/cross-device-resume-sdks.html">장치 간 재개</a></li>
-                  
-                
-                  
-                    <li><a href="/features/live-streams-native-sdks.html">라이브 스트림</a></li>
-                  
-                
-                  
-                    <li><a href="/features/multiple-audio-tracks-native-sdks.html">다중 오디오 트랙</a></li>
-                  
-                
-                  
-                    <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                  
-                
-                  
-                    <li><a href="/features/brightcove-native-player-controls.html">플레이어 컨트롤</a></li>
-                  
-                
-                  
-                    <li><a href="/features/picture-picture-native-sdks.html">픽처 인 픽처</a></li>
-                  
-                
-                  
-                    <li><a href="/features/video-formats-and-captioning-native-sdks.html">비디오 형식 및 캡션</a></li>
-                  
-                
-              </ul>
-            
           
-            
-              <h5 class="submenu-header"><a href="/android/index.html">안드로이드 개발<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/basics/overview-brightcove-player-sdk-android.html">v6.16.0: 안드로이드용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/android/basics/architecture-brightcove-player-sdk-android.html">아키텍처</a></li>
-                        
-                        <li><a href="/android/basics/android-understanding-brightcoveplayer-class.html">브라이트코브플레이어 클래스</a></li>
-                        
-                        <li><a href="/android/basics/android-choosing-video-view.html">비디오 보기 선택</a></li>
-                        
-                        <li><a href="/android/basics/android-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/android/basics/understanding-events-native-sdk-android.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/android/basics/android-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">단계별: 간단한 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">SSAI를 사용한 광고 UI 사용자 정의</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                        <li><a href="/android/advertising/migrating-to-ima-plugin-6-15-0.html">이마 플러그인 6.15.0</a></li>
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/android/advertising/using-pulse-plugin-native-sdk-android.html">인비디 펄스 플러그인</a></li>
-                        
-                        <li><a href="/android/advertising/ssai-plugin-native-sdk-android.html">안드로이드용 SSAI플러그인</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/analytics/analytics-related-offline-playback-native-sdks.html">오프라인 재생과 관련된 분석</a></li>
-                        
-                        <li><a href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/captions/removing-android-captions-background-image.html">캡션 배경 이미지 제거</a></li>
-                        
-                        <li><a href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">프로그래밍 방식으로 캡션 선택</a></li>
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/tv/index.html">커넥티드 TV <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/tv/cast-plugin-native-sdk-android.html">크롬캐스트 플러그인</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                        <li><a href="/android/tv/customizing-android-tv-controls.html">안드로이드 TV 컨트롤 커스터마이징</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/framework/android-adding-viewmanaging-layout.html">뷰 추가/배치 관리</a></li>
-                        
-                        <li><a href="/android/framework/android-pie-support-native-sdk-android.html">안드로이드 파이 지원</a></li>
-                        
-                        <li><a href="/android/framework/creating-plugin-native-sdk-android.html">플러그인 만들기</a></li>
-                        
-                        <li><a href="/android/framework/migrating-exoplayer-2-framework.html">ExopLayer 2 프레임워크로 마이그레이션</a></li>
-                        
-                        <li><a href="/android/framework/resizing-video-view.html">비디오 보기 크기 조정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/playback/hevc-selection-native-sdk-android.html">HEVC 선택</a></li>
-                        
-                        <li><a href="/android/playback/hls-playback-native-sdk-android.html">HLS 재생</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/android/playback/android-managing-player-controls.html">플레이어 컨트롤 관리</a></li>
-                        
-                        <li><a href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">오프라인 재생을 위한 다중 오디오 트랙</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                        
-                        <li><a href="/android/playback/handling-orientation-change-native-sdk-android.html">방향 변경</a></li>
-                        
-                        <li><a href="/android/playback/android-source-selection.html">소스 선택</a></li>
-                        
-                        <li><a href="/android/playback/video-and-playlist-objects-json.html">JSON의 비디오 및 재생 목록 개체</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/troubleshooting/error-messages-native-sdk-android.html">오류 메시지 안내서</a></li>
-                        
-                        <li><a href="/android/troubleshooting/removing-android-log-messages.html">안드로이드 로그 메시지 제거</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/android-player-samples">안드로이드 코드 샘플</a></li>
-                        
-                        <li><a href="/android/resources/code-snippets-using-native-sdk-android.html">코드 조각</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/android-sdk/javadoc/index.html">안드로이드용 네이티브 SDK</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-native-sdk-android-release-notes.html">릴리즈 노트</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
           
-            
-              <h5 class="submenu-header"><a href="/ios/index.html"><strong>iOS</strong>개발</a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.8.1: iOS용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-objective-c.html">단계별: 목표 - C를 사용하여 간단한 비디오 앱</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-swift.html">단계별: 스위프트를 사용하는 간단한 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/tv/index.html">커넥티드 TV <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">크롬캐스트 플러그인</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples">iOS 코드 샘플</a></li>
-                        
-                        <li><a href="/ios/resources/code-snippets-using-native-sdk-ios.html">코드 조각</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
-                        
-                        <li><a href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
           
-            
-              <h5 class="submenu-header"><a href="/tvos/index.html">tvOS 개발<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/basics/index.html">기본 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.8.1: tvOS용 플레이어 SDK 개요</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
-                        
-                        <li><a href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">단계별: 스위프트를 사용하여 간단한 TV 비디오 앱</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/advertising/index.html">광고<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/analytics/index.html">분석<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/captions/index.html">캡션<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/content-protection/index.html">컨텐츠 보호 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
-                        
-                        <li><a href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">애플 TV (페어플레이)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/framework/index.html">프레임워크<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/live/index.html">라이브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/playback/index.html">재생<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">애플 TV UI 컨트롤</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/troubleshooting/index.html">문제 해결<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/resources/index.html">리소스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">기본 애플 TV 샘플</a></li>
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">애플 TV (SSAI와 함께)</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
-                        
-                        <li><a href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">이전 릴리즈</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
           
-            
-              <h5 class="submenu-header"><a href="/developer-support/index.html">개발자 지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/announcements/index.html">공지 사항<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">안드로이드 SDK EOL 지원</a></li>
-                        
-                        <li><a href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">안드로이드 버전 지원</a></li>
-                        
-                        <li><a href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">Apple 앱 제출 요구 사항</a></li>
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS/TVOS 용 iOS SDK EOL 지원</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/questions/index.html">질문 및 문제<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">SDK 개발자 포럼 아카이브</a></li>
-                        
-                        <li><a href="/developer-support/questions/faq-brightcove-native-player-sdks.html">자주 묻는 질문</a></li>
-                        
-                        <li><a href="/developer-support/questions/release-notes-brightcove-native-sdks.html">릴리즈 노트</a></li>
-                        
-                        <li><a href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">알려진 문제</a></li>
-                        
-                        <li><a href="/developer-support/questions/report-issue-brightcove-native-sdks.html">문제 신고</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
           
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
           
-      </nav>
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
     </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
+  </div>
+</header><!--//header-->
 
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">홈</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;시작하기</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-player-sdks.html">Brightcove 네이티브 SDK</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer-support/guides/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdks-feature-support.html">기능 지원 테이블</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/native-video-playback.html">네이티브 비디오 재생</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdk-features.html">네이티브 SDK 기능</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/running-sample-apps-native-sdk-android.html">안드로이드 샘플 앱 실행</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/running-sample-apps-native-sdk-ios.html">iOS/tvOS 샘플 앱 실행</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdks-training-videos.html">교육 동영상</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/features/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;특징</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-360deg-videos-native-sdks.html">360도 비디오</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/advertising-sdks.html">광고하는</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/analytics-sdks.html">분석</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/audio-only-with-sdks.html">오디오 전용</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">범퍼 동영상</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-captions-brightcove-native-sdks.html">캡션</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/china-delivery-sdks.html">중국 배송</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">크롬캐스트</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/cross-device-resume-sdks.html">장치 간 재개</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-delivery-rules-with-sdks.html">배달 규칙</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">폴백 HDCP</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/forensic-watermarking-with-sdks.html">포렌식 워터마킹</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/live-streams-native-sdks.html">라이브 스트림</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/multiple-audio-tracks-native-sdks.html">다중 오디오 트랙</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">재생 제한</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">플레이어 컨트롤</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/picture-picture-native-sdks.html">픽처 인 픽처</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/thumbnails-native-sdks.html">썸네일 찾기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/video-formats-and-captioning-native-sdks.html">비디오 형식 및 캡션</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/android/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;안드로이드 개발</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
 
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;기초</a>
+                
 
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/overview-brightcove-player-sdk-android.html">v8.0.0: 안드로이드용 네이티브 SDK 개요</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-sdk-8-release.html">네이티브 SDK 릴리스 v8.0.0</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/architecture-brightcove-player-sdk-android.html">아키텍처</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-understanding-brightcoveplayer-class.html">브라이트코브플레이어 클래스</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-choosing-video-view.html">비디오 보기 선택</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-brightcove-registration.html">브라이트코브 등록</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/understanding-events-native-sdk-android.html">이벤트 이해</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-working-media-content.html">미디어 컨텐츠 작업</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">네이티브 SDK 교육 비디오</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">단계별: 간단한 비디오 앱</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
 
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;광고하기</a>
+                
 
-  
-    
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">SSAI를 사용한 광고 UI 사용자 정의</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/migrating-to-ima-plugin.html">Brightcove의 IMA 플러그인 8.0.0</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/ssai-seeking-behavior.html">Brightcove의 SSAI 플러그인</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/using-pulse-plugin-native-sdk-android.html">인비디 펄스 플러그인</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
 
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;해석학</a>
+                
 
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/analytics/analytics-related-offline-playback-native-sdks.html">오프라인 재생과 관련된 분석</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">브라이트코브 분석 전송</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;캡션</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/captions/removing-android-captions-background-image.html">캡션 배경 이미지 제거</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">프로그래밍 방식으로 캡션 선택</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/tv/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;커넥티드 TV</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">크롬캐스트 플러그인</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/tv/customizing-android-tv-controls.html">안드로이드 TV 컨트롤 커스터마이징</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;콘텐츠 보호</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">폴백 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">재생 제한</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;프레임워크</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-adding-viewmanaging-layout.html">뷰 추가/배치 관리</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-pie-support-native-sdk-android.html">안드로이드 파이 지원</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/creating-plugin-native-sdk-android.html">플러그인 만들기</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/migrating-exoplayer-2-framework.html">ExopLayer 2 프레임워크로 마이그레이션</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-sdk-7-release.html">네이티브 SDK 릴리스 7.0.1</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/resizing-video-view.html">비디오 보기 크기 조정</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;라이브</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;재생</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">범퍼 동영상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/hevc-selection-native-sdk-android.html">HEVC 선택</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/hls-playback-native-sdk-android.html">HLS 재생</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">오프라인 재생을 위한 다중 오디오 트랙</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/playhead-position-and-video-duration.html">재생 헤드 위치 및 비디오 재생 시간</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/setting-playback-speed-android.html">재생 속도 설정</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/android-source-selection.html">소스 선택</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/video-and-playlist-objects-json.html">JSON의 비디오 및 재생 목록 개체</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;문제 해결</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/troubleshooting/error-messages-native-sdk-android.html">오류 메시지 안내서</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/troubleshooting/removing-android-log-messages.html">안드로이드 로그 메시지 제거</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp; UI</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">기본 플레이어 컨트롤</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/android-managing-player-controls.html">플레이어 컨트롤 관리</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/handling-orientation-change-native-sdk-android.html">방향 변경</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;리소스</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/android-player-samples">안드로이드 코드 샘플</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item section-doc"><a class="nav-link" href="/android/resources/code-snippets-using-native-sdk-android.html" aria-current="page">코드 조각</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/reference/javadoc/index.html">안드로이드용 네이티브 SDK</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">이전 릴리즈</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/resources/brightcove-native-sdk-android-release-notes.html">릴리즈 노트</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ios/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp; iOS 개발</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;기초</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.12.0: iOS용 네이티브 SDK 개요</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/step-step-simple-video-app-using-objective-c.html">단계별: 목표 - C를 사용하여 간단한 비디오 앱</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/step-step-simple-video-app-using-swift.html">단계별: 스위프트를 사용하는 간단한 비디오 앱</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;광고하기</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;해석학</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;캡션</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/tv/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;커넥티드 TV</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">크롬캐스트 플러그인</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;콘텐츠 보호</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">폴백 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">재생 제한</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;프레임워크</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;라이브</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;재생</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">범퍼 동영상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">오프라인 재생</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/privacy/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;프라이버시</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/privacy/app-tracking-transparency.html">앱 추적 투명성</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;문제 해결</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp; UI</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">기본 플레이어 컨트롤</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;리소스</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples">iOS 코드 샘플</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/resources/code-snippets-using-native-sdk-ios.html">코드 조각</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/reference/sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">이전 릴리즈</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/tvos/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp; tvOS 개발</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;기초</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.12.0: tvOS용 네이티브 SDK 개요</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/architecture-brightcove-player-sdk-ios.html">아키텍처</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-brightcove-registration.html">브라이트코브 등록</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-working-media-content.html">미디어 컨텐츠 작업</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/understanding-events-native-sdk-ios.html">이벤트 이해</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">커넥티드 TV 앱</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">네이티브 SDK 교육 비디오</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">단계별: 스위프트를 사용하여 간단한 TV 비디오 앱</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;광고하기</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">클라이언트 측 광고 구현 (CSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">서버 측 광고 구현 (SSAI를)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">광고 쿼리 매개 변수 추가</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 개방 측정</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;해석학</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">브라이트코브 분석 전송</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">브라이트코브 분석 보기</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;캡션</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">WebVTT 캡션 동기화</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;콘텐츠 보호</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">애플 TV (페어플레이)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">DRM (콘텐츠 보안)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">폴백 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">재생 제한</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;프레임워크</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/framework/working-app-transport-security-ats.html">ATS (앱 전송 보안) 작업</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;라이브</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">라이브 SSAI 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">라이브 SSAI를 위한 플레이어 향상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">라이브 SSAI를 통한 클라이언트측 프리롤 광고</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;재생</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">범퍼 동영상</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/playback/ios-source-selection.html">소스 선택</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/privacy/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;프라이버시</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/privacy/app-tracking-transparency.html">앱 추적 투명성</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;문제 해결</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/troubleshooting/error-handling-native-sdk-ios.html">오류 처리</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp; UI</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">애플 TV UI 컨트롤</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">플레이어 현지화</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;리소스</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">기본 애플 TV 샘플</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">애플 TV (SSAI와 함께)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/reference/sdk/index.html">iOS용 네이티브 SDK 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">플러그인 참조</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">릴리즈 노트</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">이전 릴리즈</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/developer-support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;개발자 지원</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/announcements/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;공지 사항</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">안드로이드 SDK EOL 지원</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">안드로이드 버전 지원</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">Apple 앱 제출 요구 사항</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS/TVOS 용 iOS SDK EOL 지원</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/guides/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;가이드</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/guides/concepts-javascript-debugging-basics.html">자바 스크립트 디버깅 기본 사항</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/guides/create-json-web-token.html">JSON 웹 토큰 만들기 (JWT)</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/guides/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/questions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;질문 및 문제</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/release-notes-brightcove-native-sdks.html">릴리즈 노트</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">알려진 문제</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">메일링 리스트/포럼 아카이브</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/faq-brightcove-native-player-sdks.html">자주 묻는 질문</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/report-issue-brightcove-native-sdks.html">문제 신고</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;서포트</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">영업팀에 문의</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">지원 포털 비밀번호 재설정</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">홈</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/android/">안드로이드</a></li>
+            
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/android/resources/">리소스</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">안드로이드용 네이티브 SDK를 사용하는 코드 스 니펫</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
 <h1>안드로이드용 네이티브 SDK를 사용하는 코드 스 니펫</h1>
 <article class="bcls-article">
   <summary>이 항목에서는 SDK로 개발하는 동안 참조로 유용 할 수 있습니다 코드 조각의 컬렉션을 찾을 수 있습니다. 자세한 솔루션은<a href="https://github.com/BrightcoveOS/android-player-samples"> Android 플레이어 샘플</a> .</summary>
@@ -886,6 +1916,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li><a href="#Setting_captions_and_themes">캡션 및 테마 설정</a></li>
       <li><a href="#Setting_default_captions">기본 캡션 설정</a></li>
+      <li><a href="#Using_in_manifest_captions">인 매니페스트 캡션 사용</a></li>
     </ul>
 </details>
 <br/>
@@ -917,6 +1948,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <details style="padding:0;">
     <summary>재생</summary>
     <ul>
+      <li><a href="#Detecting_Network_Bandwidth">네트워크 대역폭 감지</a></li>
       <li><a href="#Getting_the_ExoPlayer_instance">ExoPlayer 인스턴스 가져 오기</a></li>
       <li><a href="#Offline_playback_with_DRM">DRM으로 오프라인 재생</a></li>
       <li><a href="#Paging_with_the_Playback_API">재생 API를 사용한 페이징</a></li>
@@ -1012,7 +2044,7 @@ android:layout_gravity="bottom"
 &lt;/style&gt;</a></code></pre>
 	</li>
 	<li>그게 다야 Android TV 실제 또는 가상 장치에서 샘플 앱을 실행합니다. 컨트롤 막대에 전체 화면 버튼이 표시되어야합니다.
-	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="전체 화면 단추" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/android_tv_fullscreen.png"/>
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="전체 화면 단추" src="/assets/images/android/snippets/android_tv_fullscreen.png"/>
 	<figcaption class="bcls-caption--image">전체 화면 단추</figcaption>
 	</figure>
 	</li>
@@ -1029,13 +2061,13 @@ android:layout_gravity="bottom"
 	<p>다음은 전체 화면 모드를 설정하는 코드입니다.</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ENTER_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.ENTER_FULL_SCREEN);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#ENTER_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.ENTER_FULL_SCREEN);</a></code></pre>
 	</li>
 	<li>
 	<p>전체 화면 모드를 종료하는 코드는 다음과 같습니다.</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#EXIT_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.EXIT_FULL_SCREEN);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#EXIT_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.EXIT_FULL_SCREEN);</a></code></pre>
 	</li>
 </ul>
 </section>
@@ -1043,15 +2075,37 @@ android:layout_gravity="bottom"
 <section class="bcls-section">
 <h2 id="Getting_duration_for_live_streams">실시간 스트림 기간 가져 오기</h2>
 
-<p>실시간 스트림의 길이를 확인하려면<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION"><code translate="No">MAX_POSITION</code></a> . 이것은 당신에게 라이브 스트림을위한 가장 큰 검색 가능한 위치를 제공합니다 (즉, 스크롤바를 드래그 할 수있는 가장 먼 위치). 코드는 다음과 비슷해야합니다.</p>
+<p>실시간 스트림의 길이를 확인하려면<a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION"><code translate="No">MAX_POSITION</code></a> . 이것은 당신에게 라이브 스트림을위한 가장 큰 검색 가능한 위치를 제공합니다 (즉, 스크롤바를 드래그 할 수있는 가장 먼 위치). 코드는 다음과 비슷해야합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION">brightcoveVideoView.getEventEmitter().on(EventType.PROGRESS, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION">brightcoveVideoView.getEventEmitter().on(EventType.PROGRESS, new EventListener() {
   @Override
   public void processEvent(Event event) {
   int duration = (int) event.properties.get(Event.MAX_POSITION);
   }
 });</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Detecting_Network_Bandwidth">네트워크 대역폭 감지</h2>
+<p>다운로드 작업과 같이 앱 내에서 네트워크 대역폭을 감지해야 하는 사용 사례가 있을 수 있습니다.</p>
+
+<p>Android용 네이티브 SDK는 대역폭을 감지하기 위해 ExoPlayer에서 제공하는<code translate="No">BandwidthMeter</code>클래스를 사용합니다. 우리<code translate="No">PlayerBandwidthMeter</code>클래스는<code translate="No">BandwidthMeter</code>클래스를 사용하며 예상 비트레이트를 반환하는<code translate="No">getBitrateEstimate</code>메서드를 제공합니다.</p>
+
+<p>자세한 내용은 다음을 참조하십시오.</p>
+<ul>
+  <li><a href="/android/reference/javadoc/com/brightcove/player/network/PlayerBandwidthMeter.html">Brightcove PlayerBandwidthMeter 클래스</a></li>
+  <li><a href="https://medium.com/google-exoplayer/https-medium-com-google-exoplayer-simplified-bandwidth-meter-usage-17d8189f978b">우편: 간소화된 대역폭 측정기 사용</a></li>
+  <li><a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/BandwidthMeter.html">ExoPlayer BandwidthMeter 인터페이스</a></li>
+  <li><a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/BandwidthMeter.EventListener.html">ExoPlayer BandwidthMeter.EventListener 인터페이스</a></li>
+</ul>
+
+<p>예를 들면 다음과 같습니다.</p>
+<pre class="line-numbers">
+<code class="language-java" translate="No">ExoPlayerVideoDisplayComponent exoPlayer = (ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay();
+exoPlayer.getBandwidthMeter().addEventListener(myHandler, new BandwidthMeter.EventListener() {@
+	Override public void onBandwidthSample(int elapsedMs, long bytesTransferred, long bitrateEstimate) {}
+});</code></pre>
 </section>
 
 <section class="bcls-section">
@@ -1090,12 +2144,12 @@ eventEmitter.on(EventType.DID_SET_VIDEO, new EventListener() {
 <p>Edge Catalog (com.brightcove.player.edge.Catalog)를 사용하는 Video Cloud 고객의 경우 다음과 같은 썸네일 URL을 얻을 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String thumbnailUrl = video.getProperties().get("thumbnail").toString();</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String thumbnailUrl = video.getProperties().get("thumbnail").toString();</a></code></pre>
 
 <p>썸네일 이미지가 너무 작다면 대신 비디오 스틸 이미지를 얻을 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String videoStillUrl = video.getProperties().get("stillImageUri").toString();</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String videoStillUrl = video.getProperties().get("stillImageUri").toString();</a></code></pre>
 </section>
 
 <section class="bcls-section">
@@ -1131,7 +2185,7 @@ tracker = application.getDefaultTracker();</a></code></pre>
 	<p>에서<code translate="No">onCreate()</code>방법은 비디오보기를 정의한 후 원격 서버에서 호스팅되는 비디오에서 비디오 개체를 만듭니다. 가지고 있는 비디오 유형과<code translate="No">DeliveryType</code>일치하도록 를 설정합니다.</p>
 
 	<pre class="line-numbers" data-start="26">
-<code class="language-java" translate="No">Video video = Video.createVideo("https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8",
+<code class="language-java" translate="No">Video video = Video.createVideo("https://sdks.support.brightcove.com/assets/videos/hls/greatblueheron/greatblueheron.m3u8",
   DeliveryType.HLS);</code></pre>
 	</li>
 	<li>
@@ -1167,7 +2221,7 @@ brightcoveVideoView.start();</code></pre>
     analytics.setAccount("<span class="bcls-input">your account Id</span>");
 
     // Define a video from a remote server
-    Video video = Video.createVideo("https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8", DeliveryType.HLS);
+    Video video = Video.createVideo("https://sdks.support.brightcove.com/assets/videos/hls/greatblueheron/greatblueheron.m3u8", DeliveryType.HLS);
 
     // Load a remote poster image
     try {
@@ -1192,7 +2246,7 @@ brightcoveVideoView.start();</code></pre>
 <p>Brightcove Player 고객은 자신의 서버에서 DRM으로 보호 된 콘텐츠를 사용할 수 있습니다. 다음과 같이 DRM 콘텐츠를 수동으로로드 할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/drm/WidevineMediaDrmCallback.html">import com.brightcove.player.display.WidevineMediaDrmCallback;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/drm/WidevineMediaDrmCallback.html">import com.brightcove.player.display.WidevineMediaDrmCallback;
 
 Video video = Video.createVideo("https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd");
 video.getProperties().put(WidevineMediaDrmCallback.DEFAULT_URL, "https://proxy.uat.widevine.com/proxy?video_id=&amp;provider=widevine_test");
@@ -1208,8 +2262,8 @@ brightcoveVideoView.start();</a></code></pre>
 <p>다음은 Android 용 Native Player SDK에있는 몇 가지 비동기 메서드입니다.</p>
 
 <ul>
-	<li>그만큼<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#start()"><code translate="No">start()</code></a> , <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SEEK_TO"><code translate="No">seekTo()</code></a>과<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#stopPlayback()"><code translate="No">stopPlayback()</code></a>메서드는 시스템의 다른 구성 요소가 처리 할 이벤트를 생성하기 때문에 비동기식입니다.</li>
-	<li>그만큼<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메소드는 목록 업데이트와 관련하여 동 기적이지만 현재 동영상 언로드와 관련하여 비동기 적입니다.</li>
+	<li>그만큼<a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#start()"><code translate="No">start()</code></a> , <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SEEK_TO"><code translate="No">seekTo()</code></a>과<a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#stopPlayback()"><code translate="No">stopPlayback()</code></a>메서드는 시스템의 다른 구성 요소가 처리 할 이벤트를 생성하기 때문에 비동기식입니다.</li>
+	<li>그만큼<a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메소드는 목록 업데이트와 관련하여 동 기적이지만 현재 동영상 언로드와 관련하여 비동기 적입니다.</li>
 </ul>
 </section>
 
@@ -1222,10 +2276,10 @@ brightcoveVideoView.start();</a></code></pre>
 
 <h3 id="BrightcoveExoPlayerVideoView">브라이트코브엑스포레이어비디오보기</h3>
 
-<p>사용할 때<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveExoPlayerVideoView.html"> BrightcoveExoPlayerVideoView</a> , 다음을 수행하여 프로그래밍 방식으로 플레이어를 음소거하거나 음소거 해제 할 수 있습니다.</p>
+<p>사용할 때<a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveExoPlayerVideoView.html"> BrightcoveExoPlayerVideoView</a> , 다음을 수행하여 프로그래밍 방식으로 플레이어를 음소거하거나 음소거 해제 할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 100F;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 100F;
 ...
 brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
   @Override
@@ -1246,10 +2300,10 @@ private void setMute(boolean mute) {
 
 <aside class="bcls-aside bcls-aside--warning">Brightcove는 BrightcoveExoPlayerVideoView 사용을 권장합니다.</aside>
 
-<p>사용할 필요가있는 경우<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html"> BrightcoveVideoView</a> , Android의<a href="https://developer.android.com/reference/android/media/MediaPlayer.html">미디어 플레이어</a> , 다음 코드를 사용하여 프로그래밍 방식으로 플레이어를 음소거하거나 음소거 해제 할 수 있습니다.</p>
+<p>사용할 필요가있는 경우<a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html"> BrightcoveVideoView</a> , Android의<a href="https://developer.android.com/reference/android/media/MediaPlayer.html">미디어 플레이어</a> , 다음 코드를 사용하여 프로그래밍 방식으로 플레이어를 음소거하거나 음소거 해제 할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 1F;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 1F;
 ...
 brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
   @Override
@@ -1337,7 +2391,7 @@ private void setMute(boolean mute) {
 <p>쿼리 매개 변수는 다음과 같이 Catalog 메서드에 전달됩니다. <code translate="No">Map</code>객체, 키-값 쌍으로. 이 예에서는 재생 목록의 10번째 동영상으로 시작하는 6개의 동영상을 반환합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/edge/Catalog.html">Map&lt;String, String&gt; queryParameters = new HashMap&lt;&gt;();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/edge/Catalog.html">Map&lt;String, String&gt; queryParameters = new HashMap&lt;&gt;();
 queryParameters.put("limit", "6");
 queryParameters.put("offset", "9");
 
@@ -1351,7 +2405,7 @@ catalog.findPlaylistByID("myPlaylistId", null, queryParameters, myListener);</a>
 <p>로컬에 저장된 MP4 비디오를 재생하려면 응용 프로그램 자산 폴더에 저장해야합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Video.html">Uri video = Uri.parse("file:///android_asset/path/to/video.mp4");
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/Video.html">Uri video = Uri.parse("file:///android_asset/path/to/video.mp4");
 brightcoveVideoView.add(Video.createVideo(video.toString()));
 brightcoveVideoView.start();</a></code></pre>
 
@@ -1363,13 +2417,13 @@ brightcoveVideoView.start();</a></code></pre>
 
 <p>기본적으로 플레이어 컨트롤 막대는 다음과 같이 동영상 바로 아래에 있습니다.</p>
 
-<figure class="bcls-figure"><img class="bcls-image--no-border" alt="비디오 아래의 플레이어 컨트롤" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-video.png"/>
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="비디오 아래의 플레이어 컨트롤" src="/assets/images/android/snippets/player-controls-video.png"/>
 <figcaption class="bcls-caption--image">비디오 아래의 플레이어 컨트롤</figcaption>
 </figure>
 
 <p>플레이어 컨트롤 막대를 동영상보기 하단에 배치 할 수도 있습니다. 컨트롤은<code translate="No">BrightcoveVideoView</code> , 높이를<code translate="No">match_parent</code> ,보기가 전체 화면을 덮을 것입니다. 컨트롤이보기 하단에 나타나면 비디오는보기 중간에 유지됩니다.</p>
 
-<figure class="bcls-figure"><img class="bcls-image--no-border" alt="플레이어 컨트롤 하단" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-bottom.png"/>
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="플레이어 컨트롤 하단" src="/assets/images/android/snippets/player-controls-bottom.png"/>
 <figcaption class="bcls-caption--image">플레이어는 비디오보기 하단을 제어합니다.</figcaption>
 </figure>
 
@@ -1541,13 +2595,13 @@ dc.setLoadControlConfig(loadControlConfig);</code></pre>
 </ol>
 <!-- <p>That being said, if you are using the ExoPlayer 1 implementation, you can control the following:</p>
 
-<aside class="bcls-aside bcls-aside--warning">The following methods are only available with the ExoPlayer 1 implementation. These methods are deprecated with the ExoPlayer 2 implementation. For details, see the <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html">ExoPlayerVideoDisplayComponent class</a> reference.</aside>
+<aside class="bcls-aside bcls-aside--warning">The following methods are only available with the ExoPlayer 1 implementation. These methods are deprecated with the ExoPlayer 2 implementation. For details, see the <a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html">ExoPlayerVideoDisplayComponent class</a> reference.</aside>
 
 <ul>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferDurationToSwitchUp</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">maxBufferDurationToSwitchDown</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferMs</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minRebufferMs</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferDurationToSwitchUp</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">maxBufferDurationToSwitchDown</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferMs</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minRebufferMs</code></a></li>
 </ul>
 
 <p>For example, if you want to set the buffer length to 120 seconds, you could set <code translate="No">minBufferMs</code> to <code translate="No">120 * 1000</code>.</p> --></section>
@@ -1555,10 +2609,10 @@ dc.setLoadControlConfig(loadControlConfig);</code></pre>
 <section class="bcls-section">
 <h2 id="Setting_captions_and_themes">캡션 및 테마 설정</h2>
 
-<p>현재<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> Brightcove Player SDK의 매니페스트 파일에 설정되어 있으므로 개발자는 응용 프로그램에서 지정할 필요가 없습니다.</p>
+<p>현재<a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> Brightcove Player SDK의 매니페스트 파일에 설정되어 있으므로 개발자는 응용 프로그램에서 지정할 필요가 없습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<code class="language-xml" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;manifest
 xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.brightcove.player"
@@ -1572,14 +2626,14 @@ android:versionName="1.0"&gt;
 &lt;/application&gt;
 &lt;/manifest&gt;</a></code></pre>
 
-<p>그만큼<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>앱에 대한 테마를 설정하는 한 플랫폼 기본 테마를 상속합니다. <code translate="No">&lt;activity&gt;</code>앱 매니페스트의 수준.</p>
+<p>그만큼<a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>앱에 대한 테마를 설정하는 한 플랫폼 기본 테마를 상속합니다. <code translate="No">&lt;activity&gt;</code>앱 매니페스트의 수준.</p>
 
-<p>단일 앱 테마를 설정하면<code translate="No">&lt;application&gt;</code>레벨, 다음<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>이 응용 프로그램 수준 테마의 속성을 상속합니다. 일부 테마의 경우 이로 인해 활동이 이상하게 스타일이 지정되거나 읽기 어렵게 보일 수 있습니다.</p>
+<p>단일 앱 테마를 설정하면<code translate="No">&lt;application&gt;</code>레벨, 다음<a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>이 응용 프로그램 수준 테마의 속성을 상속합니다. 일부 테마의 경우 이로 인해 활동이 이상하게 스타일이 지정되거나 읽기 어렵게 보일 수 있습니다.</p>
 
-<p>이 경우 다음을 지정해야합니다. <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>자신의 매니페스트에서 다음과 같이 테마를 적용하십시오.</p>
+<p>이 경우 다음을 지정해야합니다. <a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>자신의 매니페스트에서 다음과 같이 테마를 적용하십시오.</p>
 
 <pre class="line-numbers">
-<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;activity
+<code class="language-xml" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;activity
 <span class="bcls-highlight">android:name="com.brightcove.player.captioning.BrightcoveCaptionPropertiesActivity"</span>
 android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
@@ -1590,7 +2644,7 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 <p>동영상에서 여러 언어 캡션을 사용하는 경우 재생이 시작될 때 프로그래밍 방식으로 기본 언어를 설정할 수 있습니다. 코드는 다음과 비슷해야합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)">brightcoveVideoView.getEventEmitter().once(EventType.CAPTIONS_LANGUAGES, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)">brightcoveVideoView.getEventEmitter().once(EventType.CAPTIONS_LANGUAGES, new EventListener() {
   @Override
   public void processEvent(Event event) {
     brightcoveVideoView.setClosedCaptioningEnabled(true);
@@ -1600,12 +2654,24 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
 
 <section class="bcls-section">
+  <h2 id="Using_in_manifest_captions">인 매니페스트 캡션 사용</h2>
+  <p>기본적으로 Android용 Native SDK로 빌드된 플레이어는 사이드카 캡션을 사용합니다. 이러한 캡션은 Playback API 응답의<code translate="No">text_tracks</code>객체에서 찾을 수 있습니다.</p>
+
+  <p>플레이어가 인매니페스트 캡션을 사용하도록 구성하려면 Video 객체에서<code translate="No">CAPTION_SOURCES</code>프로퍼티를 제거해야 합니다.</p>
+  
+  
+  <pre class="line-numbers"><code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/Video.Fields.html#CAPTION_SOURCES">if (video.getProperties().get(Video.Fields.CAPTION_SOURCES) != null) {
+    video.getProperties().remove(Video.Fields.CAPTION_SOURCES);
+}</a></code></pre>
+  </section>
+
+<section class="bcls-section">
 <h2 id="Setting_the_peak_bitrate">최고 비트 전송률 설정</h2>
 
 <p>플레이어에서 비트 전송률 선택기를 구현하는 데 도움이되도록 다음 코드를 사용하여 최고 비트 전송률을 설정할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html#setPeakBitrate-int-">((ExoPlayerVideoDisplayComponent) videoView.getVideoDisplay()).setPeakBitrate(bitRate);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html#setPeakBitrate-int-">((ExoPlayerVideoDisplayComponent) videoView.getVideoDisplay()).setPeakBitrate(bitRate);</a></code></pre>
 </section>
 
 <section class="bcls-section">
@@ -1629,7 +2695,7 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
     exoPlayer.setPlaybackParameters(param);
   }
 });</code></pre>
-<aside class="bcls-aside bcls-aside--information">재생 속도 제어 버튼을 만드는 방법에 대한 자세한 내용은<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">사용자 지정 컨트롤 샘플 앱</a> .</aside>
+<aside class="bcls-aside bcls-aside--tip">뷰어가 재생 속도를 선택할 수 있는 메뉴를 표시하는 방법을 알아보려면 <a href="/android/playback/setting-playback-speed-android.html">Android 장치에서 재생 속도 설정</a> 문서를 참조하십시오.</aside>
 </section>
 
 <section class="bcls-section">
@@ -1640,7 +2706,7 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 <p>사용자 지정 활동을 사용하는 경우 다음을 추가해야합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#REQUESTED_ORIENTATION">brightcoveVideoView.getEventEmitter().on(EventType.CHANGE_ORIENTATION, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#REQUESTED_ORIENTATION">brightcoveVideoView.getEventEmitter().on(EventType.CHANGE_ORIENTATION, new EventListener() {
   @Override
   public void processEvent(Event event) {
     int orientation = event.getIntegerProperty(Event.REQUESTED_ORIENTATION);
@@ -1658,15 +2724,15 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 
 <h3>비디오 정지 이미지 표시</h3>
 
-<p>당신은 방출하여 언제든지 비디오를 정지시킬 수 있습니다<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VIDEO_STILL"><code translate="No">SET_VIDEO_STILL</code></a>이벤트<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#VIDEO_STILL"><code translate="No">VIDEO_STILL</code></a>속성을 동영상 스틸의 URI로 설정합니다.</p>
-<!-- <p>Hiding should happen automatically whenever a <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#CUE_POINT"><code translate="No">CUE_POINT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_PLAY"><code translate="No">DID_PLAY</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_SEEK_TO"><code translate="No">DID_SEEK_TO</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#WILL_INTERRUPT_CONTENT"><code translate="No">WILL_INTERRUPT_CONTENT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ACTIVITY_STOPPED"><code translate="No">ACTIVITY_STOPPED</code></a>, or <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#FRAGMENT_STOPPED"><code translate="No">FRAGMENT_STOPPED</code></a> event occurs.</p> --><!-- <p>In general, we try to promote doing things via events, rather than direct method calls.</p>  -->
+<p>당신은 방출하여 언제든지 비디오를 정지시킬 수 있습니다<a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VIDEO_STILL"><code translate="No">SET_VIDEO_STILL</code></a>이벤트<a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#VIDEO_STILL"><code translate="No">VIDEO_STILL</code></a>속성을 동영상 스틸의 URI로 설정합니다.</p>
+<!-- <p>Hiding should happen automatically whenever a <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#CUE_POINT"><code translate="No">CUE_POINT</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_PLAY"><code translate="No">DID_PLAY</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_SEEK_TO"><code translate="No">DID_SEEK_TO</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#WILL_INTERRUPT_CONTENT"><code translate="No">WILL_INTERRUPT_CONTENT</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#ACTIVITY_STOPPED"><code translate="No">ACTIVITY_STOPPED</code></a>, or <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#FRAGMENT_STOPPED"><code translate="No">FRAGMENT_STOPPED</code></a> event occurs.</p> --><!-- <p>In general, we try to promote doing things via events, rather than direct method calls.</p>  -->
 
 <h3>비디오 정지 이미지 숨기기</h3>
 
 <p>비디오를 자동 재생하는 경우 비디오 정지 이미지를 숨길 수 있습니다. 이렇게하려면<code translate="No">SET_VIDEO_STILL</code>다음과 같이 기본 동작을 방지합니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">brightcoveVideoView.getEventEmitter().on(EventType.SET_VIDEO_STILL, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">brightcoveVideoView.getEventEmitter().on(EventType.SET_VIDEO_STILL, new EventListener() {
   @Override
   public void processEvent(Event event) {
     event.preventDefault();
@@ -1683,7 +2749,7 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 <p>사용자가 비디오를 탭할 때까지 플레이어 컨트롤이 계속 표시되도록하려면 다음과 같이 자동 숨기기 기능을 비활성화 할 수 있습니다. (필요한 코드가 강조 표시됨)</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/mediacontroller/BrightcoveMediaController.html">public class MainActivity extends BrightcovePlayer {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/mediacontroller/BrightcoveMediaController.html">public class MainActivity extends BrightcovePlayer {
   <span class="bcls-highlight">private BrightcoveMediaController controller;</span>
 
   @Override
@@ -1700,10 +2766,10 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 <section class="bcls-section">
 <h2 id="Starting_playback_in_the_middle_of_a_video">비디오 중간에 재생 시작</h2>
 
-<p>때로는 비디오 중간에서 재생을 시작해야 할 수도 있습니다. 이를 위해 전화 할 수 있습니다. <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)"><code translate="No">BrightCoveVideoView.seekTo()</code></a>재생을 시작하기 전에.</p>
+<p>때로는 비디오 중간에서 재생을 시작해야 할 수도 있습니다. 이를 위해 전화 할 수 있습니다. <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)"><code translate="No">BrightCoveVideoView.seekTo()</code></a>재생을 시작하기 전에.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">catalog.findVideoByID(getString(R.string.videoId), new VideoListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">catalog.findVideoByID(getString(R.string.videoId), new VideoListener() {
   @Override
   public void onVideo(Video video) {
     Log.v(TAG, "onVideo: video = " + video);
@@ -1729,7 +2795,7 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 															<li></li>
 													</ul>
 
-													<p><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)"><code data-gist-id="ac85a1305f851b406dde" data-gist-hide-footer="true" data-gist-line="115-121"></code></a></p>
+													<p><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)"><code data-gist-id="ac85a1305f851b406dde" data-gist-hide-footer="true" data-gist-line="115-121"></code></a></p>
 											</div>
 					-->
 
@@ -1740,14 +2806,14 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 
 <h3>단일 비디오 사용</h3>
 
-<p>이후<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메서드는 현재 동영상을 언로드 할 때 비동기식이므로 플레이어에 새 동영상을 추가하기 전에 기다려야합니다. 두 가지 옵션이 있습니다.</p>
+<p>이후<a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메서드는 현재 동영상을 언로드 할 때 비동기식이므로 플레이어에 새 동영상을 추가하기 전에 기다려야합니다. 두 가지 옵션이 있습니다.</p>
 
 <ul>
 	<li>
 	<p>Video Cloud에서 비디오를 가져 오는 시간이 재생 목록을 업데이트하는 시간을 줄여야하므로 다음과 같이 시도해 볼 수 있습니다.</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.clear();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.clear();
 
 catalog.findVideoByID("123456789", new VideoListener() {
   @Override
@@ -1762,7 +2828,7 @@ catalog.findVideoByID("123456789", new VideoListener() {
 	<p>또 다른 방법은 이벤트를 기다리는 것입니다.</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_CHANGE_LIST">catalog.findVideoByID("", new VideoListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_CHANGE_LIST">catalog.findVideoByID("", new VideoListener() {
 @Override
   public void onVideo(final Video video) {
     eventEmitter.once(EventType.DID_CHANGE_LIST, new EventListener() {
@@ -1778,12 +2844,12 @@ catalog.findVideoByID("123456789", new VideoListener() {
 
 <h3>재생 목록 사용</h3>
 
-<p>재생 목록으로 작업하는 경우<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메서드는 재생 목록의 모든 요소를 제거합니다. 그래서, 당신은 얻을 수 있습니다<code translate="No">IndexOutOfBounds</code>재생 목록의 첫 번째 동영상으로 이동하려고 할 때 예외입니다.</p>
+<p>재생 목록으로 작업하는 경우<a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>메서드는 재생 목록의 모든 요소를 제거합니다. 그래서, 당신은 얻을 수 있습니다<code translate="No">IndexOutOfBounds</code>재생 목록의 첫 번째 동영상으로 이동하려고 할 때 예외입니다.</p>
 
 <p>대신 다음과 같이 시도 할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.pause();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.pause();
 brightcoveVideoView.stopPlayback();
 brightcoveVideoView.setCurrentIndex(0);</a></code></pre>
 </section>
@@ -1794,7 +2860,7 @@ brightcoveVideoView.setCurrentIndex(0);</a></code></pre>
 <p>재생 목록을 사용하는 경우 다음 코드를 사용하여 재생 목록의 동영상간에 전환 할 수 있습니다.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Playlist.html">private void setupControls(List&lt;Video&gt; videos) {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/Playlist.html">private void setupControls(List&lt;Video&gt; videos) {
   previousVideoButton = (Button) findViewById(R.id.previous_video_button);
   nextVideoButton = (Button) findViewById(R.id.next_video_button);
 
@@ -1831,131 +2897,144 @@ nextVideoButton.setOnClickListener(new View.OnClickListener() {
 </section>
 </article>
 
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">페이지 내용</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">브라이트코브 지원</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">시스템 상태</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">고객 지원 문의</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">모든 문서 검색</a></li>
+          </ul>
+        </div>
       
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">교육</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">온라인 코스</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">강좌 등록</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">브라이트코브 아카데미</a></li>
+          </ul>
+        </div>
       
-    </div>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">브라이트코브닷컴</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">밝은 자리 커뮤니티 포럼</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">제품 릴리스 정보</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">설명서 업데이트</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. 판권 소유.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">프라이버시</a><a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
   </div>
 </div>
 
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
 
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
+<script translate="no">
   var searchBox = sajari.init({
     mode: "search-box",
     project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
+    collection: "brightcove-documentation", // Set this to your collection.
     instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
     maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
   });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
+
   
 
-</script>
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
   <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
   <script src="/assets/js/feedback.js"></script>
   
-  <script src="/assets/js/sajari-search-foot.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
   
+  <script translate="no">
+    feather.replace()
+  </script>
   <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
     a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
       background-color: lightblue;
     }
@@ -1982,6 +3061,5 @@ nextVideoButton.setOnClickListener(new View.OnClickListener() {
     }
     </style>
 
-</body>
-
-</html>
+  </body>
+</html> 
